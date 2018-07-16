@@ -1,0 +1,6 @@
+framework module ZegoAudioRoom {
+  umbrella header "ZegoAudioRoom.h"
+
+  export *
+  module * { export * }
+}

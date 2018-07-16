@@ -1,0 +1,27 @@
+{
+  "project": "audiolive",
+  "platform": "apple",
+  "sdk_name": "zegoaudioroom_audio_mediaplyer",
+  "sdk_absolute_path_on_share": "smb://192.168.1.3/share/zego_sdk/zegoaudioroom_release_new/zegoaudioroom_180713_143854_release-new-0-gace83bc5_bn504_12_audio_mediaplayer/iOS/zegoaudioroom_180713_143854_release-new-0-gace83bc5_bn504_12_audio_mediaplayer_ios.zip",
+  "copy_file_dirs": [
+    {
+      "src": "release/iphoneos_simulator",
+      "dst": "libs/ZegoAudioRoom-all"
+    },
+    {
+      "src": "release/iphoneos",
+      "dst": "libs/ZegoAudioRoom-all"
+    }
+  ],
+  "sdk_absolute_path_on_share_static": "smb://192.168.1.3/share/zego_sdk/zegoaudioroom_release_new/zegoaudioroom_180713_143854_release-new-0-gace83bc5_bn504_12_audio_mediaplayer/iOS/zegoaudioroom_180713_143854_release-new-0-gace83bc5_bn504_12_audio_mediaplayer_ios_static.zip",
+  "copy_file_dirs_static": [
+    {
+      "src": "static/iphoneos_simulator",
+      "dst": "libs/ZegoAudioRoom-all"
+    },
+    {
+      "src": "static/iphoneos",
+      "dst": "libs/ZegoAudioRoom-all"
+    }
+  ]
+}

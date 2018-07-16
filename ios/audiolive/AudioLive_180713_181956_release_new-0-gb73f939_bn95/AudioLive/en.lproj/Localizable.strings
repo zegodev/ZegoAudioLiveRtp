@@ -1,0 +1,86 @@
+/* 
+  localizable.strings
+  InstantTalk
+
+  Created by Strong on 16/7/18.
+  Copyright © 2016年 ZEGO. All rights reserved.
+*/
+
+"ZEGO(国内版)" = "ZEGO(Chinese)";
+"ZEGO(国际版)" = "ZEGO(International)";
+"ZEGO(自定义)" = "ZEGO(Custom)";
+
+"请输入 AppID" = "Please Input AppID";
+"请输入 AppSign" = "Please Input AppSign";
+"AppSign 已设置" = "App Sign's been configured";
+"日志上传成功" = "Upload Log Succeeded";
+"确定" = "Confirm";
+"无法发送邮件" = "Can not send mail";
+"请先在手机的 [设置>邮件] 中添加可使用账户并开启邮件服务" = "Please configure device for sending mail first";
+"日志文件压缩失败" = "Log File Zip Failed";
+"请重新输入！" = "Please input again";
+"该字段不可为空" = "It should not be empty";
+"日志邮件发送成功" = "Mail Sent Succeeded";
+"日志邮件发送失败" = "Mail Sent Failed";
+"请稍后重试" = "Please retry it later";
+
+
+"音频通话,访问麦克风" = "To talk, AudioLive needs permission to access microphone. Click the settings Button, the toggle on the permissions swith for microphone";
+"需要访问麦克风" = "Microphone Authorization";
+"开始加入room: %@" = "Start Joining Room: %@";
+"开始登录房间: %@" = "Start Logining: %@";
+"加入room失败: %d" = "Join Room Failed: %d";
+"登录房间失败: %d" = "Login Room Failed: %d";
+"加入room成功" = "Join Room Succeeded";
+"登录房间成功" = "Login Room Succeeded";
+"开始通话" = "Start Talking";
+"推流失败，房间内流超过上限" = "Play Failed, Streamlist's count reached max limitation";
+"停止通话" = "Stop Talking";
+"取消" = "Cancel";
+"设置权限" = "Setting Authority";
+"推流成功，streamID: %@" = "Publish Succeeded，streamID: %@";
+"推流成功" = "Publish Succeeded";
+"开始通话" = "Start Talking";
+"推流失败: %@, error:%d" = "Publish Failed: %@, error:%d";
+"推流失败:%d" = "Publish Failed: %d";
+"拉流失败: %@, error: %d" = "Play Failed: %@, error: %d";
+"拉流成功，streamID: %@，userName: %@，userID: %@" = "Play Succeeded, streamID: %@, userName: %@, userID: %@";
+"拉流失败，streamID: %@，userName: %@，userID: %@，error: %d" = "Play Failed, streamID: %@, userName: %@, userID: %@, error: %d";
+"拉流成功" = "Play Succeeded";
+"拉流失败: %d" = "Play Failed: %d";
+"连接房间失败 %d" = "Connect Room Failed %d";
+"新增流:%@" = "Stream Added: %@";
+"用户%@进入,开始拉流" = "User %@ Entered, Start Playing";
+"删除流:%@" = "Stream Removed: %@";
+"用户%@退出,停止拉流" = "User %@ Leaved, Stop Playing";
+"用户列表已全量更新" = "User List Updated Totally";
+"用户列表增量更新" = "User List Updated Incrementally";
+"%@ 用户进入房间" = "%@ User Entered Room";
+"%@ 用户离开房间" = "%@ User Left Room";
+
+"国内版" = "Chinese";
+"国际版" = "International";
+"自定义" = "Custom";
+
+"打开麦克风" = "Enable Mic";
+"关闭麦克风" = "Disable Mic";
+"用户: %@" = "UserName: %@";
+" (自己)" = " (Myself)";
+"流-%ld: " = "Stream-%ld: ";
+
+"分享日志文件失败" = "Share log file failed!";
+"压缩日志文件失败，请稍后重试" = "Zip log file failed, please retry it later";
+"温馨提示" = "Warm prompt";
+"尝试推流次数过多,请检查网络!" = "Retry too many times, please check the network!";
+"确定" = "OK";
+
+"延时：%dms\n丢包率：%.1f%%" = "rtt: %dms\npkgLossRate: %.1f%%";
+"延时：%dms\n丢包率：%.1f%%\n卡顿率：%.1f次/s" = "rtt: %dms\npkgLossRate: %.1f%%\nbreakRate: %.1ftimes/min";
+"zego_onAudioLiveEvent, streamID: %@, event:%lu" = "zego_onAudioLiveEvent, streamID: %@, event:%lu";
+
+"高级设置" = "ADVANCED SETTING";
+"媒体播放器" = "Media Player";
+
+"推流失败, 重试推流" = "Publish failed, retry publishing";
+"开始第 %d 次重试推流" = "start retrying, current retry times: %d";
+"重试推流全部失败，放弃治疗" = "Retry publishing failed completely!";
