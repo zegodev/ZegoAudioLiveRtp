@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@android:id/background">
+        <shape>
+
+            <gradient
+                android:angle="270"
+                android:centerColor="#ff4e96fc"
+                android:centerY="0.75"
+                android:endColor="#ff4e96fc"
+                android:startColor="#ff4e96fc" />
+        </shape>
+    </item>
+
+    <item android:id="@android:id/secondaryProgress">
+        <clip
+            android:clipOrientation="vertical"
+            android:gravity="bottom">
+            <shape>
+
+                <gradient
+                    android:endColor="#fff93f48"
+                    android:startColor="#fff93f48" />
+            </shape>
+        </clip>
+    </item>
+
+    <item android:id="@android:id/progress">
+        <!-- 定义ClipDrawable的剪裁方向为垂直 -->
+        <clip
+            android:clipOrientation="vertical"
+            android:gravity="bottom">
+            <shape>
+
+                <gradient
+                    android:endColor="#fff93f48"
+                    android:startColor="#fff93f48" />
+            </shape>
+        </clip>
+    </item>
+
+</layer-list>
