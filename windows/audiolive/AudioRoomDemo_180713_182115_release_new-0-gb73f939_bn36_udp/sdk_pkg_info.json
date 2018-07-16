@@ -1,0 +1,16 @@
+{
+  "project": "audiolive",
+  "platform": "qt",
+  "sdk_name": "zegoaudioroom",
+  "sdk_absolute_path_on_share": "\\\\192.168.1.3\\share\\zego_sdk\\zegoaudioroom_release_new\\zegoaudioroom_180713_135620_release-new-0-gace83bc_bn174_12_audio_win\\windows\\zegoaudioroom_180713_135620_release-new-0-gace83bc_bn174_12_audio_win.zip",
+  "copy_file_dirs": [
+    {
+      "src": "release/iphoneos_simulator",
+      "dst": "libs/ZegoLiveRoom-all"
+    },
+    {
+      "src": "release/iphoneos",
+      "dst": "libs/ZegoLiveRoom-all"
+    }
+  ]
+}
