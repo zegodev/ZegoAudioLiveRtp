@@ -133,6 +133,16 @@ typedef void(^ZegoCustomCommandBlock)(int errorCode, NSString *roomID);
  */
 - (void)resumeAudioModule;
 
+/**
+ 设置是否允许SDK使用麦克风设备
+ 
+ @param enable YES 表示允许使用麦克风，NO 表示禁止使用麦克风，此时如果SDK在占用麦克风则会立即释放。
+ @return YES 调用成功 NO 调用失败
+ @discussion 调用时机为引擎创建后的任意时刻。
+ @note 接口由于涉及对设备的操作，极为耗时，不建议随便调用，只在真正需要让出麦克风给其他应用的时候才调用
+ */
+- (BOOL)enableMicDevice:(BOOL)enable;
+
 #endif
 
 /**
@@ -176,9 +186,9 @@ typedef void(^ZegoCustomCommandBlock)(int errorCode, NSString *roomID);
 @optional
 
 /**
- 因为使用同一个 UserId 登录，用户被挤出聊天室
+ 用户被踢出聊天室
  
- @param reason 被踢出原因
+ @param reason 原因，16777219 表示该账户多点登录被踢出，16777220 表示该账户是被手动踢出，16777221 表示房间会话错误被踢出。
  @param roomID 房间 ID
  @discussion 可在该回调中处理用户被踢出房间后的下一步处理（例如报错、重新登录提示等）
  */

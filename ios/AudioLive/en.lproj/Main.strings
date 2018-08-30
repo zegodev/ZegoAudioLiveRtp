@@ -5,8 +5,8 @@
 /* Class = "UILabel"; text = "测试环境"; ObjectID = "2CB-z1-oFf"; */
 "2CB-z1-oFf.text" = "Test Environment";
 
-/* Class = "UITextField"; placeholder = "请输入房间 ID"; ObjectID = "2Re-xi-dHU"; */
-"2Re-xi-dHU.placeholder" = "Please Input RoomID";
+/* Class = "UITextField"; placeholder = "任意输入相同的房间号即可通话"; ObjectID = "2Re-xi-dHU"; */
+"2Re-xi-dHU.placeholder" = "Enter the roomID to join the chat";
 
 /* Class = "UITextField"; placeholder = "User Name"; ObjectID = "5KQ-MD-tRX"; */
 "5KQ-MD-tRX.placeholder" = "User Name";
@@ -53,10 +53,10 @@
 /* Class = "UINavigationItem"; title = "AudioLive"; ObjectID = "LIr-7o-b5b"; */
 "LIr-7o-b5b.title" = "AudioLive";
 
-/* Class = "UILabel"; text = "Upload Log"; ObjectID = "M7Z-nC-fxt"; */
+/* Class = "UILabel"; text = "上传日志"; ObjectID = "M7Z-nC-fxt"; */
 "M7Z-nC-fxt.text" = "Upload Log";
 
-/* Class = "UILabel"; text = "Share Log"; ObjectID = "aGP-li-ZUX"; */
+/* Class = "UILabel"; text = "分享日志"; ObjectID = "aGP-li-ZUX"; */
 "aGP-li-ZUX.text" = "Share Log";
 
 /* Class = "UINavigationItem"; title = "日志"; ObjectID = "NhF-dW-V9B"; */

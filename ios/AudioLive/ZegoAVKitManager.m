@@ -40,6 +40,8 @@ static NSData* ConvertStringToSign(NSString* strSign);
 {
     if (g_ZegoApi == nil)
     {
+//        [ZegoAudioRoomApi setBusinessType:0];
+        
         // 测试环境开关
         [ZegoAudioRoomApi setUseTestEnv:g_useTestEnv];
         
@@ -98,6 +100,7 @@ static NSData* ConvertStringToSign(NSString* strSign);
 #warning 请开发者联系 ZEGO support 获取各自业务的 AppID 与 signKey
 #warning Demo 默认使用 UDP 模式，请填充该模式下的 AppID 与 signKey
 #warning AppID 填写样式示例：1234567890
+#warning signKey 填写样式示例：{0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x00,0x01}
 + (uint32_t)appID
 {
     switch ([self appType]) {
@@ -223,13 +226,14 @@ static NSData* ConvertStringToSign(NSString* strSign);
 
 #warning 请开发者联系 ZEGO support 获取各自业务的 AppID 与 signKey
 #warning Demo 默认使用 UDP 模式，请填充该模式下的 AppID 与 signKey
+#warning AppID 填写样式示例：1234567890
 #warning signKey 填写样式示例：{0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x00,0x01}
 + (NSData *)zegoAppSignFromServer
 {
     //!! 规范用法：这个signKey需要从server下发到App，避免在App中存储，防止盗用
     
     ZegoAppType type = [self appType];
-
+    
     if (type == ZegoAppTypeUDP)
     {
         Byte signkey[] = ;

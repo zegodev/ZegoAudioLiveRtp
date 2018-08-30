@@ -127,6 +127,7 @@
     
     // 监听电话事件
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(audioSessionWasInterrupted:) name:AVAudioSessionInterruptionNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(audioSessionRouteChanged:) name:AVAudioSessionRouteChangeNotification object:nil];
     
     // 进入房间
     [self addLogString:[NSString stringWithFormat:NSLocalizedString(@"开始加入room: %@", nil), self.roomID]];
@@ -153,7 +154,6 @@
             [self.memberCollectionView reloadData];
         }
     }];
-    
 
 }
 
@@ -522,6 +522,27 @@
     return YES;
 }
 
+- (void)audioSessionRouteChanged:(NSNotification *)notification {
+    NSInteger routeChangeReason = [[notification.userInfo valueForKey:AVAudioSessionRouteChangeReasonKey] integerValue];
+    switch (routeChangeReason) {
+        case AVAudioSessionRouteChangeReasonOldDeviceUnavailable: // 耳机拔出
+        {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.speakerButton.enabled = YES;
+            });
+        }
+        break;
+        case AVAudioSessionRouteChangeReasonNewDeviceAvailable: // 耳机插入
+        {
+            // 耳机插入后，操作扬声器无效，不允许
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.speakerButton.enabled = NO;
+            });
+        }
+        break;
+    }
+}
+
 - (void)setIdelTimerDisable:(BOOL)disable
 {
     [[UIApplication sharedApplication] setIdleTimerDisabled:disable];
@@ -826,7 +847,7 @@
     ZegoMemberInfo *memberInfo = self.memberList[indexPath.item];
     if (memberInfo.stream.userName.length > 0) {
         if ([memberInfo.stream.userID isEqualToString:[ZegoSettings sharedInstance].userID]) {
-            NSString *rawString = [NSString stringWithFormat:@"%@（自己）", memberInfo.stream.userName];
+            NSString *rawString = [NSString stringWithFormat:NSLocalizedString(@"%@（自己）", nil), memberInfo.stream.userName];
             NSDictionary *attr = @{NSForegroundColorAttributeName: [UIColor yellowColor]};
             NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:rawString attributes:attr];
             cell.nameLabel.attributedText = attrString;
@@ -837,10 +858,10 @@
     
     if ([memberInfo.stream.userID isEqualToString:[ZegoSettings sharedInstance].userID]) {
         // 推流质量展示
-        cell.qualityLabel.text = [NSString stringWithFormat:@"延时：%dms\n丢包率：%.1f%%", memberInfo.publishQuality.rtt, memberInfo.publishQuality.pktLostRate / 256.0 * 100];
+        cell.qualityLabel.text = [NSString stringWithFormat:NSLocalizedString(@"延时: %dms\n丢包率: %.1f%%", nil), memberInfo.publishQuality.rtt, memberInfo.publishQuality.pktLostRate / 256.0 * 100];
     } else {
         // 拉流质量展示
-        cell.qualityLabel.text = [NSString stringWithFormat:@"延时：%dms\n丢包率：%.1f%%\n卡顿率：%.1f次/min", memberInfo.playQuality.rtt, memberInfo.playQuality.pktLostRate / 256.0 * 100, memberInfo.playQuality.audioBreakRate];
+        cell.qualityLabel.text = [NSString stringWithFormat:NSLocalizedString(@"延时: %dms\n丢包率: %.1f%%\n卡顿率: %.1f次/min",nil), memberInfo.playQuality.rtt, memberInfo.playQuality.pktLostRate / 256.0 * 100, memberInfo.playQuality.audioBreakRate];
     }
     
     [cell.soundView setProgress:memberInfo.soundLevel animated:NO];
@@ -871,9 +892,9 @@
 
 - (void)onSoundLevelUpdate:(NSArray<ZegoSoundLevelInfo *> *)soundLevels {
     for (ZegoMemberInfo *info in self.memberList) {
-        NSLog(@"member stream: %@ ", info.stream.streamID);
+//        NSLog(@"member stream: %@ ", info.stream.streamID);
         for (ZegoSoundLevelInfo *levelInfo in soundLevels) {
-            NSLog(@"soundlevel stream: %@ ", levelInfo.streamID);
+//            NSLog(@"soundlevel stream: %@ ", levelInfo.streamID);
 //            NSLog(@"stream: %@, soundLevel: %.3f", levelInfo.streamID, info.soundLevel);
             if ([info.stream.streamID isEqualToString:levelInfo.streamID]) {
                 info.soundLevel = levelInfo.soundLevel / kMaxSoundValue;

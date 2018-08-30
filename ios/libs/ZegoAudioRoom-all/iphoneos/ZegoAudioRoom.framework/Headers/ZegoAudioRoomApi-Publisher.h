@@ -62,6 +62,14 @@
 - (void)setLoopbackVolume:(int)volume;
 
 /**
+ 设置采集音量
+ 
+ @param volume 音量大小，取值（0, 100）。默认 100
+ @discussion SDK初始化成功后调用
+ */
+- (void)setCaptureVolume:(int)volume;
+
+/**
  混音开关
  
  @param enable true 启用混音输入，false 关闭混音输入。默认 false

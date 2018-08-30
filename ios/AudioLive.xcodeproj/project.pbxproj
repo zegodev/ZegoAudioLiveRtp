@@ -14,6 +14,8 @@
 		164522D920E4936700534981 /* music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 164522D820E4936700534981 /* music.mp3 */; };
 		1649C28920EB1FBD00C7E31C /* ZegoOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1649C28820EB1FBD00C7E31C /* ZegoOptionViewController.m */; };
 		1649C29120EB737100C7E31C /* test.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1649C29020EB737100C7E31C /* test.mp3 */; };
+		164C759B2118507F0012FB01 /* PgySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 164C75992118507F0012FB01 /* PgySDK.framework */; };
+		164C759C2118507F0012FB01 /* PgyUpdate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 164C759A2118507F0012FB01 /* PgyUpdate.framework */; };
 		164D47F11F134ADC00CDBF68 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF32D7141D659DBC00A764FC /* SystemConfiguration.framework */; };
 		164D47F21F134B8700CDBF68 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF32D7101D659CF000A764FC /* Security.framework */; };
 		164D47F31F134BC500CDBF68 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EF32D70A1D659CCE00A764FC /* libz.tbd */; };
@@ -96,6 +98,8 @@
 		1649C28720EB1FBD00C7E31C /* ZegoOptionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZegoOptionViewController.h; sourceTree = "<group>"; };
 		1649C28820EB1FBD00C7E31C /* ZegoOptionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZegoOptionViewController.m; sourceTree = "<group>"; };
 		1649C29020EB737100C7E31C /* test.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = test.mp3; sourceTree = "<group>"; };
+		164C75992118507F0012FB01 /* PgySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PgySDK.framework; sourceTree = "<group>"; };
+		164C759A2118507F0012FB01 /* PgyUpdate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PgyUpdate.framework; sourceTree = "<group>"; };
 		164D47F51F134BD000CDBF68 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		16756FCF1F5901EF003252AB /* ZegoShareLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZegoShareLogViewController.h; sourceTree = "<group>"; };
 		16756FD01F5901EF003252AB /* ZegoShareLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZegoShareLogViewController.m; sourceTree = "<group>"; };
@@ -171,10 +175,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				164522D520E4884D00534981 /* AVFoundation.framework in Frameworks */,
+				164C759B2118507F0012FB01 /* PgySDK.framework in Frameworks */,
 				EF9F415F1F3B0478003F7C0F /* SafariServices.framework in Frameworks */,
 				163FEEB11F33265100FA86E6 /* MessageUI.framework in Frameworks */,
 				164D47F71F134C1D00CDBF68 /* Bugly.framework in Frameworks */,
 				EFC8BFAF1F274407008E92A1 /* ZegoAudioRoom.framework in Frameworks */,
+				164C759C2118507F0012FB01 /* PgyUpdate.framework in Frameworks */,
 				16CD53D11F3C3EDA003D43B3 /* SSZipArchive.framework in Frameworks */,
 				164D47F61F134BD000CDBF68 /* libc++.tbd in Frameworks */,
 				164D47F31F134BC500CDBF68 /* libz.tbd in Frameworks */,
@@ -212,6 +218,8 @@
 		EF422A8C1E7A9B3700FA1C8C /* thirdLib */ = {
 			isa = PBXGroup;
 			children = (
+				164C75992118507F0012FB01 /* PgySDK.framework */,
+				164C759A2118507F0012FB01 /* PgyUpdate.framework */,
 				16CD53D01F3C3EDA003D43B3 /* SSZipArchive.framework */,
 				EF422A8D1E7A9B3700FA1C8C /* Bugly.framework */,
 			);

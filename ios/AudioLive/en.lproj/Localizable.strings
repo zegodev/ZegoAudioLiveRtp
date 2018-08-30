@@ -58,14 +58,14 @@
 "%@ 用户进入房间" = "%@ User Entered Room";
 "%@ 用户离开房间" = "%@ User Left Room";
 
-"国内版" = "Chinese";
+"国内版" = "China";
 "国际版" = "International";
 "自定义" = "Custom";
 
 "打开麦克风" = "Enable Mic";
 "关闭麦克风" = "Disable Mic";
 "用户: %@" = "UserName: %@";
-" (自己)" = " (Myself)";
+"%@（自己）" = "%@ (Myself)";
 "流-%ld: " = "Stream-%ld: ";
 
 "分享日志文件失败" = "Share log file failed!";
@@ -74,8 +74,8 @@
 "尝试推流次数过多,请检查网络!" = "Retry too many times, please check the network!";
 "确定" = "OK";
 
-"延时：%dms\n丢包率：%.1f%%" = "rtt: %dms\npkgLossRate: %.1f%%";
-"延时：%dms\n丢包率：%.1f%%\n卡顿率：%.1f次/s" = "rtt: %dms\npkgLossRate: %.1f%%\nbreakRate: %.1ftimes/min";
+"延时: %dms\n丢包率: %.1f%%"= "rtt: %dms\npkgLossRate: %.1f%%";
+"延时: %dms\n丢包率: %.1f%%\n卡顿率: %.1f次/min" = "rtt: %dms\npkgLossRate: %.1f%%\nbreakRate: %.1ftimes/min";
 "zego_onAudioLiveEvent, streamID: %@, event:%lu" = "zego_onAudioLiveEvent, streamID: %@, event:%lu";
 
 "高级设置" = "ADVANCED SETTING";

@@ -17,6 +17,19 @@
 #define ZEGO_EXTERN     extern
 #endif
 
+
+/** 接口调用返回错误码 */
+typedef enum ZegoAPIErrorCode
+{
+    kZegoAPIErrorCodeOK = 0,    /**< 没有错误 */
+    kZegoAPIErrorCodeInvalidParameter = 1,  /** 调用输入参数错误 */
+    
+    // * 外部音频设备
+    kZegoAPIErrorCodeExternalAudioDeviceWasNotEnabled = 5101, /** 没有启用外部音频设备 */
+    kZegoAPIErrorCodeExternalAudioDeviceEngineError = 5102, /** 处理音频数据异常 */
+} ZegoAPIErrorCode;
+
+
 /** 流ID，值为 NSString */
 ZEGO_EXTERN NSString *const kZegoStreamIDKey;
 /** 混流ID，值为 NSString */
@@ -256,8 +269,10 @@ enum ZegoAPIModuleType
 
 typedef struct
 {
-    /** 视频帧率 */
+    /** 视频帧率(编码/网络发送) */
     double fps;
+    /** 视频采集帧率 */
+    double cfps;
     /** 视频码率(kb/s) */
     double kbps;
     /** 音频码率(kb/s) */
@@ -306,6 +321,8 @@ typedef enum : NSUInteger {
     ZEGOAPI_LATENCY_MODE_NORMAL2,
     /** 低延迟模式，无法用于 RTMP 流。相对于 ZEGO_LATENCY_MODE_LOW 而言，CPU 开销稍低 */
     ZEGOAPI_LATENCY_MODE_LOW2,
+    /** 低延迟模式，无法用于 RTMP 流。支持WebRTC必须使用此模式 */
+    ZEGOAPI_LATENCY_MODE_LOW3,
 } ZegoAPILatencyMode;
 
 /** 流量控制属性 */

@@ -25,6 +25,15 @@
  */
 - (void)onPlayStart;
 
+/**
+ 暂停播放
+ */
+- (void)onPlayPause;
+
+/**
+ 恢复播放
+ */
+- (void)onPlayResume;
 
 /**
  播放错误
