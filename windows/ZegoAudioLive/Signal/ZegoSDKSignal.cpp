@@ -153,7 +153,7 @@ void QZegoSDKSignal::OnPlayStateUpdate(int stateCode, const AUDIOROOM::ZegoStrea
 
 	StreamPtr pStream(new QZegoStreamModel(streamID, userID, userName, ExtraInfo));
 
-	emit sigPlayStateUpdate(stateCode, streamID);
+	emit sigPlayStateUpdate(stateCode, pStream);
 }
 
 void QZegoSDKSignal::OnPlayQualityUpdate(const char* pszStreamID, AUDIOROOM::ZegoPlayQuality playQuality)

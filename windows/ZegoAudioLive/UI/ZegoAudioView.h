@@ -15,7 +15,7 @@ class ZegoAudioView : public QFrame
 	Q_OBJECT
 
 public:
-	ZegoAudioView(const QString& userName, bool isMySelf, QWidget * parent = 0);
+	ZegoAudioView(const QString& userName, bool isMySelf, bool isMicEnabled, QWidget * parent = 0);
 	~ZegoAudioView();
 
 	void setViewIndex(int index);

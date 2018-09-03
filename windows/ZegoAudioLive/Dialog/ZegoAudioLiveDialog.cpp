@@ -183,16 +183,12 @@ void ZegoAudioLiveDialog::StartPublishStream()
 {
 	log_string_notice(qtoc(QStringLiteral("[%1]: enter start publishing").arg(__FUNCTION__)));
 
-	QTime currentTime = QTime::currentTime();
-	//获取当前时间的毫秒
-	int ms = currentTime.msec();
 	QString strStreamId;
 #ifdef Q_OS_WIN
 	strStreamId = QString("s-windows-audio-%1").arg(m_strCurUserID);
 #else
 	strStreamId = QString("s-mac-audio-%1").arg(m_strCurUserID);
 #endif
-	//m_strPublishStreamID = strStreamId;
 
 	StreamPtr pPublishStream(new QZegoStreamModel(m_strPublishStreamID, m_strCurUserID, m_strCurUserName, "", true));
 
@@ -201,13 +197,13 @@ void ZegoAudioLiveDialog::StartPublishStream()
 	//推流前调用双声道
 	//AUDIOROOM::SetAudioChannelCount(2);
 
+	int nIndex = -1;
 	if (m_avaliableView.size() > 0)
 	{
 
-		int nIndex = takeLeastAvaliableViewIndex();
-		//m_publishViewIndex = nIndex;
+		nIndex = takeLeastAvaliableViewIndex();
 		pPublishStream->setPlayView(nIndex);
-		ZegoAudioView * view = addAudioView(m_strCurUserName, nIndex, true);
+		ZegoAudioView * view = addAudioView(m_strCurUserName, nIndex, true, m_bCKEnableMic);
 		m_publishView = view;
 		
 		m_anchorStreamInfo = pPublishStream;
@@ -216,15 +212,26 @@ void ZegoAudioLiveDialog::StartPublishStream()
 		addLogString(tr("开始推流"));
 		
 	}
+
+	log_string_notice(qtoc(QStringLiteral("[%1]: start publish stream. play view index: %2, play stream ID: %3")
+		.arg(__FUNCTION__)
+		.arg(nIndex)
+		.arg(strStreamId)
+	));
 }
 
 void ZegoAudioLiveDialog::StopPublishStream(const QString& streamID)
 {
-	if (streamID.size() == 0){ return; }
+	if (streamID.size() == 0)
+	{ 
+		log_string_notice(qtoc(QStringLiteral("[%1]: stop publish stream failed, stream ID is empty").arg(__FUNCTION__)));
+		return;
+	}
 
 	log_string_notice(qtoc(QStringLiteral("[%1]: enter stop publishing").arg(__FUNCTION__)));
 	
-	ZegoAudioView *view = removeAudioView(m_anchorStreamInfo->getPlayView());
+	int nIndex = m_anchorStreamInfo->getPlayView();
+	ZegoAudioView *view = removeAudioView(nIndex);
 	view->deleteLater();
 
 	AUDIOROOM::StopPublish();
@@ -233,28 +240,61 @@ void ZegoAudioLiveDialog::StopPublishStream(const QString& streamID)
 	FreeAudioView(pStream);
 
 	m_strPublishStreamID = "";
+
+	log_string_notice(qtoc(QStringLiteral("[%1]: stop publish stream. play view index: %2, play stream ID: %3")
+		.arg(nIndex)
+		.arg(streamID)
+	));
 }
 
 void ZegoAudioLiveDialog::StartPlayStream(StreamPtr stream)
 {
-	if (stream == nullptr) { return; }
+	if (stream == nullptr) 
+	{ 
+		log_string_notice(qtoc(QStringLiteral("[%1]: start playing stream failed, stream is empty").arg(__FUNCTION__)));
+		return;
+	}
 
 	log_string_notice(qtoc(QStringLiteral("[%1]: enter start playing").arg(__FUNCTION__)));
 	m_pChatRoom->addStream(stream);
 
+	int nIndex = -1;
+	QString streamId = stream->getStreamId();
+	QString extraInfo = stream->getExtraInfo();
+
 	if (m_avaliableView.size() > 0)
 	{
 		int nIndex = takeLeastAvaliableViewIndex();
-		qDebug() << "playStream nIndex = " << nIndex << " play stream id is " << stream->getStreamId();
 		stream->setPlayView(nIndex);
-		ZegoAudioView *view = addAudioView(stream->getUserName(), nIndex, false);
+
+		QJsonDocument jsonDocument = QJsonDocument::fromJson(extraInfo.toLocal8Bit().data());
+		bool mic_enabled = true;
+		if (!jsonDocument.isNull())
+		{
+			QJsonObject jsonObject = jsonDocument.object();
+			QJsonObject enable_mic = jsonObject["stream_state"].toObject();
+			mic_enabled = enable_mic["enable_mic"].toBool();
+		}
+
+		ZegoAudioView *view = addAudioView(stream->getUserName(), nIndex, false, mic_enabled);
 		playViewList[stream->getStreamId()] = view;
 	}
+
+	log_string_notice(qtoc(QStringLiteral("[%1]: start playing stream. play view index: %2, play stream ID: %3, play stream extraInfo: %4")
+		.arg(__FUNCTION__)
+		.arg(nIndex)
+		.arg(streamId)
+		.arg(extraInfo)
+	));
 }
 
 void ZegoAudioLiveDialog::StopPlayStream(const QString& streamID)
 {
-	if (streamID.size() == 0) { return; }
+	if (streamID.size() == 0) 
+	{ 
+		log_string_notice(qtoc(QStringLiteral("[%1]: stop playing stream failed, stream ID is empty").arg(__FUNCTION__)));
+		return; 
+	}
 
 	log_string_notice(qtoc(QStringLiteral("[%1]: enter stop playing").arg(__FUNCTION__)));
 	StreamPtr curStream;
@@ -264,10 +304,10 @@ void ZegoAudioLiveDialog::StopPlayStream(const QString& streamID)
 			curStream = stream;
 	}
 
+	int nIndex = curStream->getPlayView();
     if (curStream)
     {
-        qDebug() << "stop play view index = " << curStream->getPlayView();
-		ZegoAudioView *view = removeAudioView(curStream->getPlayView());
+		ZegoAudioView *view = removeAudioView(nIndex);
 		view->deleteLater();
     }
 
@@ -275,6 +315,11 @@ void ZegoAudioLiveDialog::StopPlayStream(const QString& streamID)
 
 	StreamPtr pStream = m_pChatRoom->removeStream(streamID);
 	FreeAudioView(pStream);
+
+	log_string_notice(qtoc(QStringLiteral("[%1]: stop playing stream. play view index: %2, play stream ID: %3")
+	.arg(nIndex)
+	.arg(streamID)
+	));
 }
 
 void ZegoAudioLiveDialog::addLogString(QString log)
@@ -374,9 +419,9 @@ int ZegoAudioLiveDialog::takeLeastAvaliableViewIndex()
 	return min;
 }
 
-ZegoAudioView * ZegoAudioLiveDialog::addAudioView(const QString& userName, int addViewIndex, bool isPublisher)
+ZegoAudioView * ZegoAudioLiveDialog::addAudioView(const QString& userName, int addViewIndex, bool isPublisher, bool isMicEnabled)
 {
-	ZegoAudioView *newView = new ZegoAudioView(userName, isPublisher);
+	ZegoAudioView *newView = new ZegoAudioView(userName, isPublisher, isMicEnabled);
 	
 	newView->setViewIndex(addViewIndex);
 	AudioViewList.push_back(newView);
@@ -778,9 +823,10 @@ void ZegoAudioLiveDialog::OnPublishStateUpdate(int stateCode, const QString& str
 	}
 }
 
-void ZegoAudioLiveDialog::OnPlayStateUpdate(int stateCode, const QString& streamId)
+void ZegoAudioLiveDialog::OnPlayStateUpdate(int stateCode, StreamPtr pStream)
 {
-	//ZegoAudioView *view = playViewList[streamId];
+	
+	QString streamId = pStream->getStreamId();
 
 	if (stateCode != 0)
 	{
@@ -793,9 +839,20 @@ void ZegoAudioLiveDialog::OnPlayStateUpdate(int stateCode, const QString& stream
 		return;
 	}
 
-	//if (!view->IsNetworkEnabeld())
-		//view->SetNetworkEnabled(true);
+	/*QString extraInfo = pStream->getExtraInfo();
+	qDebug() << "extraInfo: " << extraInfo;
 
+	QJsonDocument jsonDocument = QJsonDocument::fromJson(extraInfo.toLocal8Bit().data());
+	if (!jsonDocument.isNull()) 
+	{
+		QJsonObject jsonObject = jsonDocument.object();
+		QJsonObject enable_mic = jsonObject["stream_state"].toObject();
+		bool mic_enabled = enable_mic["enable_mic"].toBool();
+
+		ZegoAudioView *view = playViewList[streamId];
+		view->SetMicEnabled(mic_enabled);
+	}*/
+	
 	addLogString(tr("播放流成功，流ID: %1").arg(streamId));
 }
 

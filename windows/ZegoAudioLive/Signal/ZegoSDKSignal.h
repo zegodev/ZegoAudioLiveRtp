@@ -33,7 +33,7 @@ signals:
 	void sigStreamUpdate(const QString& strRoomID, StreamPtr pStream, AUDIOROOM::ZegoStreamUpdateType type);
 	void sigUserUpdate(QVector <QString> userIDs, QVector <QString> userNames, QVector <int> userFlags, QVector <int> userRoles, unsigned int userCount, AUDIOROOM::ZegoUserUpdateType type);
 	void sigPublishStateUpdate(int stateCode, const QString& strStreamID, StreamPtr pStream);
-	void sigPlayStateUpdate(int stateCode, const QString& streamId);
+	void sigPlayStateUpdate(int stateCode, StreamPtr pStream);
 	void sigAudioDeviceChanged(AV::AudioDeviceType deviceType, const QString& strDeviceId, const QString& strDeviceName, AV::DeviceState state);
 	void sigPublishQualityUpdate(const QString& streamId, double akbps, int rtt, int pktLostRate);
 	void sigPlayQualityUpdate(const QString& streamId, double akbps, double audioBreakRate, int rtt, int pktLostRate);

@@ -39,6 +39,7 @@ private slots:
 private:
 	void initButtonIcon();
 	void updateAppVersionTitle();
+	QVector<QString> handleAppSign(QString appSign);
 
 private:
 	Ui::ZegoMainDialog ui;

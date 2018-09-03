@@ -39,7 +39,7 @@ protected slots:
 	void OnLoginRoom(int errorCode, const QString& strRoomID);
 	void OnStreamUpdated(const QString& strRoomID, StreamPtr pStream, AUDIOROOM::ZegoStreamUpdateType type);
 	void OnPublishStateUpdate(int stateCode, const QString& streamId, StreamPtr streamInfo);
-	void OnPlayStateUpdate(int stateCode, const QString& streamId);
+	void OnPlayStateUpdate(int stateCode, StreamPtr pStream);
 	void OnDisconnect(int errorCode, const QString& roomId);
 	void OnKickOut(int reason, const QString& roomId);
 	void OnPlayQualityUpdate(const QString& streamId, double audioKBS, double audioBreakRate, int rtt, int lostRate);
@@ -103,7 +103,7 @@ private:
 	
 	//AudioView 布局
 	int takeLeastAvaliableViewIndex();
-	ZegoAudioView *addAudioView(const QString& userName, int addViewIndex, bool isPublisher);
+	ZegoAudioView *addAudioView(const QString& userName, int addViewIndex, bool isPublisher, bool isMicEnabled);
 	void updateViewLayout(int viewCount);
 	ZegoAudioView *removeAudioView(int removeViewIndex);
 	void FreeAudioView(StreamPtr stream);

@@ -101,6 +101,14 @@ namespace ZEGO
         ZEGO_API void SetLoopbackVolume(int volume);
         
         /**
+         设置采集音量
+         
+         @param volume 音量大小，取值（0, 100）。默认 100
+         @attention InitSDK成功之后调用
+         */
+        ZEGO_API void SetCaptureVolume(int volume);
+        
+        /**
          混音开关
          
          @param bEnable true 启用混音输入，false 关闭混音输入。默认 false

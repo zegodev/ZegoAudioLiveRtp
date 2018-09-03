@@ -1,6 +1,6 @@
 #include "ZegoAudioView.h"
 
-ZegoAudioView::ZegoAudioView(const QString& userName, bool isMySelf, QWidget * parent) : m_isCurrentUser(isMySelf), QFrame(parent)
+ZegoAudioView::ZegoAudioView(const QString& userName, bool isMySelf, bool isMicEnabled, QWidget * parent) : m_isCurrentUser(isMySelf), QFrame(parent)
 {
 	this->setStyleSheet("background-color: #ffffff; border: 1px solid #0e88eb;");
 	this->setFixedSize(QSize(250, 150));
@@ -65,7 +65,12 @@ ZegoAudioView::ZegoAudioView(const QString& userName, bool isMySelf, QWidget * p
 	auto fLayout = new QFormLayout;
 	m_micIcon = new ZegoLabel(this);
 	m_micIcon->setFixedSize(QSize(16, 16));
-	m_micIcon->setButtonIcon("mic_icon_on");
+
+	if (isMicEnabled)
+		m_micIcon->setButtonIcon("mic_icon_on");
+	else
+		m_micIcon->setButtonIcon("mic_icon_off");
+
 	m_micIcon->setStyleSheet("border: none;");
 
 	m_progVolume = new QProgressBar;
