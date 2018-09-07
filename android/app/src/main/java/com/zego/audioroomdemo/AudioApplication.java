@@ -33,7 +33,7 @@ public class AudioApplication extends Application {
 
         @Override
         public void handleMessage(Message message) {
-            String logMessage = (String)message.obj;
+            String logMessage = (String) message.obj;
             if (logSet.size() >= 1000) {
                 logSet.remove(logSet.size() - 1);
             }
@@ -83,7 +83,6 @@ public class AudioApplication extends Application {
         //ZegoAudioRoom.setAudioDeviceMode(ZegoConstants.AudioDeviceMode.General);
         mZegoAudioRoom = new ZegoAudioRoom();
         mZegoAudioRoom.setManualPublish(PrefUtils.isManualPublish());
-
         long appId;
         byte[] signKey;
         long storedAppId = PrefUtils.getAppId();
@@ -97,7 +96,12 @@ public class AudioApplication extends Application {
             signKey = PrefUtils.getAppKey();
         }
         mZegoAudioRoom.initWithAppId(appId, signKey, this);
-        mZegoAudioRoom.setLatencyMode(ZegoConstants.LatencyMode.Low);
+
+        if (PrefUtils.getAppWebRtc()) {
+            mZegoAudioRoom.setLatencyMode(ZegoConstants.LatencyMode.Low3);
+        } else {
+            mZegoAudioRoom.setLatencyMode(ZegoConstants.LatencyMode.Low);
+        }
     }
 
     private String getUserId() {
@@ -133,6 +137,7 @@ public class AudioApplication extends Application {
     }
 
     private ArrayList<ILogUpdateObserver> mLogObservers = new ArrayList<>();
+
     public synchronized void registerLogUpdateObserver(ILogUpdateObserver observer) {
         if (observer != null && !mLogObservers.contains(observer)) {
             mLogObservers.add(observer);
@@ -146,6 +151,7 @@ public class AudioApplication extends Application {
     }
 
     private boolean useTestEnv = false;
+
     public boolean isUseTestEnv() {
         return useTestEnv;
     }

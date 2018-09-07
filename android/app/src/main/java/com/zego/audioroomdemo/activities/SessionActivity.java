@@ -448,7 +448,7 @@ public class SessionActivity extends AppCompatActivity {
 
                 // 开启伴奏后, sdk每20毫秒一次取数据
                 ZegoAuxData auxData = new ZegoAuxData();
-                auxData.dataBuf = new byte[AUX_DATA_LENGHT];
+                auxData.dataBuf = new byte[dataLen];
 
                 try {
                     AssetManager am = getAssets();
@@ -559,7 +559,6 @@ public class SessionActivity extends AppCompatActivity {
 
     final static int AUX_DATA_CHANNEL_COUNT = 2;
     final static int AUX_DATA_SAMPLE_RATE = 44100;
-    final static int AUX_DATA_LENGHT = AUX_DATA_SAMPLE_RATE * AUX_DATA_CHANNEL_COUNT * 2 / 50;
 
     private void removeCallbacks() {
         zegoAudioRoom.setAudioRoomDelegate(null);

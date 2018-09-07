@@ -9,7 +9,7 @@
 
     <string name="zg_text_demo_version">Demo Version: </string>
     <string name="demo_version">Version:&#160;</string>
-    <string name="zg_tip_input_room_name">Input RoomID</string>
+    <string name="zg_tip_input_room_name">Enter the roomID to join the chat</string>
     <string name="zg_tip_no_stream">No stream data</string>
     <string name="zg_tip_no_events">no data</string>
     <string name="zg_tip_send_message_failed">Send message failed</string>
@@ -68,8 +68,10 @@
     <string name="zg_btn_room_name">Room name: %1$s</string>
 
     <string name="zg_text_app_flavor_china">China</string>
-    <string name="zg_text_app_flavor_intl">Int\'l</string>
-    <string name="zg_text_app_flavor_customize">Customize</string>
+    <string name="zg_text_app_flavor_intl">International</string>
+    <string name="zg_text_app_flavor_web">WebRtc</string>
+    <string name="zg_text_app_flavor_customize">Custom</string>
+
     <string name="zg_text_app_restart_publish_failure">Retry the push more than 10 times, please check the network.</string>
     <string name="zg_text_sdk_version">SDK Version: </string>
     <string name="zg_text_ve_version">VE Version: </string>

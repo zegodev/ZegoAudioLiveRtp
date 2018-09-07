@@ -9,7 +9,7 @@
     <string name="zg_text_demo_version">Demo版本: </string>
     <string name="demo_version">版本:&#160;</string>
 
-    <string name="zg_tip_input_room_name">输入房间ID</string>
+    <string name="zg_tip_input_room_name">任意输入相同的房间号即可通话</string>
     <string name="zg_tip_no_stream">没有流数据</string>
     <string name="zg_tip_no_events">没有数据</string>
     <string name="zg_tip_send_message_failed">消息发送失败</string>
@@ -66,6 +66,7 @@
 
     <string name="zg_text_app_flavor_china">国内版</string>
     <string name="zg_text_app_flavor_intl">国际版</string>
+    <string name="zg_text_app_flavor_web">WebRtc</string>
     <string name="zg_text_app_flavor_customize">自定义</string>
 
     <string name="zg_text_sdk_version">SDK版本号: </string>

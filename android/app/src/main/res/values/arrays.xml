@@ -3,6 +3,7 @@
     <string-array name="zg_arr_app_flavors">
         <item>@string/zg_text_app_flavor_china</item>
         <item>@string/zg_text_app_flavor_intl</item>
+        <item>@string/zg_text_app_flavor_web</item>
         <item>@string/zg_text_app_flavor_customize</item>
     </string-array>
 

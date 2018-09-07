@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+        
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.zego.audioroomdemo.activities.ZegoPhoneActivity" android:tag="layout/activity_zego_phone_0">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:background="?attr/colorPrimary"
+            tools:theme="@style/ToolbarTheme">
+
+            <TextView
+                android:id="@+id/log"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:gravity="center"
+                android:text="@string/zg_menu_main_show_events"
+                android:textColor="@color/text_white" />
+
+            <TextView
+                android:id="@+id/advanced"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:gravity="center"
+                android:text="@string/advanced"
+                android:textColor="@color/text_white" />
+
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/user_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/boom"
+            android:layout_below="@+id/toolbar"
+            android:layout_margin="@dimen/dimen_20">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <LinearLayout
+            android:id="@+id/boom"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_horizontal|center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dimen_50"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ToggleButton
+                    android:id="@+id/btn_mic"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/mic_drawable_selector"
+                    android:checked="true"
+                    android:textOff="@null"
+                    android:textOn="@null" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/zg_btn_text_mic"
+                    android:textSize="@dimen/text_size_2" />
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/exit_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@mipmap/exit_phone"
+                android:src="@drawable/sl_rectangle" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_50"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ToggleButton
+                    android:id="@+id/btn_speaker"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/speaker_drawable_selector"
+                    android:checked="true"
+                    android:textOff="@null"
+                    android:textOn="@null" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/zg_btn_text_speaker"
+                    android:textSize="@dimen/text_size_2" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/boom_advanced"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="300dp"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:layout_below="@+id/toolbar"
+            android:background="#8a8a8a">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/zg_btn_text_media_player"
+                />
+
+            <Button
+                android:id="@+id/play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:text="@string/zg_btn_text_play" />
+
+
+        </LinearLayout>
+    </RelativeLayout>
+         

@@ -14,32 +14,19 @@ import com.zego.audioroomdemo.R;
  */
 
 public class AppSignKeyUtils {
-    /**
-     * 请开发者联系 ZEGO support 获取各自业务的 AppID 与 signKey
-     * Demo 默认使用 UDP 模式，请填充该模式下的 AppID 与 signKey
-     * AppID 填写样式示例：1234567890L
-     * signKey 填写样式示例：new byte[] { (byte) 0x00, (byte) 0x01, (byte) 0x02, (byte) 0x03, (byte) 0x04, (byte) 0x05, (byte) 0x06, (byte) 0x07,
-            (byte) 0x08, (byte) 0x09,  (byte) 0x00, (byte) 0x01, (byte) 0x02, (byte) 0x03, (byte) 0x04, (byte) 0x05, (byte) 0x06, (byte) 0x07,
-            (byte) 0x08, (byte) 0x09, (byte) 0x00, (byte) 0x01, (byte) 0x02, (byte) 0x03, (byte) 0x04, (byte) 0x05, (byte) 0x06, (byte) 0x07,
-            (byte) 0x08, (byte) 0x09,  (byte) 0x00, (byte) 0x01};
-    **/
     @SuppressWarnings("unused")
-    static final private long RTMP_APP_ID = 0L;
+    static final private long RTMP_APP_ID = ;
 
     static final public long UDP_APP_ID =  ;
 
-    static final public long INTERNATIONAL_APP_ID = 100L;
+    static final public long INTERNATIONAL_APP_ID = ;
 
     @SuppressWarnings("unused")
-    final static private byte[] signData_rtmp = new byte[] {
-            (byte)0x00
-    };
+    final static private byte[] signData_rtmp = new byte[] {};
 
-    final static private byte[] signData_udp = ;
+    final static private byte[] signData_udp = new byte[] {};
 
-    final static private byte[] signData_international = new byte[] {
-            (byte)0x00
-    };
+    final static private byte[] signData_international = new byte[] {};
 
 
     static public boolean isInternationalProduct(long appId) {
@@ -60,17 +47,13 @@ public class AppSignKeyUtils {
         }
         return null;
     }
-    
-    /**
-     * Please contact ZEGO support to get the AppID and signKey
-     * 请开发者联系 ZEGO support 获取 APPID 与 signKey
-    **/
+
     static public String getAppTitle(long appId, Context context) {
         String appTitle;
         Resources resources = context.getResources();
-        if (appId == ) {   // UDP 模式下的 AppID
+        if (appId == ) {   // UDP
             appTitle = resources.getString(R.string.zg_app_title, resources.getString(R.string.zg_text_app_flavor_china));
-        } else if (appId == 100L) {   // International
+        } else if (appId == ) {   // International
             appTitle = resources.getString(R.string.zg_app_title, resources.getString(R.string.zg_text_app_flavor_intl));
         } else {    // Custom
             appTitle = resources.getString(R.string.zg_app_title, resources.getString(R.string.zg_text_app_flavor_customize));

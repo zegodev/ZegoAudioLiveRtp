@@ -6,6 +6,8 @@ import android.text.TextUtils;
 
 import com.zego.audioroomdemo.AudioApplication;
 
+import static com.zego.audioroomdemo.utils.AppSignKeyUtils.UDP_APP_ID;
+
 /**
  * Created by realuei on 2017/6/2.
  */
@@ -19,6 +21,8 @@ public class PrefUtils {
 
     static final private String Pref_key_App_Id = "zego_app_id";
     static final private String Pref_key_App_Key = "zego_app_key";
+
+    private static final String ZEGO_APP_WEBRTC = "zego_app_webRtc";
 
     static private PrefUtils sInst = new PrefUtils();
 
@@ -85,6 +89,17 @@ public class PrefUtils {
         editor.apply();
     }
 
+    public void setBooleanValue(String key, boolean value) {
+        SharedPreferences.Editor editor = sInst.mPref.edit();
+        editor.putBoolean(key, value);
+        editor.commit();
+    }
+
+
+    public boolean getBooleanValue(String key, boolean defaultValue) {
+        return sInst.mPref.getBoolean(key, defaultValue);
+    }
+
     static public String getAppKeyToString() {
         String strSignKey = sInst.mPref.getString(Pref_key_App_Key, null);
         if (TextUtils.isEmpty(strSignKey)) {
@@ -103,6 +118,14 @@ public class PrefUtils {
         } catch (NumberFormatException e) {
         }
         return null;
+    }
+
+    public static void setAppWebRtc(boolean v) {
+        sInst.setBooleanValue(ZEGO_APP_WEBRTC, v);
+    }
+
+    public static boolean getAppWebRtc() {
+       return sInst.getBooleanValue(ZEGO_APP_WEBRTC, false);
     }
 
 }

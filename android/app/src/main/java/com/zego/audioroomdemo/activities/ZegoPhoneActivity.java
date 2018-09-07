@@ -3,8 +3,13 @@ package com.zego.audioroomdemo.activities;
 
 import android.Manifest;
 import android.app.Activity;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothHeadset;
+import android.bluetooth.BluetoothProfile;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
 import android.graphics.Color;
@@ -16,6 +21,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
+import android.os.Message;
 import android.os.PowerManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -105,6 +111,15 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
 
     private ZegoMediaPlayer zegoMediaPlayer = null;
 
+    private Handler handler;
+
+    final int RESTART_PUBLSH_MSG = 1;
+
+    private HandlerThread handlerThread;
+
+    int restartCount = 0;
+
+    private boolean isPromptToast = true;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -115,8 +130,39 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
         localPowerManager = (PowerManager) getSystemService(Context.POWER_SERVICE);
         //获取PowerManager.WakeLock对象,后面的参数|表示同时传入两个值,最后的是LogCat里用的Tag
         localWakeLock = this.localPowerManager.newWakeLock(32, "MyPower");//第一个参数为电源锁级别，第二个是日志tag
-
+        handlerThread = new HandlerThread("music");
         handlerThread.start();
+        handler = new Handler(handlerThread.getLooper(), new Handler.Callback() {
+            @Override
+            public boolean handleMessage(Message msg) {
+                if (msg.what == RESTART_PUBLSH_MSG) {
+
+                    //计数器
+                    if (restartCount <= 10) {
+                        restartCount++;
+                        /**
+                         * 重新推流
+                         */
+                        boolean restartState = zegoAudioRoom.restartPublishStream();
+                        MainActivity.ZGLog.d(" Handler handleMessage restartPublish : %b", restartState);
+                        /**
+                         * 超过10次后给用户提示,只提示1次
+                         */
+                    } else if (isPromptToast) {
+                        isPromptToast = false;
+                        MainActivity.ZGLog.d(" Handler handleMessage restartPublish restartCount: %d", restartCount);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(ZegoPhoneActivity.this, getString(R.string.zg_text_app_restart_publish_failure), Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    }
+                }
+                return false;
+            }
+        });
+
 
         //  ActivityBaseBinding 类是自动生成的
         activityZegoPhoneBinding = DataBindingUtil.setContentView(this, R.layout.activity_zego_phone);
@@ -183,8 +229,10 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
                 String stop = getString(R.string.zg_btn_text_stop);
                 String play = getString(R.string.zg_btn_text_play);
                 if (activityZegoPhoneBinding.play.getText().equals(stop)) {
+                    activityZegoPhoneBinding.play.setText(play);
                     stopMusic();
                 } else {
+                    activityZegoPhoneBinding.play.setText(stop);
                     playMusic();
                 }
             }
@@ -200,6 +248,7 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
 
         activityZegoPhoneBinding.btnSpeaker.setChecked(true);
         builtinSpeakerOn(true);
+        registerHeadsetPlug();
 
         activityZegoPhoneBinding.exitPhone.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -217,7 +266,7 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
     }
 
     private void playMusic() {
-        new Handler(handlerThread.getLooper()).post(new Runnable() {
+        handler.post(new Runnable() {
             @Override
             public void run() {
                 path = SystemUtil.copyAssetsFile2Phone(ZegoPhoneActivity.this, "test.mp3");
@@ -230,8 +279,6 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
         });
 
     }
-
-    HandlerThread handlerThread = new HandlerThread("music");
 
 
     private void initMediaPlayer() {
@@ -252,6 +299,16 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
 
             @Override
             public void onPlayError(int i) {
+
+            }
+
+            @Override
+            public void onPlayPause() {
+
+            }
+
+            @Override
+            public void onPlayResume() {
 
             }
 
@@ -305,6 +362,44 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
                 SensorManager.SENSOR_DELAY_NORMAL);//注册传感器，第一个参数为距离监听器，第二个是传感器类型，第三个是延迟类型
     }
 
+    HeadSetReceiver mReceiver;
+
+    private void registerHeadsetPlug() {
+        mReceiver = new HeadSetReceiver();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(Intent.ACTION_HEADSET_PLUG);
+        intentFilter.addAction(BluetoothHeadset.ACTION_CONNECTION_STATE_CHANGED);
+        registerReceiver(mReceiver, intentFilter);
+    }
+
+
+    /**
+     * receiver监听
+     */
+    public class HeadSetReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (BluetoothHeadset.ACTION_CONNECTION_STATE_CHANGED.equals(action)) {
+                BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
+                if (BluetoothProfile.STATE_DISCONNECTED == adapter.getProfileConnectionState(BluetoothProfile.HEADSET)) {
+                    //Bluetooth headset is now disconnected
+                }
+            } else if ("android.intent.action.HEADSET_PLUG".equals(action)) {
+                if (intent.hasExtra("state")) {
+                    if (intent.getIntExtra("state", 0) == 0) {
+                        activityZegoPhoneBinding.btnSpeaker.setEnabled(true);
+                        activityZegoPhoneBinding.btnSpeaker.setAlpha(1f);
+                    } else if (intent.getIntExtra("state", 0) == 1) {
+                        activityZegoPhoneBinding.btnSpeaker.setEnabled(false);
+                        activityZegoPhoneBinding.btnSpeaker.setAlpha(0.5f);
+                    }
+                }
+            }
+        }
+    }
+
+
     private void soundLevel() {
         ZegoSoundLevelMonitor.getInstance().setCallback(new IZegoSoundLevelCallback() {
             @Override
@@ -353,6 +448,7 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
         }
 
     }
+
 
     private void builtinSpeakerOn(boolean enable) {
         if (zegoAudioRoom != null) {
@@ -533,6 +629,11 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
                 } else {
                     // TODO 推流失败
                     recyclerGridViewAdapter.streamStateUpdate(1, myStream);
+                    /**
+                     * 延时10秒后开启重新推流
+                     */
+                    handler.removeMessages(RESTART_PUBLSH_MSG);
+                    handler.sendMessageDelayed(handler.obtainMessage(RESTART_PUBLSH_MSG), 10000);
                 }
 
             }
@@ -656,6 +757,14 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
             localWakeLock.setReferenceCounted(false);
             localWakeLock.release();//释放电源锁，如果不释放finish这个acitivity后仍然会有自动锁屏的效果
             mManager.unregisterListener(this);//注销传感器监听
+        }
+        if (handler != null) {
+            handler.removeCallbacksAndMessages(null);
+            handlerThread.quit();
+        }
+
+        if (mReceiver != null) {
+            unregisterReceiver(mReceiver);
         }
 
         super.onDestroy();

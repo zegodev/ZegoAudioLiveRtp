@@ -53,9 +53,6 @@ public class SettingsActivity extends AppCompatActivity {
     @Bind(R.id.checkbox_audio_prepare)
     public CheckBox cbTurnOnAudioPrepare;
 
-    @Bind(R.id.checkbox_manual_publish)
-    public CheckBox cbManualPublish;
-
     @Bind(R.id.sp_app_flavor)
     public Spinner spAppFlavors;
 
@@ -75,8 +72,6 @@ public class SettingsActivity extends AppCompatActivity {
     public TextView tvDemoVersion;
 
 
-
-
     private boolean oldUseTestEnvValue;
     private boolean oldAudioPrepareValue;
     private boolean oldManualPublishValue;
@@ -92,10 +87,6 @@ public class SettingsActivity extends AppCompatActivity {
             switch (buttonView.getId()) {
                 case R.id.checkbox_audio_prepare:
                     PrefUtils.enableAudioPrepare(isChecked);
-                    break;
-
-                case R.id.checkbox_manual_publish:
-                    PrefUtils.setManualPublish(isChecked);
                     break;
 
                 case R.id.checkbox_use_test_env:
@@ -120,8 +111,10 @@ public class SettingsActivity extends AppCompatActivity {
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                reInitSDK = true;
                 long appId = 0;
-                if (position == 2) {
+                PrefUtils.setAppWebRtc(false);
+                if (position == 3) {
                     appId = (startIntent != null && startIntent.hasExtra("appId")) ? startIntent.getLongExtra("appId", -1) : -1;
                     String signKey = (startIntent != null && startIntent.hasExtra("rawKey")) ? startIntent.getStringExtra("rawKey") : "";
                     if (appId > 0 && !TextUtils.isEmpty(signKey)) {
@@ -152,6 +145,11 @@ public class SettingsActivity extends AppCompatActivity {
                         case 1:
                             appId = AppSignKeyUtils.INTERNATIONAL_APP_ID;
                             break;
+
+                        case 2:
+                            appId = AppSignKeyUtils.UDP_APP_ID;
+                            PrefUtils.setAppWebRtc(true);
+                            break;
                     }
 
                     etAppId.setEnabled(false);
@@ -171,14 +169,17 @@ public class SettingsActivity extends AppCompatActivity {
         });
 
         oldAppId = (startIntent != null) ? startIntent.getLongExtra("appId", -1) : -1;
-        if (AppSignKeyUtils.isUdpProduct(oldAppId)) {
+        if (AppSignKeyUtils.isUdpProduct(oldAppId) || oldAppId == -1L) {
             spAppFlavors.setSelection(0);
+            if (PrefUtils.getAppWebRtc()) {
+                spAppFlavors.setSelection(2);
+            }
             startIntent.removeExtra("appId");
         } else if (AppSignKeyUtils.isInternationalProduct(oldAppId)) {
             spAppFlavors.setSelection(1);
             startIntent.removeExtra("appId");
         } else {
-            spAppFlavors.setSelection(2);
+            spAppFlavors.setSelection(3);
         }
 
         oldUserId = PrefUtils.getUserId();
@@ -194,11 +195,9 @@ public class SettingsActivity extends AppCompatActivity {
         cbTurnOnAudioPrepare.setChecked(oldAudioPrepareValue);
 
         oldManualPublishValue = PrefUtils.isManualPublish();
-        cbManualPublish.setChecked(oldManualPublishValue);
 
         cbUseTestEnv.setOnCheckedChangeListener(checkedChangeListener);
         cbTurnOnAudioPrepare.setOnCheckedChangeListener(checkedChangeListener);
-        cbManualPublish.setOnCheckedChangeListener(checkedChangeListener);
 
 
         tvDemoVersion.setText(SystemUtil.getAppVersionName(this));
@@ -235,7 +234,7 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
                 String appId = s.toString();
-                if("1".equals(appId)){
+                if ("1".equals(appId)) {
 
                     etAppKey.setText(AppSignKeyUtils.convertSignKey2String(AppSignKeyUtils.requestSignKey(1l)));
                 }
@@ -250,6 +249,7 @@ public class SettingsActivity extends AppCompatActivity {
         ZegoLogShareActivity.actionStart(this);
     }
 
+    boolean reInitSDK = false;
 
     @Override
     public void onBackPressed() {
@@ -267,7 +267,7 @@ public class SettingsActivity extends AppCompatActivity {
             }
         }
 
-        boolean reInitSDK = false;
+
         Intent resultIntent = null;
         if (appId != oldAppId) {
             // appKey长度必须等于32位
@@ -300,12 +300,11 @@ public class SettingsActivity extends AppCompatActivity {
 
         String userId = userIdEdi.toString();
 
-        if (!TextUtils.equals(userId, oldUserId)&& !TextUtils.isEmpty(userId)) {
+        if (!TextUtils.equals(userId, oldUserId) && !TextUtils.isEmpty(userId)) {
 
             PrefUtils.setUserId(userId);
 
         }
-
 
         reInitSDK = reInitSDK | (PrefUtils.isEnableAudioPrepare() != oldAudioPrepareValue);
         reInitSDK = reInitSDK | (AudioApplication.sApplication.isUseTestEnv() != oldUseTestEnvValue);

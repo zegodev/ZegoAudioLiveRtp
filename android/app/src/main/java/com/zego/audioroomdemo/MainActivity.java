@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -14,12 +15,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.pgyersdk.update.PgyUpdateManager;
 import com.zego.audioroomdemo.activities.SessionActivity;
 import com.zego.audioroomdemo.activities.SettingsActivity;
 import com.zego.audioroomdemo.activities.ZegoPhoneActivity;
 import com.zego.audioroomdemo.utils.PrefUtils;
 import com.zego.audioroomdemo.utils.AppSignKeyUtils;
 import com.zego.zegoaudioroom.ZegoAudioRoom;
+import com.zego.zegoliveroom.constants.ZegoConstants;
 import com.zego.zegoliveroom.entity.ZegoExtPrepSet;
 
 import java.lang.ref.WeakReference;
@@ -57,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
         toolBar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
                 settingsIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 settingsIntent.putExtra("appId", currentAppId);
@@ -75,6 +77,32 @@ public class MainActivity extends AppCompatActivity {
 
         currentAppId = PrefUtils.getAppId();
         setTitle(AppSignKeyUtils.getAppTitle(currentAppId, this));
+
+        if (checkOrRequestPermission(1002)) {
+            /** 可选配置集成方式 **/
+            new PgyUpdateManager.Builder()
+                    .setForced(false)                //设置是否强制更新
+                    .setUserCanRetry(false)         //失败后是否提示重新下载
+                    .setDeleteHistroyApk(false)     // 检查更新前是否删除本地历史 Apk， 默认为true
+                    .register();
+        }
+    }
+
+    private static String[] PERMISSIONS_STORAGE = {
+            "android.permission.READ_EXTERNAL_STORAGE",
+            "android.permission.WRITE_EXTERNAL_STORAGE", Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO};
+
+    private boolean checkOrRequestPermission(int code) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED
+                    || ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED ||
+                    ContextCompat.checkSelfPermission(this, "android.permission.READ_EXTERNAL_STORAGE") != PackageManager.PERMISSION_GRANTED ||
+                    ContextCompat.checkSelfPermission(this, "android.permission.WRITE_EXTERNAL_STORAGE") != PackageManager.PERMISSION_GRANTED) {
+                this.requestPermissions(PERMISSIONS_STORAGE, code);
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -178,6 +206,11 @@ public class MainActivity extends AppCompatActivity {
                 ZegoAudioRoom.enableAudioPrep2(PrefUtils.isEnableAudioPrepare(), config);
                 zegoAudioRoom.setManualPublish(PrefUtils.isManualPublish());
                 zegoAudioRoom.initWithAppId(appId, signKey, MainActivity.this);
+                if (PrefUtils.getAppWebRtc()) {
+                    zegoAudioRoom.setLatencyMode(ZegoConstants.LatencyMode.Low3);
+                } else {
+                    zegoAudioRoom.setLatencyMode(ZegoConstants.LatencyMode.Low);
+                }
             }
         }).start();
     }
