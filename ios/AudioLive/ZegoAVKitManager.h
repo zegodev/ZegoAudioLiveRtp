@@ -44,5 +44,7 @@ typedef enum : NSUInteger {
 
 + (NSData *)zegoAppSignFromServer;
 
++ (void)setBizTypeForCustomAppID:(int)bizType;
+
 @end
 

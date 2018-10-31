@@ -1,4 +1,4 @@
-﻿#include <QSharedPointer>
+#include <QSharedPointer>
 #include "ZegoBase.h"
 #include "Base/IncludeZegoAudioRoomApi.h"
 
@@ -11,14 +11,8 @@
 								0x06,0x07,0x08,0x09,0x00,0x01,0x02,0x03,
 								0x04,0x05,0x06,0x07,0x08,0x09,0x00,0x01}
 */
-static unsigned int g_dwAppID_Udp = 0;
-static unsigned char g_bufSignKey_Udp[] =
-{
-	0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
-	0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
-	0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
-	0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
-};
+static unsigned int g_dwAppID_Udp = ;
+static unsigned char g_bufSignKey_Udp[] = ;
 
 static unsigned int g_dwAppID_International = 0;
 static unsigned char g_bufSignKey_International[] =
@@ -28,6 +22,7 @@ static unsigned char g_bufSignKey_International[] =
 	0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
 	0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
 };
+
 
 static unsigned long  g_dwAppID_Empty = 0;
 static unsigned char g_bufSignKey_Empty[] =
@@ -70,7 +65,7 @@ bool QZegoBase::InitAVSDK(SettingsPtr pCurSetting, QString userID, QString userN
 		//Qstring对象.toLocal8Bit().data()用于将QString转为const char*
 		AUDIOROOM::SetLogDir(nullptr);
 		AUDIOROOM::SetVerbose(true);
-		AUDIOROOM::SetBusinessType(2);
+		AUDIOROOM::SetBusinessType(0);
 		AUDIOROOM::SetUser(qtoc(userID), qtoc(userName));
 		AUDIOROOM::SetUseTestEnv(isTestEnv);
 		// ToDo: 需要通过代码获取网络类型
@@ -95,7 +90,7 @@ bool QZegoBase::InitAVSDK(SettingsPtr pCurSetting, QString userID, QString userN
 
 	//为了调用OnUserUpdate
 	AUDIOROOM::SetUserStateUpdate(true);
-	AUDIOROOM::SetLatencyMode(AV::ZEGO_LATENCY_MODE_LOW);
+	AUDIOROOM::SetLatencyMode(AV::ZEGO_LATENCY_MODE_LOW3);
 	AUDIOROOM::EnableDTX(true);
 
 	m_isInitedSDK = true;
@@ -111,7 +106,7 @@ bool QZegoBase::InitAVSDKofCustom(SettingsPtr pCurSetting, QString userID, QStri
 		//Qstring对象.toLocal8Bit().data()用于将QString转为const char*
 		AUDIOROOM::SetLogDir(nullptr);
 		AUDIOROOM::SetVerbose(true);
-		AUDIOROOM::SetBusinessType(2);
+		AUDIOROOM::SetBusinessType(0);
 		AUDIOROOM::SetUser(qtoc(userID), qtoc(userName));
 		AUDIOROOM::SetUseTestEnv(isTestEnv);
 		// ToDo: 需要通过代码获取网络类型
@@ -134,7 +129,7 @@ bool QZegoBase::InitAVSDKofCustom(SettingsPtr pCurSetting, QString userID, QStri
 
 		//为了调用OnUserUpdate
 		AUDIOROOM::SetUserStateUpdate(true);
-		AUDIOROOM::SetLatencyMode(AV::ZEGO_LATENCY_MODE_LOW);
+		AUDIOROOM::SetLatencyMode(AV::ZEGO_LATENCY_MODE_LOW3);
 		AUDIOROOM::EnableDTX(true);
 
 		m_isInitedSDK = true;

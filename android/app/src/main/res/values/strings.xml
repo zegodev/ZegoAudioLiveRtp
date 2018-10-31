@@ -6,6 +6,12 @@
     <string name="zg_start_communicate">Start Voice</string>
     <string name="zg_stop_communicate">Stop Voice</string>
 
+    <string name="zg_toast_config_successful">Config Successful</string>
+    <string name="zg_toast_config_failure">Config failure</string>
+
+    <string name="zg_scan_qr_code">Scan qr code</string>
+    <string name="zg_scan_qr_code_setting">Quick Setup</string>
+    <string name="zg_scan_qr_code_setting_text">Quick setup App By Scanning QRCode</string>
 
     <string name="zg_text_demo_version">Demo Version: </string>
     <string name="demo_version">Version:&#160;</string>
@@ -69,7 +75,6 @@
 
     <string name="zg_text_app_flavor_china">China</string>
     <string name="zg_text_app_flavor_intl">International</string>
-    <string name="zg_text_app_flavor_web">WebRtc</string>
     <string name="zg_text_app_flavor_customize">Custom</string>
 
     <string name="zg_text_app_restart_publish_failure">Retry the push more than 10 times, please check the network.</string>

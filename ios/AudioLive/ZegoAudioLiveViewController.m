@@ -528,7 +528,12 @@
         case AVAudioSessionRouteChangeReasonOldDeviceUnavailable: // 耳机拔出
         {
             dispatch_async(dispatch_get_main_queue(), ^{
+              
                 self.speakerButton.enabled = YES;
+                if (!self.enableSpeaker) {
+                    self.enableSpeaker = YES;
+                    [self.speakerButton setImage:[UIImage imageNamed:@"enable_speaker"] forState:UIControlStateNormal];
+                }
             });
         }
         break;
@@ -562,7 +567,7 @@
     }
     
     NSString *path = [[NSBundle mainBundle] pathForResource:@"test" ofType:@"mp3"];
-    [self.player start:path Repeat:YES];
+    [self.player start:path repeat:YES];
     self.playStatus = ZegoMediaPlayerStatusPlay;
 }
 

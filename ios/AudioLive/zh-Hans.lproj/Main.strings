@@ -117,7 +117,12 @@
 "qm3-8k-k8d.text" = "APP ID";
 
 /* Class = "UITableViewSection"; headerTitle = "VERSION"; ObjectID = "ud9-vb-eWY"; */
-"ud9-vb-eWY.headerTitle" = "VERSION";
+"qT3-zy-a1i.headerTitle" = "VERSION";
+
+"ud9-vb-eWY.headerTitle" = "QUICK SETUP";
+
+"V4K-rI-gM1.text" = "扫码设置";
+"kMN-k6-ZST.text" = "通过扫描二维码快速完成是设置";
 
 /* Class = "UINavigationItem"; title = "ZEGO"; ObjectID = "yR0-cH-bgd"; */
 "yR0-cH-bgd.title" = "ZEGO";

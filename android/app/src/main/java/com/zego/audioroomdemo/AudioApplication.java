@@ -1,5 +1,6 @@
 package com.zego.audioroomdemo;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.os.Handler;
 import android.os.Message;
@@ -9,6 +10,7 @@ import com.tencent.bugly.crashreport.CrashReport;
 import com.zego.audioroomdemo.utils.PrefUtils;
 import com.zego.audioroomdemo.utils.AppSignKeyUtils;
 import com.zego.zegoaudioroom.ZegoAudioRoom;
+import com.zego.zegoliveroom.ZegoLiveRoom;
 import com.zego.zegoliveroom.constants.ZegoConstants;
 import com.zego.zegoliveroom.entity.ZegoExtPrepSet;
 
@@ -29,6 +31,7 @@ public class AudioApplication extends Application {
         void onLogAdd(String logMessage);
     }
 
+    @SuppressLint("HandlerLeak")
     private Handler logHandler = new Handler() {
 
         @Override
@@ -38,7 +41,6 @@ public class AudioApplication extends Application {
                 logSet.remove(logSet.size() - 1);
             }
             logSet.add(0, logMessage);
-
             synchronized (AudioApplication.class) {
                 for (ILogUpdateObserver observer : mLogObservers) {
                     observer.onLogAdd(logMessage);
@@ -52,25 +54,25 @@ public class AudioApplication extends Application {
         super.onCreate();
 
         sApplication = this;
-
-        initData();
-
+        initSDK();
         String userId = getUserId();
-        String userName = getUserName();
-
         CrashReport.initCrashReport(getApplicationContext(), "9a7c25a3f2", false);
         CrashReport.setUserId(userId);
 
-        initSDK(userId, userName);
     }
 
     private void initData() {
         logSet = new ArrayList<>();
     }
 
-    private void initSDK(String userId, String userName) {
+    private void initSDK() {
+        initData();
+
+        String userId = getUserId();
+        String userName = getUserName();
+
         ZegoAudioRoom.setUser(userId, userName);
-        ZegoAudioRoom.setUseTestEnv(AudioApplication.sApplication.isUseTestEnv());
+        ZegoAudioRoom.setUseTestEnv(PrefUtils.getUseTestEnv());
 //        ZegoAudioRoom.enableAudioPrep(PrefUtils.isEnableAudioPrepare());
         ZegoExtPrepSet config = new ZegoExtPrepSet();
         config.encode = false;
@@ -85,23 +87,36 @@ public class AudioApplication extends Application {
         mZegoAudioRoom.setManualPublish(PrefUtils.isManualPublish());
         long appId;
         byte[] signKey;
-        long storedAppId = PrefUtils.getAppId();
-        if (storedAppId <= 0) {
-            appId = AppSignKeyUtils.UDP_APP_ID;
-            signKey = AppSignKeyUtils.requestSignKey(AppSignKeyUtils.UDP_APP_ID);
-
+        int currentAppFlavor = PrefUtils.getCurrentAppFlavor();
+        if (currentAppFlavor <= 1) {
+            if (currentAppFlavor == -1 || currentAppFlavor == 0) {
+                appId = AppSignKeyUtils.UDP_APP_ID;
+                signKey = AppSignKeyUtils.requestSignKey(AppSignKeyUtils.UDP_APP_ID);
+            } else {
+                appId = AppSignKeyUtils.INTERNATIONAL_APP_ID;
+                signKey = AppSignKeyUtils.requestSignKey(AppSignKeyUtils.INTERNATIONAL_APP_ID);
+            }
 
         } else {
-            appId = storedAppId;
+            appId = PrefUtils.getAppId();
             signKey = PrefUtils.getAppKey();
         }
+
+
+        ZegoAudioRoom.setBusinessType(PrefUtils.getBusinessType());
+
         mZegoAudioRoom.initWithAppId(appId, signKey, this);
 
-        if (PrefUtils.getAppWebRtc()) {
-            mZegoAudioRoom.setLatencyMode(ZegoConstants.LatencyMode.Low3);
-        } else {
-            mZegoAudioRoom.setLatencyMode(ZegoConstants.LatencyMode.Low);
+        mZegoAudioRoom.setLatencyMode(ZegoConstants.LatencyMode.Low3);
+
+    }
+
+    public void reInitZegoSDK() {
+        if (mZegoAudioRoom != null) {
+            mZegoAudioRoom.unInit();
         }
+
+        initSDK();
     }
 
     private String getUserId() {
@@ -153,10 +168,12 @@ public class AudioApplication extends Application {
     private boolean useTestEnv = false;
 
     public boolean isUseTestEnv() {
+        useTestEnv = PrefUtils.getUseTestEnv();
         return useTestEnv;
     }
 
     public void setUseTestEnv(boolean useTestEnv) {
+        PrefUtils.setUseTestEnv(useTestEnv);
         this.useTestEnv = useTestEnv;
     }
 

@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
     static private final int REQUEST_CODE_PERMISSION = 0x101;
 
+    static private final int REQUEST_CODE_UPDATE_APK = 0x10002;
+
     @Bind(R.id.room_name)
     public EditText ctrlRoomName;
 
@@ -62,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
                 settingsIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                currentAppId = PrefUtils.getAppId();
+                currentStrSignKey = AppSignKeyUtils.convertSignKey2String(PrefUtils.getAppKey());
                 settingsIntent.putExtra("appId", currentAppId);
                 settingsIntent.putExtra("rawKey", currentStrSignKey);
                 startActivityForResult(settingsIntent, 101);
@@ -75,17 +79,17 @@ public class MainActivity extends AppCompatActivity {
             btnLoginOrLogout.setText(R.string.zg_start_communicate);
         }
 
-        currentAppId = PrefUtils.getAppId();
-        setTitle(AppSignKeyUtils.getAppTitle(currentAppId, this));
-
-        if (checkOrRequestPermission(1002)) {
+        if (checkOrRequestPermission(REQUEST_CODE_UPDATE_APK)) {
             /** 可选配置集成方式 **/
-            new PgyUpdateManager.Builder()
-                    .setForced(false)                //设置是否强制更新
-                    .setUserCanRetry(false)         //失败后是否提示重新下载
-                    .setDeleteHistroyApk(false)     // 检查更新前是否删除本地历史 Apk， 默认为true
-                    .register();
+            updateApk();
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        int currentAppFlavor = PrefUtils.getCurrentAppFlavor();
+        setTitle(AppSignKeyUtils.getAppTitle(currentAppFlavor, this));
     }
 
     private static String[] PERMISSIONS_STORAGE = {
@@ -117,28 +121,34 @@ public class MainActivity extends AppCompatActivity {
                     allPermissionAllowed = false;
                     break;
                 }
-                i ++;
+                i++;
             }
             if (allPermissionAllowed) {
                 startSessionActivity();
             }
+        } else if (requestCode == REQUEST_CODE_UPDATE_APK) {
+            updateApk();
         }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 101) {
-            ZegoAudioRoom zegoAudioRoom = ((AudioApplication)getApplication()).getAudioRoomClient();
+            ZegoAudioRoom zegoAudioRoom = ((AudioApplication) getApplication()).getAudioRoomClient();
             if (resultCode == 1) {
                 ZGLog.d("on SettingsActivity Result, reInit SDK");
                 long appId;
                 if (data == null) {
                     appId = PrefUtils.getAppId();
-                    reInitZegoSDK(appId, PrefUtils.getAppKey());
+                    reInitZegoSDK();
                 } else {
                     currentStrSignKey = data.getStringExtra("rawKey");
                     appId = data.getLongExtra("appId", PrefUtils.getAppId());
-                    reInitZegoSDK(appId, data.getByteArrayExtra("signKey"));
+                    if (appId != AppSignKeyUtils.UDP_APP_ID && appId != AppSignKeyUtils.INTERNATIONAL_APP_ID) {
+                        PrefUtils.setAppId(appId);
+                        PrefUtils.setAppKey(AppSignKeyUtils.parseSignKeyFromString(currentStrSignKey));
+                    }
+                    reInitZegoSDK();
                 }
                 setTitle(AppSignKeyUtils.getAppTitle(appId, MainActivity.this));
             } else {
@@ -156,11 +166,20 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void updateApk() {
+        /** 可选配置集成方式 **/
+        new PgyUpdateManager.Builder()
+                .setForced(false)                //设置是否强制更新
+                .setUserCanRetry(false)         //失败后是否提示重新下载
+                .setDeleteHistroyApk(false)     // 检查更新前是否删除本地历史 Apk， 默认为true
+                .register();
+    }
+
     @OnClick(R.id.btn_login_logout)
     public void onLoginClick(View view) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-                requestPermissions(new String[] { Manifest.permission.RECORD_AUDIO }, REQUEST_CODE_PERMISSION);
+                requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO}, REQUEST_CODE_PERMISSION);
             } else {
                 startSessionActivity();
             }
@@ -178,41 +197,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void reInitZegoSDK(final long appId, final byte[] signKey) {
-        currentAppId = appId;
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                PrefUtils.setAppId(appId);
-                PrefUtils.setAppKey(signKey);
-
-                ZegoAudioRoom zegoAudioRoom = ((AudioApplication)getApplication()).getAudioRoomClient();
-                ZegoAudioRoom.setUseTestEnv(false);
-//                zegoAudioRoom.enableAudioPrep(false);
-                ZegoAudioRoom.enableAudioPrep2(false, null);
-                zegoAudioRoom.unInit();
-
-                String userId = PrefUtils.getUserId();
-                String userName =  PrefUtils.getUserName();
-                ZegoAudioRoom.setUser(userId, userName);
-                ZegoAudioRoom.setUseTestEnv(AudioApplication.sApplication.isUseTestEnv());
-//                ZegoAudioRoom.enableAudioPrep(PrefUtils.isEnableAudioPrepare());
-                ZegoExtPrepSet config = new ZegoExtPrepSet();
-                config.encode = false;
-                config.channel = 0;
-                config.sampleRate = 0;
-                config.samples = 1;
-                ZegoAudioRoom.enableAudioPrep2(PrefUtils.isEnableAudioPrepare(), config);
-                zegoAudioRoom.setManualPublish(PrefUtils.isManualPublish());
-                zegoAudioRoom.initWithAppId(appId, signKey, MainActivity.this);
-                if (PrefUtils.getAppWebRtc()) {
-                    zegoAudioRoom.setLatencyMode(ZegoConstants.LatencyMode.Low3);
-                } else {
-                    zegoAudioRoom.setLatencyMode(ZegoConstants.LatencyMode.Low);
-                }
-            }
-        }).start();
+    private void reInitZegoSDK() {
+        AudioApplication.sApplication.reInitZegoSDK();
     }
 
     private void startSessionActivity() {
@@ -228,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
         static private WeakReference<AudioApplication> appRef = new WeakReference<AudioApplication>(AudioApplication.sApplication);
         static private SimpleDateFormat sDateFormat = new SimpleDateFormat("HH:mm:ss.SSS");
 
-        static public void d(@NonNull  String format, Object... args) {
+        static public void d(@NonNull String format, Object... args) {
             String message = String.format(format, args);
             Log.d(TAG, message);
             appendLog(message);

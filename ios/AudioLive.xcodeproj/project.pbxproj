@@ -61,7 +61,6 @@
 		EF713A161D2DF76000715B6B /* ZegoAVKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EF713A151D2DF76000715B6B /* ZegoAVKitManager.m */; };
 		EF713A191D2DF76A00715B6B /* ZegoSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = EF713A181D2DF76A00715B6B /* ZegoSettings.m */; };
 		EF713A291D2DF92D00715B6B /* ZegoAdvancedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF713A271D2DF92D00715B6B /* ZegoAdvancedTableViewController.m */; };
-		EF71EA271E712A9400723EF7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF7139D91D2DEFD200715B6B /* Info.plist */; };
 		EF9F415F1F3B0478003F7C0F /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9F415E1F3B0477003F7C0F /* SafariServices.framework */; };
 		EF9F41601F3B0488003F7C0F /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9F415E1F3B0477003F7C0F /* SafariServices.framework */; };
 		EF9F41631F3B04B4003F7C0F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 163FEEB01F33265100FA86E6 /* MessageUI.framework */; };
@@ -409,7 +408,6 @@
 				EF7139D81D2DEFD200715B6B /* LaunchScreen.storyboard in Resources */,
 				164522D920E4936700534981 /* music.mp3 in Resources */,
 				EF7139D31D2DEFD200715B6B /* Main.storyboard in Resources */,
-				EF71EA271E712A9400723EF7 /* Info.plist in Resources */,
 				1649C29120EB737100C7E31C /* test.mp3 in Resources */,
 				164522CD20E239C900534981 /* Assets.xcassets in Resources */,
 			);

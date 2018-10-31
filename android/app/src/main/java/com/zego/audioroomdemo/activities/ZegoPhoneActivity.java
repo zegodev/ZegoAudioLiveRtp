@@ -2,6 +2,7 @@ package com.zego.audioroomdemo.activities;
 
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothHeadset;
@@ -308,6 +309,11 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
             }
 
             @Override
+            public void onPlayStop() {
+
+            }
+
+            @Override
             public void onPlayResume() {
 
             }
@@ -330,6 +336,16 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
                         activityZegoPhoneBinding.play.setText(getString(R.string.zg_btn_text_play));
                     }
                 });
+            }
+
+            @Override
+            public void onBufferBegin() {
+
+            }
+
+            @Override
+            public void onBufferEnd() {
+
             }
 
             @Override
@@ -470,10 +486,12 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
         zegoAudioRoom.enableMic(true);
         zegoAudioRoom.enableSelectedAudioRecord(ZegoConstants.AudioRecordMask.NoRecord, 44100);
         zegoAudioRoom.enableSpeaker(true);
-        boolean success = zegoAudioRoom.loginRoom(roomId, new ZegoLoginAudioRoomCallback() {
+        boolean success = zegoAudioRoom.
+                loginRoom(roomId, new ZegoLoginAudioRoomCallback() {
+            @SuppressLint("DefaultLocale")
             @Override
             public void onLoginCompletion(int state) {
-                MainActivity.ZGLog.d("onLoginCompletion: 0x%1$x", state);
+                MainActivity.ZGLog.d("onLoginCompletion: %d", state);
 
                 if (state == 0) {
                     hasLogin = true;
@@ -485,7 +503,7 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
 
                     // TODO 登陆成功
                 } else {
-                    Toast.makeText(ZegoPhoneActivity.this, String.format("Login Error: 0x%1$x", state), Toast.LENGTH_LONG).show();
+                    Toast.makeText(ZegoPhoneActivity.this, String.format("Login Error: %d", state), Toast.LENGTH_LONG).show();
                     // TODO 登陆失败错误码
                 }
             }

@@ -8,9 +8,11 @@
 #include "ZegoAVKitManager.h"
 #import "ZegoSettings.h"
 
-NSString *kZegoDemoAppTypeKey          = @"apptype";
-NSString *kZegoDemoAppIDKey            = @"appid";
-NSString *kZegoDemoAppSignKey          = @"appsign";
+NSString *kZegoDemoAppTypeKey           = @"apptype";
+NSString *kZegoDemoAppIDKey             = @"appid";
+NSString *kZegoDemoAppSignKey           = @"appsign";
+NSString *kZegoDemoAppBizType           = @"biztype";
+NSString *kZegoDemoTestEnvKey           = @"test-env";
 
 static ZegoAudioRoomApi *g_ZegoApi = nil;
 
@@ -40,11 +42,16 @@ static NSData* ConvertStringToSign(NSString* strSign);
 {
     if (g_ZegoApi == nil)
     {
+        /*if ([self appType] == ZegoAppTypeCustom) {
+            //int bizType = (int)[[NSUserDefaults standardUserDefaults] integerForKey:kZegoDemoAppBizType];
+            //[ZegoAudioRoomApi setBusinessType:bizType];
+        }*/
 //        [ZegoAudioRoomApi setBusinessType:0];
         
+        g_useTestEnv = [self usingTestEnv];
         // 测试环境开关
         [ZegoAudioRoomApi setUseTestEnv:g_useTestEnv];
-        
+        [ZegoAudioRoomApi setBusinessType:0];
 #ifdef DEBUG
         // 调试信息开关
         [ZegoAudioRoomApi setVerbose:YES];
@@ -68,7 +75,7 @@ static NSData* ConvertStringToSign(NSString* strSign);
         [g_ZegoApi setManualPublish:g_useManual];
         
         // 设置低延迟模式
-        [g_ZegoApi setLatencyMode:ZEGOAPI_LATENCY_MODE_LOW];
+        [g_ZegoApi setLatencyMode:ZEGOAPI_LATENCY_MODE_LOW3];
     }
     
     return g_ZegoApi;
@@ -121,24 +128,22 @@ static NSData* ConvertStringToSign(NSString* strSign);
             break;
         case ZegoAppTypeI18N:
             return 100;  // 国际版
+
             break;
     }
 }
 
 + (void)setUsingTestEnv:(bool)testEnv
 {
-    if (g_useTestEnv != testEnv)
-    {
-        [self releaseApi];
-    }
-    
+    [self releaseApi];
+    [[NSUserDefaults standardUserDefaults] setBool:testEnv forKey:kZegoDemoTestEnvKey];
     g_useTestEnv = testEnv;
     [ZegoAudioRoomApi setUseTestEnv:testEnv];
 }
 
 + (bool)usingTestEnv
 {
-    return g_useTestEnv;
+    return [[NSUserDefaults standardUserDefaults] boolForKey:kZegoDemoTestEnvKey];
 }
 
 + (bool)usingAlphaEnv
@@ -230,18 +235,21 @@ static NSData* ConvertStringToSign(NSString* strSign);
 #warning signKey 填写样式示例：{0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x00,0x01}
 + (NSData *)zegoAppSignFromServer
 {
-    //!! 规范用法：这个signKey需要从server下发到App，避免在App中存储，防止盗用
-    
+   
     ZegoAppType type = [self appType];
     
     if (type == ZegoAppTypeUDP)
     {
+
         Byte signkey[] = ;
+
         return [NSData dataWithBytes:signkey length:32];
     }
     else if (type == ZegoAppTypeI18N)
     {
+
         Byte signkey[] = {0x00};
+
         return [NSData dataWithBytes:signkey length:32];
     }
     else
@@ -257,8 +265,12 @@ static NSData* ConvertStringToSign(NSString* strSign);
     }
 }
 
++ (void)setBizTypeForCustomAppID:(int)bizType {
+    [[NSUserDefaults standardUserDefaults] setInteger:bizType forKey:kZegoDemoAppBizType];
+}
+
 #pragma mark ZegoAVEngineDelegate
-+ (void)onAVEngineStop
+- (void)onAVEngineStop
 {
     NSLog(@"onAVEngineStop");
 }

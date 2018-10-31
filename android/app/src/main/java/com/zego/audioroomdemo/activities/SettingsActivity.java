@@ -1,7 +1,13 @@
 package com.zego.audioroomdemo.activities;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.SystemClock;
+import android.provider.Settings;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -14,17 +20,23 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.alibaba.fastjson.JSONObject;
+import com.dommy.qrcode.util.Constant;
+import com.google.zxing.activity.CaptureActivity;
 import com.zego.audioroomdemo.AudioApplication;
+import com.zego.audioroomdemo.entity.AppConfig;
 import com.zego.audioroomdemo.utils.AppSignKeyUtils;
 import com.zego.audioroomdemo.utils.PrefUtils;
 import com.zego.audioroomdemo.R;
 import com.zego.audioroomdemo.utils.ShareUtils;
 import com.zego.audioroomdemo.utils.SystemUtil;
 import com.zego.zegoaudioroom.*;
+import com.zego.zegoliveroom.ZegoLiveRoom;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -66,7 +78,7 @@ public class SettingsActivity extends AppCompatActivity {
     public EditText etAppKey;
 
     @Bind(R.id.container)
-    public LinearLayout llContainer;
+    public RelativeLayout llContainer;
 
     @Bind(R.id.tv_demo_version)
     public TextView tvDemoVersion;
@@ -77,8 +89,9 @@ public class SettingsActivity extends AppCompatActivity {
     private boolean oldManualPublishValue;
     private String oldUserName;
     private String oldUserId;
-
+    private long appId = 0;
     private long oldAppId;
+    private String signKey;
 
     private CompoundButton.OnCheckedChangeListener checkedChangeListener = new CompoundButton.OnCheckedChangeListener() {
 
@@ -102,35 +115,30 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         ButterKnife.bind(this);
-
+        final Intent startIntent = getIntent();
         tvVersion.setText(ZegoAudioRoom.version());
         tvVersion2.setText(ZegoAudioRoom.version2());
+        appId = (startIntent != null && startIntent.hasExtra("appId")) ? startIntent.getLongExtra("appId", -1) : -1;
+        signKey = (startIntent != null && startIntent.hasExtra("rawKey")) ? startIntent.getStringExtra("rawKey") : "";
 
-        final Intent startIntent = getIntent();
+
         spAppFlavors.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 reInitSDK = true;
-                long appId = 0;
-                PrefUtils.setAppWebRtc(false);
-                if (position == 3) {
-                    appId = (startIntent != null && startIntent.hasExtra("appId")) ? startIntent.getLongExtra("appId", -1) : -1;
-                    String signKey = (startIntent != null && startIntent.hasExtra("rawKey")) ? startIntent.getStringExtra("rawKey") : "";
+
+                PrefUtils.setAppFlavor(position);
+                if (position == 2) {
+                    appId = PrefUtils.getAppId();
+                    signKey = PrefUtils.getAppKeyToString();
                     if (appId > 0 && !TextUtils.isEmpty(signKey)) {
                         etAppId.setText(String.valueOf(appId));
-                        etAppKey.setText(signKey);
-
-                        startIntent.removeExtra("appId");
-                        startIntent.removeExtra("rawKey");
+                        etAppKey.setText(String.valueOf(signKey));
                     } else {
 
                         etAppId.setText("");
                         etAppKey.setText("");
-
-                        etAppId.setText(String.valueOf(PrefUtils.getAppId()));
-
-                        etAppKey.setText(String.valueOf(PrefUtils.getAppKeyToString()));
 
                     }
 
@@ -144,11 +152,6 @@ public class SettingsActivity extends AppCompatActivity {
 
                         case 1:
                             appId = AppSignKeyUtils.INTERNATIONAL_APP_ID;
-                            break;
-
-                        case 2:
-                            appId = AppSignKeyUtils.UDP_APP_ID;
-                            PrefUtils.setAppWebRtc(true);
                             break;
                     }
 
@@ -168,19 +171,19 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
-        oldAppId = (startIntent != null) ? startIntent.getLongExtra("appId", -1) : -1;
-        if (AppSignKeyUtils.isUdpProduct(oldAppId) || oldAppId == -1L) {
-            spAppFlavors.setSelection(0);
-            if (PrefUtils.getAppWebRtc()) {
-                spAppFlavors.setSelection(2);
-            }
-            startIntent.removeExtra("appId");
-        } else if (AppSignKeyUtils.isInternationalProduct(oldAppId)) {
-            spAppFlavors.setSelection(1);
-            startIntent.removeExtra("appId");
-        } else {
-            spAppFlavors.setSelection(3);
-        }
+
+//        oldAppId = (startIntent != null) ? startIntent.getLongExtra("appId", -1) : -1;
+//        if (AppSignKeyUtils.isUdpProduct(oldAppId) || oldAppId == -1L) {
+//            spAppFlavors.setSelection(0);
+//            startIntent.removeExtra("appId");
+//        } else if (AppSignKeyUtils.isInternationalProduct(oldAppId)) {
+//            spAppFlavors.setSelection(1);
+//            startIntent.removeExtra("appId");
+//        } else {
+//            spAppFlavors.setSelection(2);
+//        }
+
+        spAppFlavors.setSelection(PrefUtils.getCurrentAppFlavor());
 
         oldUserId = PrefUtils.getUserId();
         tvUserId.setText(oldUserId);
@@ -243,6 +246,85 @@ public class SettingsActivity extends AppCompatActivity {
 
     }
 
+    private final static int REQ_CODE = 1028;
+    AppConfig appConfig = null;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQ_CODE && data != null) {
+            Bundle bundle = data.getExtras();
+            String result = bundle.getString(Constant.INTENT_EXTRA_KEY_QR_SCAN);
+            if (result != null) {
+                try {
+                    JSONObject jsonObject = JSONObject.parseObject(result);
+                    if ("ac".equals(jsonObject.getString("type"))) {
+                        appConfig = jsonObject.getObject("data", AppConfig.class);
+                        PrefUtils.setAppId(appConfig.appid);
+                        PrefUtils.setAppKey(AppSignKeyUtils.parseSignKeyFromString(appConfig.appkey));
+                        PrefUtils.setUseTestEnv(appConfig.isTestenv());
+                        PrefUtils.setBusinessType(appConfig.getBusinesstype());
+                        PrefUtils.setInternational(appConfig.isI18n());
+                        setResult(1, null);
+                        spAppFlavors.setSelection(2);
+                        Toast.makeText(this, getString(R.string.zg_toast_config_successful), Toast.LENGTH_LONG).show();
+                        finish();
+                    }
+                } catch (Exception e) {
+                    Toast.makeText(this, getString(R.string.zg_toast_config_failure), Toast.LENGTH_LONG).show();
+                }
+            }
+        }
+    }
+
+    public void scan(View view) {
+        if (checkOrRequestPermission(REQUEST_PERMISSION_CODE)) {
+            startActivityForResult(new Intent(this, CaptureActivity.class), REQ_CODE);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_PERMISSION_CODE: {
+                boolean allPermissionGranted = true;
+                for (int i = 0; i < grantResults.length; i++) {
+                    if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
+                        allPermissionGranted = false;
+                        Toast.makeText(this, String.format("获取%s权限失败 ", permissions[i]), Toast.LENGTH_LONG).show();
+                    }
+                }
+                if (allPermissionGranted) {
+
+                } else {
+                    Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                    intent.setData(Uri.parse("package:" + this.getPackageName()));
+                    startActivity(intent);
+                }
+                break;
+            }
+        }
+    }
+
+    private final int REQUEST_PERMISSION_CODE = 0506;
+
+    private static String[] PERMISSIONS_STORAGE = {
+            "android.permission.READ_EXTERNAL_STORAGE",
+            "android.permission.WRITE_EXTERNAL_STORAGE", Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO};
+
+    private boolean checkOrRequestPermission(int code) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED
+                    || ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED ||
+                    ContextCompat.checkSelfPermission(this, "android.permission.READ_EXTERNAL_STORAGE") != PackageManager.PERMISSION_GRANTED ||
+                    ContextCompat.checkSelfPermission(this, "android.permission.WRITE_EXTERNAL_STORAGE") != PackageManager.PERMISSION_GRANTED) {
+                this.requestPermissions(PERMISSIONS_STORAGE, code);
+                return false;
+            }
+        }
+        return true;
+    }
+
 
     @OnClick(R.id.share_log_button)
     public void shareLog() {
@@ -285,10 +367,12 @@ public class SettingsActivity extends AppCompatActivity {
             resultIntent.putExtra("signKey", signKey);
             resultIntent.putExtra("rawKey", appKey);
             reInitSDK = true;
-            if (!AppSignKeyUtils.isInternationalProduct(appId) && !AppSignKeyUtils.isUdpProduct(appId)) {
+
+            if (PrefUtils.getCurrentAppFlavor() == 2 || !AppSignKeyUtils.isInternationalProduct(appId) && !AppSignKeyUtils.isUdpProduct(appId)) {
                 PrefUtils.setAppId(appId);
                 PrefUtils.setAppKey(signKey);
             }
+
         }
 
         String userName = etUserName.getEditableText().toString();

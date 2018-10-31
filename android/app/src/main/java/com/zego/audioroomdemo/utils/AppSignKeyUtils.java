@@ -7,7 +7,7 @@ import com.zego.audioroomdemo.R;
 
 /**
  * App's Id and key utils.
- *
+ * <p>
  * <p>Copyright © 2017 Zego. All rights reserved.</p>
  *
  * @author realuei on 2017/7/11.
@@ -15,18 +15,29 @@ import com.zego.audioroomdemo.R;
 
 public class AppSignKeyUtils {
     @SuppressWarnings("unused")
+
+    /**  请开发者联系 ZEGO support 获取各自业务的 AppID 与 signKey
+     Demo 默认使用 UDP 模式，请填充该模式下的 AppID 与 signKey,其他模式不需要可不用填
+     AppID 填写样式示例：1234567890
+     signKey 填写样式示例：{0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,
+     0x08,0x09,0x00,0x01,0x02,0x03,0x04,0x05,
+     0x06,0x07,0x08,0x09,0x00,0x01,0x02,0x03,
+     0x04,0x05,0x06,0x07,0x08,0x09,0x00,0x01} **/
+
     static final private long RTMP_APP_ID = ;
 
-    static final public long UDP_APP_ID =  ;
+    static final public long UDP_APP_ID = ;
 
     static final public long INTERNATIONAL_APP_ID = ;
 
-    @SuppressWarnings("unused")
-    final static private byte[] signData_rtmp = new byte[] {};
 
-    final static private byte[] signData_udp = new byte[] {};
+    final static private byte[] signData_rtmp = new byte[]{};
 
-    final static private byte[] signData_international = new byte[] {};
+
+    final static private byte[] signData_udp = new byte[]{};
+
+
+    final static private byte[] signData_international = new byte[]{};
 
 
     static public boolean isInternationalProduct(long appId) {
@@ -48,12 +59,12 @@ public class AppSignKeyUtils {
         return null;
     }
 
-    static public String getAppTitle(long appId, Context context) {
+    static public String getAppTitle(long currentAppFlavor, Context context) {
         String appTitle;
         Resources resources = context.getResources();
-        if (appId == ) {   // UDP
+        if (currentAppFlavor == 0) {   // UDP
             appTitle = resources.getString(R.string.zg_app_title, resources.getString(R.string.zg_text_app_flavor_china));
-        } else if (appId == ) {   // International
+        } else if (currentAppFlavor == 1) {   // International
             appTitle = resources.getString(R.string.zg_app_title, resources.getString(R.string.zg_text_app_flavor_intl));
         } else {    // Custom
             appTitle = resources.getString(R.string.zg_app_title, resources.getString(R.string.zg_text_app_flavor_customize));
@@ -63,12 +74,16 @@ public class AppSignKeyUtils {
 
 
     static public String convertSignKey2String(byte[] signKey) {
-        StringBuilder buffer = new StringBuilder();
-        for (int b : signKey) {
-            buffer.append("0x").append(Integer.toHexString((b & 0x000000FF) | 0xFFFFFF00).substring(6)).append(",");
+        if (signKey != null) {
+            StringBuilder buffer = new StringBuilder();
+            for (int b : signKey) {
+                buffer.append("0x").append(Integer.toHexString((b & 0x000000FF) | 0xFFFFFF00).substring(6)).append(",");
+            }
+            buffer.setLength(buffer.length() - 1);
+            return buffer.toString();
+        } else {
+            return "";
         }
-        buffer.setLength(buffer.length() - 1);
-        return buffer.toString();
     }
 
     static public byte[] parseSignKeyFromString(String strSignKey) throws NumberFormatException {

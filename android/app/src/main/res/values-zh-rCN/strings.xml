@@ -6,6 +6,14 @@
     <string name="zg_start_communicate">开始语音</string>
     <string name="zg_stop_communicate">停止语音</string>
 
+
+    <string name="zg_toast_config_successful">配置成功</string>
+    <string name="zg_toast_config_failure">配置失败</string>
+
+    <string name="zg_scan_qr_code">扫描二维码</string>
+    <string name="zg_scan_qr_code_setting">扫码设置</string>
+    <string name="zg_scan_qr_code_setting_text">通过扫描二维码快速完成是设置</string>
+
     <string name="zg_text_demo_version">Demo版本: </string>
     <string name="demo_version">版本:&#160;</string>
 
@@ -66,7 +74,6 @@
 
     <string name="zg_text_app_flavor_china">国内版</string>
     <string name="zg_text_app_flavor_intl">国际版</string>
-    <string name="zg_text_app_flavor_web">WebRtc</string>
     <string name="zg_text_app_flavor_customize">自定义</string>
 
     <string name="zg_text_sdk_version">SDK版本号: </string>

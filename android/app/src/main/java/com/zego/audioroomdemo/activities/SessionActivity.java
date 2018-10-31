@@ -199,8 +199,8 @@ public class SessionActivity extends AppCompatActivity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-                int volume=seekBar.getProgress();
-                if(player!=null) {
+                int volume = seekBar.getProgress();
+                if (player != null) {
                     player.setVolume((volume * 0.1f), (volume * 0.1f));
                 }
             }
@@ -210,10 +210,10 @@ public class SessionActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if(position == 0){
+                if (position == 0) {
                     zegoAudioRoom.setLatencyMode(ZegoConstants.LatencyMode.Normal);
-                }else {
-                    zegoAudioRoom.setLatencyMode(ZegoConstants.LatencyMode.Low);
+                } else {
+                    zegoAudioRoom.setLatencyMode(ZegoConstants.LatencyMode.Low3);
                 }
             }
 
@@ -379,7 +379,7 @@ public class SessionActivity extends AppCompatActivity {
             @Override
             public void onRecvRoomMessage(String roomId, ZegoRoomMessage[] messages) {
                 messageAdapter.updateData(messages);
-                lvMessages.setSelection(messageAdapter.getCount()-1);
+                lvMessages.setSelection(messageAdapter.getCount() - 1);
             }
 
             @Override
@@ -612,7 +612,7 @@ public class SessionActivity extends AppCompatActivity {
                 @Override
                 public void onPrepared(MediaPlayer player) {
                     player.start();
-                    player.setVolume(mSeekBar.getProgress()*0.1f,mSeekBar.getProgress()*0.1f);
+                    player.setVolume(mSeekBar.getProgress() * 0.1f, mSeekBar.getProgress() * 0.1f);
 
                 }
             });
@@ -753,7 +753,7 @@ public class SessionActivity extends AppCompatActivity {
             message.fromUserID = PrefUtils.getUserId();
             messageAdapter.addItem(message);
             etMessage.setText("");
-            lvMessages.setSelection(messageAdapter.getCount()-1);
+            lvMessages.setSelection(messageAdapter.getCount() - 1);
         } else {
             tvEventTips.setText(R.string.zg_tip_send_message_failed);
         }
