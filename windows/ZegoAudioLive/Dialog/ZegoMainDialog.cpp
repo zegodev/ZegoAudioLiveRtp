@@ -140,6 +140,13 @@ void ZegoMainDialog::OnCheckEnterRoom()
 void ZegoMainDialog::on_m_bEnterRoom_clicked()
 {
 	QString strRoomID = ui.m_edRoomID->text();
+
+	if (strRoomID.size() > 20)
+	{
+		QMessageBox::warning(NULL, tr("警告"), tr("房间号过长，请重新输入"));
+		return;
+	}
+
 	log_string_notice(qtoc(QStringLiteral("[%1]: enter audio live dialog, roomId: %2").arg(__FUNCTION__).arg(strRoomID)));
 
 	RoomPtr pRoom = RoomPtr::create(strRoomID, QString("audio-room"), m_strEdUserId, m_strEdUserName);

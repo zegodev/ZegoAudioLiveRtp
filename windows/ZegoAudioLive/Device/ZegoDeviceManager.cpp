@@ -44,6 +44,23 @@ void ZegoDeviceManager::EnumAudioDeviceList()
 	if (m_audioInputDeviceList.size() > 0)
 	{
 		m_micListIndex = 0;
+
+		unsigned int *id_len = new unsigned int;
+		*id_len = 1024;
+		char *mic_id = new char[*id_len];
+		AUDIOROOM::GetDefaultAudioDeviceId(AV::AudioDeviceType::AudioDevice_Input, mic_id, id_len);
+		QString defaultId = mic_id;
+
+		//设置默认麦克风与系统一致
+		for (int i = 0; i < m_audioInputDeviceList.size(); i++)
+		{
+			if (m_audioInputDeviceList.at(i).deviceId == defaultId)
+			{
+				m_micListIndex = i;
+				break;
+			}
+		}
+
 		m_audioInputDeviceId = m_audioInputDeviceList.at(m_micListIndex).deviceId;
 		
 		emit sigMicIdChanged(m_audioInputDeviceId);
@@ -76,6 +93,22 @@ void ZegoDeviceManager::EnumAudioDeviceList()
 	if (m_audioOutputDeviceList.size() > 0)
 	{
 		m_speakerListIndex = 0;
+
+		unsigned int *id_len = new unsigned int;
+		*id_len = 1024;
+		char *speaker_id = new char[*id_len];
+		AUDIOROOM::GetDefaultAudioDeviceId(AV::AudioDeviceType::AudioDevice_Output, speaker_id, id_len);
+		QString defaultId = speaker_id;
+
+		//设置默认麦克风与系统一致
+		for (int i = 0; i < m_audioOutputDeviceList.size(); i++)
+		{
+			if (m_audioOutputDeviceList.at(i).deviceId == defaultId)
+			{
+				m_speakerListIndex = i;
+				break;
+			}
+		}
 		m_audioOutputDeviceId = m_audioOutputDeviceList.at(m_speakerListIndex).deviceId;
 
 		emit sigSpeakerIdChanged(m_audioOutputDeviceId);
