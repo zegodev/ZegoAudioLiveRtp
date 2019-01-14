@@ -18,11 +18,8 @@ public class AppSignKeyUtils {
 
     /**  请开发者联系 ZEGO support 获取各自业务的 AppID 与 signKey
      Demo 默认使用 UDP 模式，请填充该模式下的 AppID 与 signKey,其他模式不需要可不用填
-     AppID 填写样式示例：1234567890
-     signKey 填写样式示例：{0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,
-     0x08,0x09,0x00,0x01,0x02,0x03,0x04,0x05,
-     0x06,0x07,0x08,0x09,0x00,0x01,0x02,0x03,
-     0x04,0x05,0x06,0x07,0x08,0x09,0x00,0x01} **/
+     AppID 填写样式示例：1234567890l
+     signKey 填写样式示例：{(byte)0x00,(byte)0x01,(byte)0x02} **/
 
     static final private long RTMP_APP_ID = ;
 
@@ -62,12 +59,12 @@ public class AppSignKeyUtils {
     static public String getAppTitle(long currentAppFlavor, Context context) {
         String appTitle;
         Resources resources = context.getResources();
-        if (currentAppFlavor == 0) {   // UDP
-            appTitle = resources.getString(R.string.zg_app_title, resources.getString(R.string.zg_text_app_flavor_china));
-        } else if (currentAppFlavor == 1) {   // International
+        if (currentAppFlavor == 1) {   // International
             appTitle = resources.getString(R.string.zg_app_title, resources.getString(R.string.zg_text_app_flavor_intl));
-        } else {    // Custom
+        } else if (currentAppFlavor == 2) {    // Custom
             appTitle = resources.getString(R.string.zg_app_title, resources.getString(R.string.zg_text_app_flavor_customize));
+        } else {   // UDP
+            appTitle = resources.getString(R.string.zg_app_title, resources.getString(R.string.zg_text_app_flavor_china));
         }
         return appTitle;
     }

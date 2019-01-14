@@ -1,0 +1,185 @@
+﻿  AutoGen warning
+  ---------------
+    "D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/zego_sdk_protocol.h"
+  The source file is empty
+  
+  Generating ui_ZegoAudioLiveDialog.h
+  Generating ui_ZegoMainDialog.h
+  Generating ui_ZegoSettingsDialog.h
+  Generating qrc_ZegoMainDialog.cpp
+RCC : warning : No resources in 'D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/ZegoMainDialog.qrc'.
+  
+  Generating qrc_style.cpp
+  Building Custom Rule D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/CMakeLists.txt
+  CMake does not need to re-run because D:/Zegolivedemo/projects/QT/AudioRoomDemo/build-win/cmake_temp/ZegoAudioLive/CMakeFiles/generate.stamp is up-to-date.
+  ZegoBase.cpp
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Base\ZegoBase.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoomCallback.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\./AudioRoomDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\AVDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\zego-api-defines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\RoomDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoomCallback-Player.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoomCallback-Publisher.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\zego-api-sound-level.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom-Publisher.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom-Player.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom-Volume.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  ZegoDialog.cpp
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\frameless_helper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  ZegoUserConfig.cpp
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AVDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\zego-api-defines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\./AudioRoomDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\RoomDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\./AudioRoomCallback.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom-Publisher.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\./AudioRoomCallback-Publisher.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom-Player.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\./AudioRoomCallback-Player.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom-Volume.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\zego-api-sound-level.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  NoFocusFrameDelegate.cpp
+  ZegoDeviceManager.cpp
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AVDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\zego-api-defines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\./AudioRoomDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\RoomDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\./AudioRoomCallback.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoomCallback-Player.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoomCallback-Publisher.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\zego-api-sound-level.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom-Publisher.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom-Player.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom-Volume.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  ZegoAudioLiveDialog.cpp
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AVDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\zego-api-defines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\./AudioRoomDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\RoomDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\./AudioRoomCallback.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\frameless_helper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoomCallback-Player.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoomCallback-Publisher.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\zego-api-sound-level.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom-Publisher.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom-Player.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom-Volume.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Dialog\ZegoAudioLiveDialog.cpp(411): warning C4018: “<”: 有符号/无符号不匹配
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Dialog\ZegoAudioLiveDialog.cpp(869): warning C4018: “<”: 有符号/无符号不匹配
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Dialog\ZegoAudioLiveDialog.cpp(878): warning C4018: “<”: 有符号/无符号不匹配
+  ZegoMainDialog.cpp
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AVDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\zego-api-defines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\./AudioRoomDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\RoomDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\./AudioRoomCallback.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoomCallback-Player.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoomCallback-Publisher.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\zego-api-sound-level.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\frameless_helper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom-Publisher.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom-Player.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom-Volume.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  ZegoSettingsDialog.cpp
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoomCallback.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\./AudioRoomDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\AVDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\zego-api-defines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\RoomDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoomCallback-Player.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoomCallback-Publisher.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\zego-api-sound-level.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\frameless_helper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom-Publisher.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom-Player.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom-Volume.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  ZegoRoomModel.cpp
+  ZegoSettingsModel.cpp
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AVDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\zego-api-defines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\./AudioRoomDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\RoomDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\./AudioRoomCallback.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  ZegoStreamModel.cpp
+  ZegoSDKSignal.cpp
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoomCallback.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\./AudioRoomDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\AVDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\zego-api-defines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\RoomDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoomCallback-Player.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoomCallback-Publisher.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\zego-api-sound-level.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom-Publisher.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom-Player.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom-Volume.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Signal\ZegoSDKSignal.cpp(77): warning C4018: “<”: 有符号/无符号不匹配
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Signal\ZegoSDKSignal.cpp(211): warning C4018: “<”: 有符号/无符号不匹配
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Signal\ZegoSDKSignal.cpp(246): warning C4018: “<”: 有符号/无符号不匹配
+  CursorPosCalculator.cpp
+  WidgetData.cpp
+d:\zegolivedemo\projects\qt\audioroomdemo\zegoaudiolive\ui\WidgetData.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\zegoaudiolive\ui\frameless_helper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  ZegoAudioView.cpp
+  ZegoComboBox.cpp
+  ZegoImageButton.cpp
+  ZegoLabel.cpp
+  ZegoLogLabel.cpp
+  ZegoMicrophoneButton.cpp
+  正在生成代码...
+d:\zegolivedemo\projects\qt\audioroomdemo\zegoaudiolive\base\zegobase.cpp(143): warning C4715: “QZegoBase::InitAVSDKofCustom”: 不是所有的控件路径都返回值
+  正在编译...
+  ZegoMircophone.cpp
+  ZegoProgressIndicator.cpp
+  ZegoSlider.cpp
+  ZegoStateButton.cpp
+  ZegoSwitchButton.cpp
+  ZegoTextButton.cpp
+  frameless_helper.cpp
+d:\zegolivedemo\projects\qt\audioroomdemo\zegoaudiolive\ui\frameless_helper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\zegoaudiolive\ui\WidgetData.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  ZegoAudioDemo.cpp
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoomCallback.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\./AudioRoomDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\AVDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\zego-api-defines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\RoomDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoomCallback-Player.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoomCallback-Publisher.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\zego-api-sound-level.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  main.cpp
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AVDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\zego-api-defines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\./AudioRoomDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\RoomDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\./AudioRoomCallback.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoomCallback-Player.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoomCallback-Publisher.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\zego-api-sound-level.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\frameless_helper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  qrc_ZegoMainDialog.cpp
+  qrc_style.cpp
+  mocs_compilation.cpp
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AVDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\zego-api-defines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoom.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\./AudioRoomDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\RoomDefines.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\include\zegoaudioroom\./AudioRoomCallback.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\zegolivedemo\projects\qt\audioroomdemo\build-win\cmake_temp\zegoaudiolive\zegoaudiolive_autogen\include_release\krkr4bn5rm\../../../../../../ZegoAudioLive/UI/frameless_helper.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoomCallback-Player.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\AudioRoomCallback-Publisher.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+D:\Zegolivedemo\projects\QT\AudioRoomDemo\include\ZegoAudioRoom\zego-api-sound-level.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  正在生成代码...
+  ZegoAudioLive.vcxproj -> D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive\Release\ZegoAudioLive.exe

@@ -79,10 +79,19 @@ typedef void(^ZegoCustomCommandBlock)(int errorCode, NSString *roomID);
 /**
  设置是否需要手动发布直播
  
- @param manual 是否手动发布直播，YES：手动发布直播，NO：自动发布直播。默认为 NO
+ @param manual 是否手动发布直播，YES：手动发布直播，NO：进入房间后自动发布直播。默认为 NO
  @discussion 必须在登录房间前调用
  */
 - (void)setManualPublish:(bool)manual;
+
+
+/**
+ 设置是否需要手动播放
+
+ @param manual 是否手动播放，YES：手动播放，NO：收到流更新后自动播放。默认为 NO
+ @discussion 必须在登录房间前调用
+ */
+- (void)setManualPlay:(bool)manual;
 
 /**
  登录房间

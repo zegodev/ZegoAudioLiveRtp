@@ -25,9 +25,11 @@
 		16756FD21F5901EF003252AB /* ZegoShareLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 16756FD01F5901EF003252AB /* ZegoShareLogViewController.m */; };
 		16CD53D11F3C3EDA003D43B3 /* SSZipArchive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16CD53D01F3C3EDA003D43B3 /* SSZipArchive.framework */; };
 		16CD53F31F3C3F63003D43B3 /* SSZipArchive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16CD53D01F3C3EDA003D43B3 /* SSZipArchive.framework */; };
+		33C4425621E4CE8700D57521 /* ZegoAudioRoom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33C4425221E4CE8700D57521 /* ZegoAudioRoom.framework */; };
+		33C4425821E4D41100D57521 /* ZegoAudioRoom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33C4425221E4CE8700D57521 /* ZegoAudioRoom.framework */; };
+		33C4425921E4D41100D57521 /* ZegoAudioRoom.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 33C4425221E4CE8700D57521 /* ZegoAudioRoom.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EF0C27701E531C49009447A7 /* ZegoVideoRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0C276F1E531C49009447A7 /* ZegoVideoRootViewController.m */; };
 		EF110E151D33B691000620CD /* ZegoAudioLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF110E141D33B691000620CD /* ZegoAudioLiveViewController.m */; };
-		EF57BC291F3B0A9E0062A2A9 /* ZegoAudioRoom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC8BFAE1F274401008E92A1 /* ZegoAudioRoom.framework */; };
 		EF57BC2A1F3B0AC50062A2A9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF713A081D2DF1FC00715B6B /* AVFoundation.framework */; };
 		EF57BC2B1F3B0ACD0062A2A9 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF713A041D2DF1E800715B6B /* CoreTelephony.framework */; };
 		EF57BC2D1F3B0B020062A2A9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF57BC2C1F3B0B020062A2A9 /* AudioToolbox.framework */; };
@@ -64,8 +66,6 @@
 		EF9F415F1F3B0478003F7C0F /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9F415E1F3B0477003F7C0F /* SafariServices.framework */; };
 		EF9F41601F3B0488003F7C0F /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF9F415E1F3B0477003F7C0F /* SafariServices.framework */; };
 		EF9F41631F3B04B4003F7C0F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 163FEEB01F33265100FA86E6 /* MessageUI.framework */; };
-		EFC8BFAF1F274407008E92A1 /* ZegoAudioRoom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC8BFAE1F274401008E92A1 /* ZegoAudioRoom.framework */; };
-		EFC8BFB01F274408008E92A1 /* ZegoAudioRoom.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EFC8BFAE1F274401008E92A1 /* ZegoAudioRoom.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EFFBF7551D3887A8002FD7F2 /* ZegoLogTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFBF7541D3887A8002FD7F2 /* ZegoLogTableViewController.m */; };
 		EFFBF7701D3C74A1002FD7F2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EFFBF7721D3C74A1002FD7F2 /* Localizable.strings */; };
 /* End PBXBuildFile section */
@@ -77,7 +77,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EFC8BFB01F274408008E92A1 /* ZegoAudioRoom.framework in Embed Frameworks */,
+				33C4425921E4D41100D57521 /* ZegoAudioRoom.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,6 +103,7 @@
 		16756FCF1F5901EF003252AB /* ZegoShareLogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZegoShareLogViewController.h; sourceTree = "<group>"; };
 		16756FD01F5901EF003252AB /* ZegoShareLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZegoShareLogViewController.m; sourceTree = "<group>"; };
 		16CD53D01F3C3EDA003D43B3 /* SSZipArchive.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SSZipArchive.framework; sourceTree = "<group>"; };
+		33C4425221E4CE8700D57521 /* ZegoAudioRoom.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZegoAudioRoom.framework; sourceTree = "<group>"; };
 		EF0C276E1E531C49009447A7 /* ZegoVideoRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZegoVideoRootViewController.h; sourceTree = "<group>"; };
 		EF0C276F1E531C49009447A7 /* ZegoVideoRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZegoVideoRootViewController.m; sourceTree = "<group>"; };
 		EF110E131D33B691000620CD /* ZegoAudioLiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZegoAudioLiveViewController.h; sourceTree = "<group>"; };
@@ -139,7 +140,6 @@
 		EF713A271D2DF92D00715B6B /* ZegoAdvancedTableViewController.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = ZegoAdvancedTableViewController.m; sourceTree = "<group>"; };
 		EF9F415E1F3B0477003F7C0F /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		EFAC2FDE1D4AFA76000A7885 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		EFC8BFAE1F274401008E92A1 /* ZegoAudioRoom.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZegoAudioRoom.framework; sourceTree = "<group>"; };
 		EFFBF7531D3887A8002FD7F2 /* ZegoLogTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZegoLogTableViewController.h; sourceTree = "<group>"; };
 		EFFBF7541D3887A8002FD7F2 /* ZegoLogTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZegoLogTableViewController.m; sourceTree = "<group>"; };
 		EFFBF7711D3C74A1002FD7F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -155,7 +155,6 @@
 				EF57BC2D1F3B0B020062A2A9 /* AudioToolbox.framework in Frameworks */,
 				EF57BC2B1F3B0ACD0062A2A9 /* CoreTelephony.framework in Frameworks */,
 				EF57BC2A1F3B0AC50062A2A9 /* AVFoundation.framework in Frameworks */,
-				EF57BC291F3B0A9E0062A2A9 /* ZegoAudioRoom.framework in Frameworks */,
 				EF9F41631F3B04B4003F7C0F /* MessageUI.framework in Frameworks */,
 				EF9F41601F3B0488003F7C0F /* SafariServices.framework in Frameworks */,
 				EF6B39B01E8371FB00A6D963 /* Bugly.framework in Frameworks */,
@@ -178,8 +177,9 @@
 				EF9F415F1F3B0478003F7C0F /* SafariServices.framework in Frameworks */,
 				163FEEB11F33265100FA86E6 /* MessageUI.framework in Frameworks */,
 				164D47F71F134C1D00CDBF68 /* Bugly.framework in Frameworks */,
-				EFC8BFAF1F274407008E92A1 /* ZegoAudioRoom.framework in Frameworks */,
+				33C4425621E4CE8700D57521 /* ZegoAudioRoom.framework in Frameworks */,
 				164C759C2118507F0012FB01 /* PgyUpdate.framework in Frameworks */,
+				33C4425821E4D41100D57521 /* ZegoAudioRoom.framework in Frameworks */,
 				16CD53D11F3C3EDA003D43B3 /* SSZipArchive.framework in Frameworks */,
 				164D47F61F134BD000CDBF68 /* libc++.tbd in Frameworks */,
 				164D47F31F134BC500CDBF68 /* libz.tbd in Frameworks */,
@@ -212,6 +212,14 @@
 				EF57BC2C1F3B0B020062A2A9 /* AudioToolbox.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		33C4424C21E4CE8700D57521 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				33C4425221E4CE8700D57521 /* ZegoAudioRoom.framework */,
+			);
+			path = libs;
 			sourceTree = "<group>";
 		};
 		EF422A8C1E7A9B3700FA1C8C /* thirdLib */ = {
@@ -291,19 +299,11 @@
 		EF7139DF1D2DF18700715B6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				33C4424C21E4CE8700D57521 /* libs */,
 				16CD53CF1F3C3E7C003D43B3 /* iOS */,
 				EF422A8C1E7A9B3700FA1C8C /* thirdLib */,
-				EF7139E01D2DF1A400715B6B /* libs */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		EF7139E01D2DF1A400715B6B /* libs */ = {
-			isa = PBXGroup;
-			children = (
-				EFC8BFAE1F274401008E92A1 /* ZegoAudioRoom.framework */,
-			);
-			path = libs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -544,6 +544,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/thirdLib",
 					"$(PROJECT_DIR)/libs",
+					"$(PROJECT_DIR)/libs/ZegoAudioRoom-All/iphoneos",
+					"$(PROJECT_DIR)/libs/ZegoAudioRoom-All/iphoneos_simulator",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -613,6 +615,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/thirdLib",
 					"$(PROJECT_DIR)/libs",
+					"$(PROJECT_DIR)/libs/ZegoAudioRoom-All/iphoneos",
+					"$(PROJECT_DIR)/libs/ZegoAudioRoom-All/iphoneos_simulator",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/AudioLive/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -824,6 +828,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/thirdLib",
 					"$(PROJECT_DIR)/libs",
+					"$(PROJECT_DIR)/libs/ZegoAudioRoom-All/iphoneos",
+					"$(PROJECT_DIR)/libs/ZegoAudioRoom-All/iphoneos_simulator",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -851,6 +857,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/thirdLib",
 					"$(PROJECT_DIR)/libs",
+					"$(PROJECT_DIR)/libs/ZegoAudioRoom-All/iphoneos",
+					"$(PROJECT_DIR)/libs/ZegoAudioRoom-All/iphoneos_simulator",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/AudioLive/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;

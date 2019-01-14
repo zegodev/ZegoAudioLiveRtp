@@ -462,6 +462,7 @@
     
     // member 不存在，直接添加新 member
     if (!isUserExisted) {
+        [self.streamList addObject:member.stream];
         [self.memberList addObject:member];
     }
 }
@@ -760,7 +761,7 @@
         [self addNewMemberFromStream:stream];
         [self updateMicStatusOfStream:stream];
     } else {
-        for (ZegoAudioStream *playStream in self.streamList) {
+        for (ZegoAudioStream *playStream in self.streamList.copy) {
             if ([playStream.streamID isEqualToString:stream.streamID]) {
                 [self addLogString:[NSString stringWithFormat:NSLocalizedString(@"删除流:%@", nil), stream.streamID]];
                 [self.streamList removeObject:playStream];
@@ -784,8 +785,9 @@
             [self addNewMemberFromUserState:userState];
         } else if (userState.updateFlag == ZEGO_USER_DELETE) {
             [self addLogString:[NSString stringWithFormat:NSLocalizedString(@"%@ 用户离开房间", nil), userState.userID]];
-            for (NSInteger i = self.memberList.count - 1; i > 0; i--) {
-                ZegoMemberInfo *user = self.memberList[i];
+            NSArray *memberListCopy = self.memberList.copy;
+            for (NSInteger i = memberListCopy.count - 1; i >= 0; i--) {
+                ZegoMemberInfo *user = memberListCopy[i];
                 if([user.stream.userID isEqualToString:userState.userID]) {
                     [self.memberList removeObjectAtIndex:i];
                     [self.memberCollectionView reloadData];

@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.databinding.DataBindingUtil;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -193,7 +194,7 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
         recyclerGridViewAdapter = new RecyclerGridViewAdapter(this.getApplicationContext(), activityZegoPhoneBinding.userRecyclerView);
         activityZegoPhoneBinding.userRecyclerView.setAdapter(recyclerGridViewAdapter);
 
-        zegoAudioRoom.enableAECWhenHeadsetDetected(true);
+        zegoAudioRoom.enableAECWhenHeadsetDetected(false);
 
 
         activityZegoPhoneBinding.btnMic.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -350,6 +351,11 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
 
             @Override
             public void onSeekComplete(int i, long l) {
+
+            }
+
+            @Override
+            public void onSnapshot(Bitmap bitmap) {
 
             }
         });

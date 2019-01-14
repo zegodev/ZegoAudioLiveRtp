@@ -5,8 +5,12 @@
 
 #if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
+#define ZEGOView  UIView
+#define ZEGOImage UIImage
 #elif TARGET_OS_OSX
 #import <AppKit/AppKit.h>
+#define ZEGOView  NSView
+#define ZEGOImage NSImage
 #endif
 
 #import "zego-api-defines-oc.h"
@@ -91,6 +95,13 @@
  @param millisecond 实际快进的进度，单位毫秒
  */
 - (void)onSeekComplete:(int)code when:(long)millisecond;
+
+/**
+ 截图
+ 
+ @param image
+ */
+- (void)onSnapshot:(ZEGOImage *)image;
 
 @end
 
@@ -257,11 +268,25 @@
 - (void)setPlayerType:(MediaPlayerType)type;
 
 /**
+ 获取当前播放视频的截图
+
+ @note 只有在调用 setView 设置了显示控件，以及播放状态的情况下，才能正常截图。
+ */
+- (void)takeSnapshot;
+
+/**
  获取音轨个数
  
  @return 音轨个数
  */
 - (long)getAudioStreamCount;
+
+/**
+ * 设置是否重复播放
+ * 
+ * @param enable true:重复播放，false：不重复播放
+ */
+- (void)enableRepeatMode:(BOOL)enable;
 
 @end
 

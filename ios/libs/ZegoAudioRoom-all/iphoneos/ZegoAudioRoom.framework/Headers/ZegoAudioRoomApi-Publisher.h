@@ -25,8 +25,20 @@
  
  @return true:调用成功; false:调用失败，当前直播流已达上限,已经开播等原因
  @discussion 此函数只有在[setManualPublish:true] 时调用才有效
+ @discussion 流名由SDK内部生成
  */
 - (bool)startPublish;
+
+
+/**
+ 开始直播
+ 
+ @param streamID 直播流 ID
+ @return true:调用成功; false:调用失败，当前直播流已达上限,已经开播等原因
+ @discussion 此函数只有在[setManualPublish:true] 时调用才有效
+ @discussion 流名由外部传入
+ */
+- (bool)startPublishWithStreamID:(NSString *)streamID;
 
 /**
  停止直播
@@ -131,7 +143,8 @@
  
  @param count 声道数，1 或 2，默认为 1（单声道）
  @attention 必须在调用推流前设置
- @note setLatencyMode设置为 ZEGOAPI_LATENCY_MODE_NORMAL 或 ZEGOAPI_LATENCY_MODE_NORMAL2 才能设置双声道，在移动端双声道通常需要配合音频前处理才能体现效果
+ @note setLatencyMode 设置为 ZEGO_LATENCY_MODE_NORMAL, ZEGO_LATENCY_MODE_NORMAL2, ZEGO_LATENCY_MODE_LOW3 才能设置双声道
+ @note 在移动端双声道通常需要配合音频前处理才能体现效果
  */
 - (void)setAudioChannelCount:(int)count;
 
@@ -217,5 +230,12 @@
  @discussion 用户调用该 API 将混音数据传递给 SDK。混音数据 bit depth 必须为 16
  */
 - (void)onAuxCallback:(void *)pData dataLen:(int *)pDataLen sampleRate:(int *)pSampleRate channelCount:(int *)pChannelCount;
+
+/**
+ 转推CDN状态信息
+ @param statesInfo CDN状态信息
+ @param streamID 推流的流ID
+ */
+- (void)onRelayCDNStateUpdate:(NSArray<ZegoAPIStreamRelayCDNInfo *> *)statesInfo streamID:(NSString*)streamID;
 
 @end

@@ -104,7 +104,7 @@ public class AudioApplication extends Application {
 
 
         ZegoAudioRoom.setBusinessType(PrefUtils.getBusinessType());
-
+        ZegoLiveRoom.setConfig("audio_device_detect_headset=true");
         mZegoAudioRoom.initWithAppId(appId, signKey, this);
 
         mZegoAudioRoom.setLatencyMode(ZegoConstants.LatencyMode.Low3);

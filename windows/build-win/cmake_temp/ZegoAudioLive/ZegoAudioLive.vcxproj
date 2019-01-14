@@ -1,0 +1,492 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{14F3AA36-5797-3682-8056-2225DA2FAC82}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>ZegoAudioLive</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ZegoAudioLive.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">ZegoAudioLive</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ZegoAudioLive.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ZegoAudioLive</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive;D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive\ZegoAudioLive_autogen\include_Debug;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\..\include\ZegoAudioRoom;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include\QtCore;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\.\mkspecs\win32-msvc2013;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include\QtGui;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include\QtWidgets;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include\QtNetwork;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;UNICODE;_UNICODE;_SCL_SECURE_NO_WARNINGS;V_LOG;CURL_STATICLIB;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;UNICODE;_UNICODE;_SCL_SECURE_NO_WARNINGS;V_LOG;CURL_STATICLIB;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive;D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive\ZegoAudioLive_autogen\include_Debug;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\..\include\ZegoAudioRoom;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include\QtCore;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\.\mkspecs\win32-msvc2013;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include\QtGui;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include\QtWidgets;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include\QtNetwork;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive;D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive\ZegoAudioLive_autogen\include_Debug;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\..\include\ZegoAudioRoom;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include\QtCore;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\.\mkspecs\win32-msvc2013;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include\QtGui;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include\QtWidgets;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include\QtNetwork;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreBuildEvent>
+      <Message>Automatic MOC for target ZegoAudioLive</Message>
+      <Command>setlocal
+cd D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\CMake\bin\cmake.exe -E cmake_autogen D:/Zegolivedemo/projects/QT/AudioRoomDemo/build-win/cmake_temp/ZegoAudioLive/CMakeFiles/ZegoAudioLive_autogen.dir/AutogenInfo.cmake Debug
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Message>		</Message>
+      <Command>setlocal
+if exist D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/../libs/windows/x64_xp/$(Configuration)/zegoaudioroom.dll cmake -E copy D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/../libs/windows/x64_xp/$(Configuration)/zegoaudioroom.dll D:/Zegolivedemo/projects/QT/AudioRoomDemo/build-win/cmake_temp/ZegoAudioLive/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+if exist D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/msvc/x64/msvcp120.dll cmake -E copy D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/msvc/x64/msvcp120.dll D:/Zegolivedemo/projects/QT/AudioRoomDemo/build-win/cmake_temp/ZegoAudioLive/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+if exist D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/msvc/x64/msvcr120.dll cmake -E copy D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/msvc/x64/msvcr120.dll D:/Zegolivedemo/projects/QT/AudioRoomDemo/build-win/cmake_temp/ZegoAudioLive/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\Qt5Widgetsd.lib;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\Qt5Networkd.lib;zegoaudioroom.lib;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\Qt5Guid.lib;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\Qt5Cored.lib;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\qtmaind.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/../libs/windows/x64_xp;D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/../libs/windows/x64_xp/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/Zegolivedemo/projects/QT/AudioRoomDemo/build-win/cmake_temp/ZegoAudioLive/Debug/ZegoAudioLive.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/Zegolivedemo/projects/QT/AudioRoomDemo/build-win/cmake_temp/ZegoAudioLive/Debug/ZegoAudioLive.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive;D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive\ZegoAudioLive_autogen\include_Release;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\..\include\ZegoAudioRoom;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include\QtCore;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\.\mkspecs\win32-msvc2013;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include\QtGui;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include\QtWidgets;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include\QtNetwork;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;UNICODE;_UNICODE;_SCL_SECURE_NO_WARNINGS;V_LOG;CURL_STATICLIB;QT_NO_DEBUG;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_WIDGETS_LIB;QT_NETWORK_LIB;UNICODE;_UNICODE;_SCL_SECURE_NO_WARNINGS;V_LOG;CURL_STATICLIB;QT_NO_DEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive;D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive\ZegoAudioLive_autogen\include_Release;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\..\include\ZegoAudioRoom;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include\QtCore;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\.\mkspecs\win32-msvc2013;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include\QtGui;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include\QtWidgets;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include\QtNetwork;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive;D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive\ZegoAudioLive_autogen\include_Release;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\..\include\ZegoAudioRoom;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include\QtCore;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\.\mkspecs\win32-msvc2013;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include\QtGui;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include\QtWidgets;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\include\QtNetwork;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PreBuildEvent>
+      <Message>Automatic MOC for target ZegoAudioLive</Message>
+      <Command>setlocal
+cd D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive
+if %errorlevel% neq 0 goto :cmEnd
+D:
+if %errorlevel% neq 0 goto :cmEnd
+D:\CMake\bin\cmake.exe -E cmake_autogen D:/Zegolivedemo/projects/QT/AudioRoomDemo/build-win/cmake_temp/ZegoAudioLive/CMakeFiles/ZegoAudioLive_autogen.dir/AutogenInfo.cmake Release
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Message>		</Message>
+      <Command>setlocal
+if exist D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/../libs/windows/x64_xp/$(Configuration)/zegoaudioroom.dll cmake -E copy D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/../libs/windows/x64_xp/$(Configuration)/zegoaudioroom.dll D:/Zegolivedemo/projects/QT/AudioRoomDemo/build-win/cmake_temp/ZegoAudioLive/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+if exist D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/msvc/x64/msvcp120.dll cmake -E copy D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/msvc/x64/msvcp120.dll D:/Zegolivedemo/projects/QT/AudioRoomDemo/build-win/cmake_temp/ZegoAudioLive/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+setlocal
+if exist D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/msvc/x64/msvcr120.dll cmake -E copy D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/msvc/x64/msvcr120.dll D:/Zegolivedemo/projects/QT/AudioRoomDemo/build-win/cmake_temp/ZegoAudioLive/$(Configuration)
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\Qt5Widgets.lib;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\Qt5Network.lib;zegoaudioroom.lib;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\Qt5Gui.lib;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\Qt5Core.lib;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\qtmain.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/../libs/windows/x64_xp;D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/../libs/windows/x64_xp/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>D:/Zegolivedemo/projects/QT/AudioRoomDemo/build-win/cmake_temp/ZegoAudioLive/Release/ZegoAudioLive.lib</ImportLibrary>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ProgramDataBaseFile>D:/Zegolivedemo/projects/QT/AudioRoomDemo/build-win/cmake_temp/ZegoAudioLive/Release/ZegoAudioLive.pdb</ProgramDataBaseFile>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\ZegoAudioLiveDialog.ui">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating ui_ZegoAudioLiveDialog.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\bin\uic.exe -o D:/Zegolivedemo/projects/QT/AudioRoomDemo/build-win/cmake_temp/ZegoAudioLive/ui_ZegoAudioLiveDialog.h D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/ZegoAudioLiveDialog.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/ZegoAudioLiveDialog.ui;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\ZegoAudioLiveDialog.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive\ui_ZegoAudioLiveDialog.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating ui_ZegoAudioLiveDialog.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\bin\uic.exe -o D:/Zegolivedemo/projects/QT/AudioRoomDemo/build-win/cmake_temp/ZegoAudioLive/ui_ZegoAudioLiveDialog.h D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/ZegoAudioLiveDialog.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/ZegoAudioLiveDialog.ui;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\ZegoAudioLiveDialog.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive\ui_ZegoAudioLiveDialog.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\ZegoMainDialog.ui">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating ui_ZegoMainDialog.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\bin\uic.exe -o D:/Zegolivedemo/projects/QT/AudioRoomDemo/build-win/cmake_temp/ZegoAudioLive/ui_ZegoMainDialog.h D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/ZegoMainDialog.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/ZegoMainDialog.ui;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\ZegoMainDialog.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive\ui_ZegoMainDialog.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating ui_ZegoMainDialog.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\bin\uic.exe -o D:/Zegolivedemo/projects/QT/AudioRoomDemo/build-win/cmake_temp/ZegoAudioLive/ui_ZegoMainDialog.h D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/ZegoMainDialog.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/ZegoMainDialog.ui;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\ZegoMainDialog.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive\ui_ZegoMainDialog.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\ZegoSettingsDialog.ui">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating ui_ZegoSettingsDialog.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\bin\uic.exe -o D:/Zegolivedemo/projects/QT/AudioRoomDemo/build-win/cmake_temp/ZegoAudioLive/ui_ZegoSettingsDialog.h D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/ZegoSettingsDialog.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/ZegoSettingsDialog.ui;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\ZegoSettingsDialog.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive\ui_ZegoSettingsDialog.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating ui_ZegoSettingsDialog.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\bin\uic.exe -o D:/Zegolivedemo/projects/QT/AudioRoomDemo/build-win/cmake_temp/ZegoAudioLive/ui_ZegoSettingsDialog.h D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/ZegoSettingsDialog.ui
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/ZegoSettingsDialog.ui;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\ZegoSettingsDialog.ui;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive\ui_ZegoSettingsDialog.h</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\ZegoMainDialog.qrc">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating qrc_ZegoMainDialog.cpp</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\bin\rcc.exe --name ZegoMainDialog --output D:/Zegolivedemo/projects/QT/AudioRoomDemo/build-win/cmake_temp/ZegoAudioLive/qrc_ZegoMainDialog.cpp D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/ZegoMainDialog.qrc
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/ZegoMainDialog.qrc;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\ZegoMainDialog.qrc;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive\qrc_ZegoMainDialog.cpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating qrc_ZegoMainDialog.cpp</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\bin\rcc.exe --name ZegoMainDialog --output D:/Zegolivedemo/projects/QT/AudioRoomDemo/build-win/cmake_temp/ZegoAudioLive/qrc_ZegoMainDialog.cpp D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/ZegoMainDialog.qrc
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/ZegoMainDialog.qrc;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\ZegoMainDialog.qrc;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive\qrc_ZegoMainDialog.cpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\style.qrc">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Generating qrc_style.cpp</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\bin\rcc.exe --name style --output D:/Zegolivedemo/projects/QT/AudioRoomDemo/build-win/cmake_temp/ZegoAudioLive/qrc_style.cpp D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/style.qrc
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/style.qrc;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\down_arrow.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\switch_off.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\switch_on.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\handle_default.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\handle_hover.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\handle_pressed.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\microphone_off.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\microphone_on.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\microphone_disabled.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\sound_off.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\sound_on.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\close.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\max.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\max_re.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\min.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\official.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\mic_icon_on.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\speaker_icon_on.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\mic_icon_off.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\speaker_icon_off.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\disconnect.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\down_arrow@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\switch_off@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\switch_on@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\handle_default@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\handle_hover@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\handle_pressed@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\microphone_off@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\microphone_on@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\microphone_disabled@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\sound_off@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\sound_on@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\close@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\max@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\max_re@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\min@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\official@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\mic_icon_on@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\speaker_icon_on@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\mic_icon_off@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\speaker_icon_off@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\disconnect@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\style.qrc;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive\qrc_style.cpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating qrc_style.cpp</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\bin\rcc.exe --name style --output D:/Zegolivedemo/projects/QT/AudioRoomDemo/build-win/cmake_temp/ZegoAudioLive/qrc_style.cpp D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/style.qrc
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/style.qrc;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\down_arrow.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\switch_off.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\switch_on.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\handle_default.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\handle_hover.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\handle_pressed.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\microphone_off.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\microphone_on.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\microphone_disabled.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\sound_off.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\sound_on.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\close.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\max.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\max_re.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\min.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\official.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\mic_icon_on.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\speaker_icon_on.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\mic_icon_off.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\speaker_icon_off.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@1x\disconnect.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\down_arrow@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\switch_off@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\switch_on@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\handle_default@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\handle_hover@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\handle_pressed@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\microphone_off@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\microphone_on@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\microphone_disabled@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\sound_off@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\sound_on@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\close@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\max@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\max_re@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\min@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\official@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\mic_icon_on@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\speaker_icon_on@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\mic_icon_off@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\speaker_icon_off@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\images\@2x\disconnect@2x.png;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\style.qrc;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive\qrc_style.cpp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\CMake\bin\cmake.exe -HD:/Zegolivedemo/projects/QT/AudioRoomDemo -BD:/Zegolivedemo/projects/QT/AudioRoomDemo/build-win/cmake_temp --check-stamp-file D:/Zegolivedemo/projects/QT/AudioRoomDemo/build-win/cmake_temp/ZegoAudioLive/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/CMakeLists.txt;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfig.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfigExtras.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfigExtrasMkspecDir.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfigVersion.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreMacros.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5GuiConfig.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5GuiConfigExtras.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5GuiConfigVersion.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QDDSPlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QGifPlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QICNSPlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QICOPlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QJpegPlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QMinimalIntegrationPlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QOffscreenIntegrationPlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QTgaPlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QTiffPlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QTuioTouchPlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QWbmpPlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QWebpPlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsIntegrationPlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Network\Qt5NetworkConfig.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Network\Qt5NetworkConfigVersion.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Network\Qt5Network_QGenericEnginePlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Network\Qt5Network_QNativeWifiEnginePlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfig.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigExtras.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigVersion.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Widgets\Qt5WidgetsMacros.cmake;D:\CMake\share\cmake-3.12\Modules\CMakeParseArguments.cmake;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\CMakeLists.txt;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\ZegoMainDialog.qrc;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\style.qrc;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\CMake\bin\cmake.exe -HD:/Zegolivedemo/projects/QT/AudioRoomDemo -BD:/Zegolivedemo/projects/QT/AudioRoomDemo/build-win/cmake_temp --check-stamp-file D:/Zegolivedemo/projects/QT/AudioRoomDemo/build-win/cmake_temp/ZegoAudioLive/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/Zegolivedemo/projects/QT/AudioRoomDemo/ZegoAudioLive/CMakeLists.txt;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfig.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfigExtras.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfigExtrasMkspecDir.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreConfigVersion.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Core\Qt5CoreMacros.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5GuiConfig.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5GuiConfigExtras.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5GuiConfigVersion.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QDDSPlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QGifPlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QICNSPlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QICOPlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QJpegPlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QMinimalIntegrationPlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QOffscreenIntegrationPlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QTgaPlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QTiffPlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QTuioTouchPlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QWbmpPlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QWebpPlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Gui\Qt5Gui_QWindowsIntegrationPlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Network\Qt5NetworkConfig.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Network\Qt5NetworkConfigVersion.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Network\Qt5Network_QGenericEnginePlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Network\Qt5Network_QNativeWifiEnginePlugin.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfig.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigExtras.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Widgets\Qt5WidgetsConfigVersion.cmake;C:\Qt_64\Qt5.7.1\5.7\msvc2013_64\lib\cmake\Qt5Widgets\Qt5WidgetsMacros.cmake;D:\CMake\share\cmake-3.12\Modules\CMakeParseArguments.cmake;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\CMakeLists.txt;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\ZegoMainDialog.qrc;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\style.qrc;D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Base\IncludeZegoAudioRoomApi.h" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Base\ZegoAudioLiveDefines.h" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Base\ZegoAudioLiveVersion.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Base\ZegoBase.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Base\ZegoBase.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Base\ZegoDialog.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Base\ZegoDialog.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Config\ZegoUserConfig.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Config\ZegoUserConfig.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Delegate\NoFocusFrameDelegate.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Delegate\NoFocusFrameDelegate.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Device\ZegoDeviceManager.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Device\ZegoDeviceManager.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Dialog\ZegoAudioLiveDialog.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Dialog\ZegoAudioLiveDialog.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Dialog\ZegoMainDialog.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Dialog\ZegoMainDialog.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Dialog\ZegoSettingsDialog.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Dialog\ZegoSettingsDialog.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Model\ZegoRoomModel.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Model\ZegoRoomModel.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Model\ZegoSettingsModel.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Model\ZegoSettingsModel.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Model\ZegoStreamModel.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Model\ZegoStreamModel.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Signal\ZegoSDKSignal.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Signal\ZegoSDKSignal.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\CursorPosCalculator.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\CursorPosCalculator.h" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\FramelessHelperPrivate.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\WidgetData.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\WidgetData.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\ZegoAudioView.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\ZegoAudioView.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\ZegoComboBox.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\ZegoComboBox.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\ZegoImageButton.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\ZegoImageButton.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\ZegoLabel.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\ZegoLabel.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\ZegoLogLabel.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\ZegoLogLabel.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\ZegoMicrophoneButton.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\ZegoMicrophoneButton.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\ZegoMircophone.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\ZegoMircophone.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\ZegoProgressIndicator.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\ZegoProgressIndicator.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\ZegoSlider.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\ZegoSlider.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\ZegoStateButton.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\ZegoStateButton.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\ZegoSwitchButton.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\ZegoSwitchButton.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\ZegoTextButton.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\ZegoTextButton.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\frameless_helper.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\UI\frameless_helper.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\ZegoAudioDemo.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\ZegoAudioDemo.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\main.cpp" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\zego_sdk_protocol.h" />
+    <ResourceCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\ZegoAudioLive\Resources\res.rc" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive\ui_ZegoAudioLiveDialog.h" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive\ui_ZegoMainDialog.h" />
+    <ClInclude Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive\ui_ZegoSettingsDialog.h" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive\qrc_ZegoMainDialog.cpp" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive\qrc_style.cpp" />
+    <ClCompile Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZegoAudioLive\ZegoAudioLive_autogen\mocs_compilation.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\Zegolivedemo\projects\QT\AudioRoomDemo\build-win\cmake_temp\ZERO_CHECK.vcxproj">
+      <Project>{DC4E0BE1-9B91-3BAB-8F3A-901D95E3F741}</Project>
+      <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

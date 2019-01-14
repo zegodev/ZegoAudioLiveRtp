@@ -11,6 +11,7 @@
 
 @interface ZegoAudioRoomApi (AudioIO)
 
+#if TARGET_OS_IPHONE
 /**
  启用外部音频采集
 
@@ -33,6 +34,8 @@
  @discussion InitSDK之后，推流之前调用
  */
 - (void)enableAECWhenHeadsetDetected:(bool)enable;
+
+#endif
 
 /**
  设置音频前处理函数
