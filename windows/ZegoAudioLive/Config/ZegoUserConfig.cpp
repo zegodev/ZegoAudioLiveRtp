@@ -33,7 +33,8 @@ void QZegoUserConfig::LoadConfig(void)
 	m_strUserId = QString::number(dist(rd), 10);
 	m_strUserName = QStringLiteral("windows-") + m_strUserId;
 
-	m_isUseTestEnv = false;
+	//默认开启测试环境以防用户用自己的APPID无法登陆房间
+	m_isUseTestEnv = true;
 
 	m_appVersion.m_versionMode = ZEGO_PROTOCOL_UDP;
 	m_appVersion.m_strAppID = 0;
