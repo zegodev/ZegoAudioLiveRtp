@@ -16,6 +16,7 @@ import com.zego.audioroomdemo.R;
 import com.zego.audioroomdemo.entity.ZegoUserInfo;
 import com.zego.zegoaudioroom.ZegoAudioStream;
 import com.zego.zegoavkit2.soundlevel.ZegoSoundLevelInfo;
+import com.zego.zegoliveroom.entity.ZegoStreamQuality;
 import com.zego.zegoliveroom.entity.ZegoUserState;
 
 import java.math.RoundingMode;
@@ -205,31 +206,19 @@ public class RecyclerGridViewAdapter extends RecyclerView.Adapter<RecyclerView.V
 
 
     @SuppressLint("StringFormatInvalid")
-    public void updateQualityUpdate(String streamId, CommonStreamQuality zegoStreamQuality) {
+    public void updateQualityUpdate(String streamId, ZegoStreamQuality zegoStreamQuality) {
         for (MyHolder myHolder : myHolders) {
             Object object = myHolder.mView.getTag();
             if (object != null && streamId != null && streamId.equals(object.toString())) {
                 Double audioBreakRate = zegoStreamQuality.audioBreakRate;
                 int rtt = zegoStreamQuality.rtt;
                 int pktLostRate = (int) (zegoStreamQuality.pktLostRate / (2.6));
-                myHolder.textViewCard_frame_rate.setText(audioBreakRate == -1 ? "" : mContext.getString(R.string.zg_btn_text_audio_break_rate, numberFormat.format(audioBreakRate)));
+                myHolder.textViewCard_frame_rate.setText(mContext.getString(R.string.zg_btn_text_audio_break_rate, numberFormat.format(audioBreakRate)));
                 myHolder.textViewDelay.setText(mContext.getString(R.string.zg_btn_text_delay, rtt));
                 myHolder.textViewPacket_loss_rate.setText(mContext.getString(R.string.zg_btn_text_packet_loss_rate, pktLostRate));
                 break;
             }
         }
-    }
-
-    public static class CommonStreamQuality {
-        public double audioFps;
-        public double videoFps;
-        public double vkbps;
-        public int rtt;
-        public int pktLostRate;
-        public int quality;
-        public int width;
-        public int height;
-        public double audioBreakRate;
     }
 
     // 定义内部类继承ViewHolder
