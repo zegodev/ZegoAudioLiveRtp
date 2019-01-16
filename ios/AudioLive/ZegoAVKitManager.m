@@ -19,7 +19,7 @@ static ZegoAudioRoomApi *g_ZegoApi = nil;
 // Demo 默认版本为 UDP
 ZegoAppType g_appType = ZegoAppTypeUDP;
 
-BOOL g_useTestEnv = NO;
+BOOL g_useTestEnv = YES;
 BOOL g_useAlphaEnv = NO;
 
 BOOL g_enableMediaPlayer = NO;
