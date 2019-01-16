@@ -16,14 +16,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.pgyersdk.update.PgyUpdateManager;
-import com.zego.audioroomdemo.activities.SessionActivity;
 import com.zego.audioroomdemo.activities.SettingsActivity;
 import com.zego.audioroomdemo.activities.ZegoPhoneActivity;
 import com.zego.audioroomdemo.utils.PrefUtils;
 import com.zego.audioroomdemo.utils.AppSignKeyUtils;
 import com.zego.zegoaudioroom.ZegoAudioRoom;
-import com.zego.zegoliveroom.constants.ZegoConstants;
-import com.zego.zegoliveroom.entity.ZegoExtPrepSet;
 
 import java.lang.ref.WeakReference;
 import java.text.SimpleDateFormat;
