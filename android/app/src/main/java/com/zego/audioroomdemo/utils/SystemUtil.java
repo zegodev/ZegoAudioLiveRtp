@@ -2,6 +2,7 @@ package com.zego.audioroomdemo.utils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -34,6 +35,15 @@ public class SystemUtil {
         return versionName;
     }
 
+    public static boolean isDebugVersion(Context context) {
+        try {
+            ApplicationInfo info = context.getApplicationInfo();
+            return (info.flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 
     static public String getOsInfo() {
 

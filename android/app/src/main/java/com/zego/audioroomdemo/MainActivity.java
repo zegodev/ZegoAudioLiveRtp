@@ -21,6 +21,7 @@ import com.zego.audioroomdemo.activities.SettingsActivity;
 import com.zego.audioroomdemo.activities.ZegoPhoneActivity;
 import com.zego.audioroomdemo.utils.PrefUtils;
 import com.zego.audioroomdemo.utils.AppSignKeyUtils;
+import com.zego.audioroomdemo.utils.SystemUtil;
 import com.zego.zegoaudioroom.ZegoAudioRoom;
 import com.zego.zegoliveroom.constants.ZegoConstants;
 import com.zego.zegoliveroom.entity.ZegoExtPrepSet;
@@ -176,12 +177,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateApk() {
-        /** 可选配置集成方式 **/
-        new PgyUpdateManager.Builder()
-                .setForced(false)                //设置是否强制更新
-                .setUserCanRetry(false)         //失败后是否提示重新下载
-                .setDeleteHistroyApk(false)     // 检查更新前是否删除本地历史 Apk， 默认为true
-                .register();
+        if (checkOrRequestPermission(1002) && !SystemUtil.isDebugVersion(this)) {
+            /** 可选配置集成方式 **/
+            new PgyUpdateManager.Builder()
+                    .setForced(false)                //设置是否强制更新
+                    .setUserCanRetry(false)         //失败后是否提示重新下载
+                    .setDeleteHistroyApk(false)     // 检查更新前是否删除本地历史 Apk， 默认为true
+                    .register();
+        }
     }
 
     @OnClick(R.id.btn_login_logout)
