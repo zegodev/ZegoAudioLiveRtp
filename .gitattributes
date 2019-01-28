@@ -1,3 +1,0 @@
-*.framework filter=lfs diff=lfs merge=lfs -text
-ios/libs/ZegoAudioRoom-all/iphoneos/ZegoAudioRoom.framework/ZegoAudioRoom filter=lfs diff=lfs merge=lfs -text
-ios/libs/ZegoAudioRoom-all/iphoneos_simulator/ZegoAudioRoom.framework/ZegoAudioRoom filter=lfs diff=lfs merge=lfs -text
