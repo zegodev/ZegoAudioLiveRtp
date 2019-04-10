@@ -2,7 +2,7 @@
   "project": "audiolive",
   "platform": "qt",
   "sdk_name": "zegoaudioroom",
-  "sdk_absolute_path_on_share": "\\\\192.168.1.3\\share\\zego_sdk\\zegoaudioroom_release_new\\zegoaudioroom_190104_192246_release-new-0-gcb20f711_audio_bn564_12_winxp\\windows\\zegoaudioroom_190104_192246_release-new-0-gcb20f711_audio_bn564_12_winxp.zip",
+  "sdk_absolute_path_on_share": "\\\\192.168.1.3\\share\\zego_sdk\\zegoaudioroom_release_new\\zegoaudioroom_190313_220227_release-new-0-gf6f00774_audio_bn621_12_win\\windows\\zegoaudioroom_190313_220227_release-new-0-gf6f00774_audio_bn621_12_win.zip",
   "copy_file_dirs": [
     {
       "src": "release/iphoneos_simulator",

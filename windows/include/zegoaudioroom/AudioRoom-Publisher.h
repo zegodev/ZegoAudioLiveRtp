@@ -33,6 +33,8 @@ namespace ZEGO
         
         ZEGO_API bool StartPublish();
         
+        ZEGO_API bool StartPublish(const char *pszStreamID);
+        
         ZEGO_API void StopPublish();
         
 		/**
@@ -89,6 +91,7 @@ namespace ZEGO
          
          @param bEnable true 打开，false 关闭。默认 false
          @return true 成功，false 失败
+         @attention 推流时可调用本 API 进行参数配置。连接耳麦时设置才实际生效。开启采集监听，主播方讲话后，会听到自己的声音。
          */
         ZEGO_API bool EnableLoopback(bool bEnable);
         
@@ -168,6 +171,14 @@ namespace ZEGO
          @attention 确保在推流前调用，只有纯 UDP 方案才可以调用此接口
          */
         ZEGO_API void EnableDTX(bool bEnable);
+
+        /**
+         是否开启语音活动检测
+
+         @param enable true 开启; false 关闭, 默认关闭
+         @attention 确保在推流前调用，只有纯 UDP 方案才可以调用此接口
+         */
+        ZEGO_API void EnableVAD(bool bEnable);
 
         /**
         OnPublishStateUpdate回调推流失败时，可以调用此函数再次进行推流

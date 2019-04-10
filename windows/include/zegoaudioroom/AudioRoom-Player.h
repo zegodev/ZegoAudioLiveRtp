@@ -15,6 +15,23 @@ namespace ZEGO
 {
     namespace AUDIOROOM
     {
+		/**
+		开始播放流
+
+		@param pszStreamID 播放流流 ID 
+		@attention 设置手动播放时有效
+		@return true 成功，false 失败
+		*/
+        ZEGO_API bool StartPlay(const char *pszStreamID);
+
+		/**
+		停止播放流
+
+		@param pszStreamID 流 ID
+		@attention 设置手动播放时有效
+		*/
+        ZEGO_API void StopPlay(const char *pszStreamID);
+
         /**
          获取 SDK 支持的最大同时播放流数
          
@@ -28,7 +45,6 @@ namespace ZEGO
          @param pCB 回调对象指针
          @return true 成功，false 失败
          */
-        
         ZEGO_API bool SetAudioLivePlayerCallback(IAudioLivePlayerCallback *pCB);
         
         /**

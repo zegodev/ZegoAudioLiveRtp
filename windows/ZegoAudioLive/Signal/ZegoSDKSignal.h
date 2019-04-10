@@ -54,6 +54,7 @@ protected:
 
 	//IAudioEngineCallback
 	//void OnAudioEngineStop() = 0;
+	void OnAudioEngineStart() override{}
 	void OnAudioEngineStop(){}
 
 	//IAudioLivePublisherCallback

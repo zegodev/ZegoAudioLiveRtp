@@ -67,6 +67,12 @@ namespace ZEGO
         ZEGO_API void SetManualPublish(bool bManual);
         
         /**
+         设置登录房间成功后是否需要手动播放直播
+         @param bManual 手动播放直播
+         */
+        ZEGO_API void SetManualPlay(bool bManual);
+
+        /**
          设置用户进入/退出房间是否通知其他用户
          @param bUserStateUpdate 用户状态是否通知
          @note 在InitSDK之后调用

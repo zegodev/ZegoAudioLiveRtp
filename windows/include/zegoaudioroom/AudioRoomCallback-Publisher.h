@@ -55,6 +55,12 @@ namespace ZEGO
 			*/
             virtual void OnAuxCallback(unsigned char *pData, int *pDataLen, int *pSampleRate, int *pNumChannels) {}
             
+			/// \breif 转推CDN状态通知
+            /// \param streamID 流ID
+            /// \param statesInfo 转推CDN状态信息列表
+            /// \param stateCount 状态信息列表个数
+            virtual void OnRelayCDNStateUpdate(const char *streamID, AV::ZegoStreamRelayCDNInfo* statesInfo, unsigned int statesInfoCount) {}
+			
             virtual ~IAudioLivePublisherCallback() {}
         };
     }

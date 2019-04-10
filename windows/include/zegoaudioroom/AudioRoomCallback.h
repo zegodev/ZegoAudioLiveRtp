@@ -107,6 +107,8 @@ namespace ZEGO
         class IAudioEngineCallback
         {
         public:
+            virtual void OnAudioEngineStart() = 0;
+            
             virtual void OnAudioEngineStop() = 0;
             
             virtual ~IAudioEngineCallback() {}
