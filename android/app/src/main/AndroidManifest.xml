@@ -63,9 +63,6 @@
             android:name=".activities.SettingsActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.SessionActivity"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".activities.ZegoLogShareActivity"
             android:screenOrientation="portrait" />
 

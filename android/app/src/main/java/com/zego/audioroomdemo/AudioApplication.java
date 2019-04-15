@@ -20,7 +20,7 @@ import java.util.ArrayList;
  * Created by realuei on 2017/4/13.
  */
 
-public class AudioApplication extends Application {
+public class AudioApplication extends android.support.multidex.MultiDexApplication {
 
     private ArrayList<String> logSet;
     private ZegoAudioRoom mZegoAudioRoom;
@@ -73,7 +73,6 @@ public class AudioApplication extends Application {
 
         ZegoAudioRoom.setUser(userId, userName);
         ZegoAudioRoom.setUseTestEnv(PrefUtils.getUseTestEnv());
-//        ZegoAudioRoom.enableAudioPrep(PrefUtils.isEnableAudioPrepare());
         ZegoExtPrepSet config = new ZegoExtPrepSet();
         config.encode = false;
         config.channel = 0;

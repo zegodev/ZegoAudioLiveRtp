@@ -349,19 +349,18 @@ public class SettingsActivity extends AppCompatActivity {
             }
         }
 
+        // appKey长度必须等于32位
+        byte[] signKey;
+        try {
+            signKey = AppSignKeyUtils.parseSignKeyFromString(appKey);
+        } catch (NumberFormatException e) {
+            Toast.makeText(this, R.string.zg_tip_appkey_must_32_bits, Toast.LENGTH_LONG).show();
+            etAppKey.requestFocus();
+            return;
+        }
 
         Intent resultIntent = null;
         if (appId != oldAppId) {
-            // appKey长度必须等于32位
-            byte[] signKey;
-            try {
-                signKey = AppSignKeyUtils.parseSignKeyFromString(appKey);
-            } catch (NumberFormatException e) {
-                Toast.makeText(this, R.string.zg_tip_appkey_must_32_bits, Toast.LENGTH_LONG).show();
-                etAppKey.requestFocus();
-                return;
-            }
-
             resultIntent = new Intent();
             resultIntent.putExtra("appId", appId);
             resultIntent.putExtra("signKey", signKey);

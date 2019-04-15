@@ -16,10 +16,12 @@ import com.zego.audioroomdemo.R;
 public class AppSignKeyUtils {
     @SuppressWarnings("unused")
 
-    /**  请开发者联系 ZEGO support 获取各自业务的 AppID 与 signKey
-     Demo 默认使用 UDP 模式，请填充该模式下的 AppID 与 signKey,其他模式不需要可不用填
-     AppID 填写样式示例：1234567890l
-     signKey 填写样式示例：{(byte)0x00,(byte)0x01,(byte)0x02} **/
+    /**
+     * 请提前在即构管理控制台获取 appID 与 appSign
+     * Demo 默认使用 UDP 模式，请填充该模式下的 AppID 与 appSign,其他模式不需要可不用填
+     * AppID 填写样式示例：1234567890l
+     * appSign 填写样式示例：{(byte)0x00,(byte)0x01,(byte)0x02,(byte)0x03}
+     **/
 
     static final private long RTMP_APP_ID = ;
 
@@ -28,13 +30,13 @@ public class AppSignKeyUtils {
     static final public long INTERNATIONAL_APP_ID = ;
 
 
-    final static private byte[] signData_rtmp = new byte[]{};
+    final static private byte[] signData_rtmp = ;
 
 
-    final static private byte[] signData_udp = new byte[]{};
+    final static private byte[] signData_udp = ;
 
 
-    final static private byte[] signData_international = new byte[]{};
+    final static private byte[] signData_international = ;
 
 
     static public boolean isInternationalProduct(long appId) {

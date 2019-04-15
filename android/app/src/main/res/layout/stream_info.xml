@@ -43,7 +43,7 @@
                 android:id="@+id/card_frame_rate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="卡顿率：0%"
+                android:text=""
                 android:textColor="@color/text_white"
                 android:textSize="@dimen/text_size_1" />
 
