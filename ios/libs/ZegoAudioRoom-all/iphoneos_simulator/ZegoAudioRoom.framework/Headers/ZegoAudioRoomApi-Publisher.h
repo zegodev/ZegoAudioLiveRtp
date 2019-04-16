@@ -61,7 +61,7 @@
  
  @param bEnable true 打开，false 关闭。默认 false
  @return true 成功，false 失败
- @discussion 推流时可调用本 API 进行参数配置。开启采集监听，主播方讲话后，会听到自己的声音。建议开发者开启采集监听功能时，要求用户连接耳麦，否则会使手机扬声器发出的声音被反复采集
+ @discussion 推流时可调用本 API 进行参数配置。连接耳麦时设置才实际生效。开启采集监听，主播方讲话后，会听到自己的声音。
  */
 - (bool)enableLoopback:(bool)bEnable;
 
@@ -123,6 +123,14 @@
 - (void)enableDTX:(bool)enable;
 
 /**
+ 是否开启语音活动检测
+
+ @param enable enable true 开启; false 关闭, 默认关闭
+ @discussion 在推流前调用，只有纯 UDP 方案才可以调用此接口
+ */
+- (void)enableVAD:(bool)enable;
+
+/**
  设置音频码率
  
  @param bitrate 码率
@@ -163,6 +171,14 @@
  @return true 成功 false 失败
  */
 - (bool)enableAEC:(bool)enable;
+
+/**
+ 设置回声消除模式
+ 
+ @param mode 回声消除模式
+ @discussion 建议在推流前调用设置
+ */
+- (void)setAECMode:(ZegoAPIAECMode)mode;
 
 /**
  音频采集噪声抑制开关

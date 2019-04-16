@@ -48,6 +48,8 @@ typedef void(^ZegoCustomCommandBlock)(int errorCode, NSString *roomID);
 
 /**
  触发日志上报
+ 
+ @discussion 在初始化 SDK 成功后调用
  */
 + (void)uploadLog;
 
@@ -269,8 +271,8 @@ typedef void(^ZegoCustomCommandBlock)(int errorCode, NSString *roomID);
 /**
  设备事件回调
  
- @param deviceName 设备名，支持摄像头和麦克风设备，参考 ZegoLiveRoomApiDefines.h 中定义
- @param errorCode 错误码。设备无错误不会回调，目前出错后的错误码均为 -1
+ @param deviceName 设备名，取值 "audio_device"
+ @param errorCode 错误码。
  @discussion 调用 [ZegoLiveRoomApi -setDeviceEventDelegate] 设置设备事件代理对象后，在此回调中获取设备状态或错
  */
 - (void)zego_onAudioDevice:(NSString *)deviceName error:(int)errorCode;
@@ -278,6 +280,11 @@ typedef void(^ZegoCustomCommandBlock)(int errorCode, NSString *roomID);
 @end
 
 @protocol ZegoAVEngineDelegate <NSObject>
+
+/**
+ 音视频引擎启动时回调
+ */
+- (void)onAVEngineStart;
 
 /**
  音视频引擎停止时回调

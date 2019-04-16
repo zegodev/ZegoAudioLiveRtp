@@ -169,7 +169,7 @@
  @param numOfChannels 通道数量，单通道
  @param bitDepth 位深度，16 bit
  @param type 音源类型，参考 ZegoAPIAudioRecordMask
- @discussion 开启音频录制并设置成功代理对象后，用户调用此 API 获取 SDK 录制的音频数据。用户可自行对数据进行处理，例如：存储等。SDK 发送音频数据的周期为 20ms。存储数据时注意取 sampleRate、numOfChannels、bitDepth 参数写包头信息
+ @discussion 开启音频录制并设置成功代理对象后，用户调用此 API 获取 SDK 录制的音频数据。用户可自行对数据进行处理，例如：存储等。存储数据时注意取 sampleRate、numOfChannels、bitDepth 参数写包头信息
  */
 - (void)onAudioRecord:(NSData *)audioData sampleRate:(int)sampleRate numOfChannels:(int)numOfChannels bitDepth:(int)bitDepth type:(unsigned int)type;
 
