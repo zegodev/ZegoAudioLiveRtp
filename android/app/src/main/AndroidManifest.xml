@@ -41,6 +41,16 @@
             android:value="5f2e8ac666a9894711cb2aff720a7ba8" />
 
         <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.zego.audioroomdemo.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <provider
             android:name="com.pgyersdk.PgyerProvider"
             android:authorities="${applicationId}.com.pgyer.provider"
             android:exported="false" />

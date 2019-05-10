@@ -26,6 +26,8 @@ public class PrefUtils {
 
     static private String KEY_APP_FLAVOR = "zego_app_flavor_index";
 
+    static private String KEY_APP_AUDIO_TRAFFIC_CONTROL = "zego_app_audio_traffic_control";
+
     static final private String Pref_key_App_Id = "zego_app_id";
 
     static final private String ZEGO_APP_TEST = "zego_app_test";
@@ -123,6 +125,10 @@ public class PrefUtils {
         editor.commit();
     }
 
+    public static boolean getAudioTrafficControl() {
+        return sInst.mPref.getBoolean(KEY_APP_AUDIO_TRAFFIC_CONTROL, false);
+    }
+
     public void setBooleanValue(String key, boolean value) {
         SharedPreferences.Editor editor = sInst.mPref.edit();
         editor.putBoolean(key, value);
@@ -160,7 +166,7 @@ public class PrefUtils {
     }
 
     public static boolean getUseTestEnv() {
-        return sInst.getBooleanValue(ZEGO_APP_TEST, true);
+        return sInst.getBooleanValue(ZEGO_APP_TEST, false);
     }
 
 
@@ -172,4 +178,7 @@ public class PrefUtils {
         return sInst.getBooleanValue(ZEGO_APP_WEBRTC, false);
     }
 
+    public static void enableAudioTrafficCtrl(boolean oldAudioTrafficCtrlValue) {
+        sInst.setBooleanValue(KEY_APP_AUDIO_TRAFFIC_CONTROL, oldAudioTrafficCtrlValue);
+    }
 }

@@ -87,9 +87,8 @@
     <string name="zg_toast_text_play_path_error">播放媒体音乐错误, 路径没有mp3文件</string>
     <string name="zg_btn_text_stop">停止</string>
     <string name="zg_btn_text_media_player">媒体播放器：</string>
-    <string name="zg_open_game_backround">打开游戏测试音乐</string>
-    <string name="zg_close_game_backround">关闭游戏测试音乐</string>
     <string name="zg_text_app_latency_low">低延迟模式(无法用于RTMP流)</string>
     <string name="zg_text_app_latency_normal">普通延迟模式</string>
     <string name="set_latency_mode">设置延迟模式 :</string>
+    <string name="zg_checkbox_audio_traffic_control">音频流量控制</string>
 </resources>

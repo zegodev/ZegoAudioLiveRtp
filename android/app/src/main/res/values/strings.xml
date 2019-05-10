@@ -83,10 +83,8 @@
     <string name="share_log">Share Log</string>
     <string name="back">back</string>
     <string name="share">share</string>
-    <string name="zg_open_game_backround">Open game test music</string>
-    <string name="zg_close_game_backround">Close game test music</string>
     <string name="zg_text_app_latency_low">Low latency mode (cannot be used for RTMP flow)</string>
-
+    <string name="zg_checkbox_audio_traffic_control">Audio Traffic Control</string>
     <string name="zg_text_app_latency_normal">Ordinary delay mode</string>
     <string name="set_latency_mode">Set delay mode :</string>
 

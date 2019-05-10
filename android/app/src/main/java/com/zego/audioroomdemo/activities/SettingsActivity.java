@@ -83,10 +83,14 @@ public class SettingsActivity extends AppCompatActivity {
     @Bind(R.id.tv_demo_version)
     public TextView tvDemoVersion;
 
+    @Bind(R.id.checkbox_audio_traffic_ctrl)
+    public CheckBox cbAudioTrafficCtrl;
+
 
     private boolean oldUseTestEnvValue;
     private boolean oldAudioPrepareValue;
     private boolean oldManualPublishValue;
+    private boolean oldAudioTrafficCtrlValue = false;
     private String oldUserName;
     private String oldUserId;
     private long appId = 0;
@@ -104,6 +108,10 @@ public class SettingsActivity extends AppCompatActivity {
 
                 case R.id.checkbox_use_test_env:
                     AudioApplication.sApplication.setUseTestEnv(isChecked);
+                    break;
+
+                case R.id.checkbox_audio_traffic_ctrl:
+                    oldAudioTrafficCtrlValue = isChecked;
                     break;
             }
         }
@@ -171,18 +179,10 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
+        oldAudioTrafficCtrlValue = PrefUtils.getAudioTrafficControl();
 
-//        oldAppId = (startIntent != null) ? startIntent.getLongExtra("appId", -1) : -1;
-//        if (AppSignKeyUtils.isUdpProduct(oldAppId) || oldAppId == -1L) {
-//            spAppFlavors.setSelection(0);
-//            startIntent.removeExtra("appId");
-//        } else if (AppSignKeyUtils.isInternationalProduct(oldAppId)) {
-//            spAppFlavors.setSelection(1);
-//            startIntent.removeExtra("appId");
-//        } else {
-//            spAppFlavors.setSelection(2);
-//        }
 
+        cbAudioTrafficCtrl.setChecked(oldAudioTrafficCtrlValue);
         spAppFlavors.setSelection(PrefUtils.getCurrentAppFlavor());
 
         oldUserId = PrefUtils.getUserId();
@@ -243,6 +243,8 @@ public class SettingsActivity extends AppCompatActivity {
                 }
             }
         });
+
+        cbAudioTrafficCtrl.setOnCheckedChangeListener(checkedChangeListener);
 
     }
 
@@ -378,6 +380,11 @@ public class SettingsActivity extends AppCompatActivity {
         if (!TextUtils.equals(userName, oldUserName)
                 && !TextUtils.isEmpty(userName)) {
             PrefUtils.setUserName(userName);
+            reInitSDK = true;
+        }
+
+        if (oldAudioTrafficCtrlValue != PrefUtils.getAudioTrafficControl()) {
+            PrefUtils.enableAudioTrafficCtrl(oldAudioTrafficCtrlValue);
             reInitSDK = true;
         }
 

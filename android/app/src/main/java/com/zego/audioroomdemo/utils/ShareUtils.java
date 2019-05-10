@@ -3,6 +3,8 @@ package com.zego.audioroomdemo.utils;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
+import android.support.v4.content.FileProvider;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -16,6 +18,7 @@ import java.util.Date;
  */
 
 public class ShareUtils {
+
     static final public void sendFiles(File[] fileList, Activity activity) {
         File cacheDir = activity.getExternalCacheDir();
         if (cacheDir == null || !cacheDir.canWrite()) {
@@ -38,13 +41,20 @@ public class ShareUtils {
         File zipFile = new File(cacheDir, zipFileName);
 
         try {
-            ZipUtil.zipFiles(fileList, zipFile, "Zego AudioRoomDemo 日志信息");
+            ZipUtil.zipFiles(fileList, zipFile, "Zego LiveDemo5 日志信息");
 
             Intent shareIntent = new Intent(Intent.ACTION_SEND);
-//            shareIntent.setDataAndType(Uri.fromFile(zipFile), "application/zip");//getMimeType(logFile));
-            shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(zipFile));
-            shareIntent.setType("application/zip");//getMimeType(logFile));
-//            shareIntent.putExtra(Intent.EXTRA_TEXT, "ZegoLiveDemo5 日志信息");
+            Uri uri;
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
+                uri = FileProvider.getUriForFile(activity, "com.zego.audioroomdemo.fileProvider", zipFile);
+            }else {
+                uri = Uri.fromFile(zipFile);
+            }
+
+            shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
+            shareIntent.setType("application/zip");
+
             shareIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK
                     | Intent.FLAG_ACTIVITY_NEW_TASK
                     | Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -53,4 +63,5 @@ public class ShareUtils {
             e.printStackTrace();
         }
     }
+
 }

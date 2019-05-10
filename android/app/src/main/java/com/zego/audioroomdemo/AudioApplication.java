@@ -80,8 +80,6 @@ public class AudioApplication extends android.support.multidex.MultiDexApplicati
         config.samples = 1;
         ZegoAudioRoom.enableAudioPrep2(PrefUtils.isEnableAudioPrepare(), config);
 
-        // 始终关闭回声消除，避免混音时人声卡顿
-        //ZegoAudioRoom.setAudioDeviceMode(ZegoConstants.AudioDeviceMode.General);
         mZegoAudioRoom = new ZegoAudioRoom();
         mZegoAudioRoom.setManualPublish(PrefUtils.isManualPublish());
         long appId;
@@ -102,9 +100,13 @@ public class AudioApplication extends android.support.multidex.MultiDexApplicati
         }
 
 
+
         ZegoAudioRoom.setBusinessType(PrefUtils.getBusinessType());
         ZegoLiveRoom.setConfig("audio_device_detect_headset=true");
         mZegoAudioRoom.initWithAppId(appId, signKey, this);
+
+        // 启用音频流量控制 需要在初始化之后设置
+        mZegoAudioRoom.enableAudioTrafficControl(PrefUtils.getAudioTrafficControl());
 
         mZegoAudioRoom.setLatencyMode(ZegoConstants.LatencyMode.Low3);
 

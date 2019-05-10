@@ -30,13 +30,13 @@ public class AppSignKeyUtils {
     static final public long INTERNATIONAL_APP_ID = ;
 
 
-    final static private byte[] signData_rtmp = ;
+    final static private byte[] appSign_rtmp = ;
 
 
-    final static private byte[] signData_udp = ;
+    final static private byte[] appSign_udp = ;
 
 
-    final static private byte[] signData_international = ;
+    final static private byte[] appSign_international = ;
 
 
     static public boolean isInternationalProduct(long appId) {
@@ -49,11 +49,11 @@ public class AppSignKeyUtils {
 
     static public byte[] requestSignKey(long appId) {
         if (appId == UDP_APP_ID) {
-            return signData_udp;
+            return appSign_udp;
         } else if (appId == INTERNATIONAL_APP_ID) {
-            return signData_international;
+            return appSign_international;
         } else if (appId == RTMP_APP_ID) {
-            return signData_rtmp;
+            return appSign_rtmp;
         }
         return null;
     }
@@ -72,10 +72,10 @@ public class AppSignKeyUtils {
     }
 
 
-    static public String convertSignKey2String(byte[] signKey) {
-        if (signKey != null) {
+    static public String convertSignKey2String(byte[] appSign) {
+        if (appSign != null) {
             StringBuilder buffer = new StringBuilder();
-            for (int b : signKey) {
+            for (int b : appSign) {
                 buffer.append("0x").append(Integer.toHexString((b & 0x000000FF) | 0xFFFFFF00).substring(6)).append(",");
             }
             buffer.setLength(buffer.length() - 1);
@@ -85,10 +85,10 @@ public class AppSignKeyUtils {
         }
     }
 
-    static public byte[] parseSignKeyFromString(String strSignKey) throws NumberFormatException {
-        String[] keys = strSignKey.split(",");
+    static public byte[] parseSignKeyFromString(String strAppSign) throws NumberFormatException {
+        String[] keys = strAppSign.split(",");
         if (keys.length != 32) {
-            throw new NumberFormatException("App Sign Key Illegal");
+            throw new NumberFormatException("App Sign Illegal");
         }
         byte[] byteSignKey = new byte[32];
         for (int i = 0; i < 32; i++) {

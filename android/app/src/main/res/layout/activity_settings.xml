@@ -244,6 +244,26 @@
                     android:text="" />
             </RelativeLayout>
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/zg_checkbox_audio_traffic_control" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_audio_traffic_ctrl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:gravity="right|center_vertical"
+                    android:text="" />
+            </RelativeLayout>
 
             <Button
                 android:id="@+id/share_log_button"
