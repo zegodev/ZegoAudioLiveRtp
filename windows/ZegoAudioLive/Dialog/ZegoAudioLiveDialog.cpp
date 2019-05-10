@@ -127,6 +127,9 @@ void ZegoAudioLiveDialog::initDialog()
 	//开启麦克风声音监听
 	SOUNDLEVEL::StartSoundLevelMonitor();
 
+	//音频流控
+	AUDIOROOM::EnableAudioTrafficControl(mBase.getUseAudioBitrateControll());
+
 	m_strRoomID = m_pChatRoom->getRoomId();
 	if (!AUDIOROOM::LoginRoom(qtoc(m_strRoomID)))
 	{

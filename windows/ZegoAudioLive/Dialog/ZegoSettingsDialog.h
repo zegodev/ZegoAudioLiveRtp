@@ -37,6 +37,8 @@ private slots:
 	void on_m_bUploadLog_clicked();
 	void on_m_switchTestEnv_clicked();
 	
+	void on_m_audioBitrateControll_clicked();
+
 	//全局槽
 	void OnChangedSettingsConfig();
 	//ComboBox槽
@@ -75,6 +77,8 @@ private:
 	int m_tmpVersionMode;
 	//暂时保存切换测试环境(不一定保存)
 	bool m_tmpUseTestEnv = false;
+	//暂时保存音频流控开关(不一定保存)
+	bool m_tmpAudioBitrateControll = true;
 	//暂时保存切换SurfaceMerge(不一定保存)
 	bool m_tmpUseSurfaceMerge = false;
 	//暂时保存VideoSettings(不一定保存)

@@ -6,9 +6,9 @@
 
 QZegoUserConfig::QZegoUserConfig()
 {
-	//ç”Ÿæˆiniæ–‡ä»¶,ç”¨äºåœ¨æœ¬åœ°ä¿å­˜ç”¨æˆ·é…ç½®ä¿¡æ¯
+	//Éú³ÉiniÎÄ¼ş,ÓÃÓÚÔÚ±¾µØ±£´æÓÃ»§ÅäÖÃĞÅÏ¢
 	m_strIniPath = QStringLiteral("Config/ZegoUserConfig.ini");
-	//ç”Ÿæˆé…ç½®æ—¶é»˜è®¤ç”¨UDP
+	//Éú³ÉÅäÖÃÊ±Ä¬ÈÏÓÃUDP
 	m_appVersion.m_versionMode = ZEGO_PROTOCOL_UDP;
 }
 
@@ -26,14 +26,14 @@ void QZegoUserConfig::LoadConfig(void)
 		return;
 	}
 
-	//éšæœºç”Ÿæˆç¼–å·ä¸º10000000-99999999çš„ç”¨æˆ·ID
+	//Ëæ»úÉú³É±àºÅÎª10000000-99999999µÄÓÃ»§ID
 	std::random_device rd;
 	std::uniform_int_distribution<int> dist(10000000, 99999999);
 	//int to QString
 	m_strUserId = QString::number(dist(rd), 10);
 	m_strUserName = QStringLiteral("windows-") + m_strUserId;
 
-	m_isUseTestEnv = true;
+	m_isUseTestEnv = false;
 
 	m_appVersion.m_versionMode = ZEGO_PROTOCOL_UDP;
 	m_appVersion.m_strAppID = 0;
@@ -69,7 +69,7 @@ bool QZegoUserConfig::LoadConfigInternal(void)
 	int nAppVer = configIni->value("/sUserRecords/kAppVersion").toInt();
 	unsigned int nAppId = configIni->value("/sUserRecords/kAppId").toLongLong();
 	QString nAppSign = configIni->value("/sUserRecords/kAppSign").toString();
-	//è¯»iniæ–‡ä»¶å®Œæ¯•åé‡Šæ”¾æŒ‡é’ˆ
+	//¶ÁiniÎÄ¼şÍê±ÏºóÊÍ·ÅÖ¸Õë
 	delete configIni;
 
 	if (strUserId.isEmpty() || strUserName.isEmpty())

@@ -29,6 +29,9 @@ public :
 	void setIsTestEnv(bool isTest);
 	bool getUseTestEnv();
 
+	void setUseAudioBitrateControll(bool bUse);
+	bool getUseAudioBitrateControll();
+
 	QZegoSDKSignal* GetAVSignal(void);
 	unsigned long GetAppID(void);
 	unsigned long GetAppIDwithKey(int key);
@@ -44,6 +47,8 @@ private :
 
 	//默认不使用测试环境
 	bool isTestEnv = false;
+	//默认使用音频流控
+	bool isAudioBitrateControll = true;
 
 	//appid、appsign默认为UDP版本
 	int key = Version::ZEGO_PROTOCOL_UDP;

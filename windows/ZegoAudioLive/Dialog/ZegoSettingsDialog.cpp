@@ -49,6 +49,8 @@ void ZegoSettingsDialog::initDialog()
 	m_tmpVersionMode = m_versionMode;
 	m_tmpUseTestEnv = mBase.getUseTestEnv();
 
+	m_tmpAudioBitrateControll = mBase.getUseAudioBitrateControll();
+
 	//高级设置app版本为UDP,RTMP，国际版时，不用设置appid和appsign，默认为UDP
 	if (m_versionMode == Version::ZEGO_PROTOCOL_UDP || m_versionMode == Version::ZEGO_PROTOCOL_UDP_INTERNATIONAL)
 	{
@@ -77,7 +79,10 @@ void ZegoSettingsDialog::initDialog()
 	if (mBase.getUseTestEnv())
 		ui.m_switchTestEnv->setChecked(true);
 
-	qDebug() << "当前App版本为：" << m_versionMode << " AppID: " << theApp.GetBase().GetAppID() << "是否使用测试环境：" << theApp.GetBase().getUseTestEnv();
+	if (!mBase.getUseAudioBitrateControll())
+		ui.m_audioBitrateControll->setChecked(false);
+
+	qDebug() << "当前App版本为：" << m_versionMode << " AppID: " << theApp.GetBase().GetAppID() << "是否使用测试环境：" << theApp.GetBase().getUseTestEnv()<<" 是否使用音频流控: "<<theApp.GetBase().getUseAudioBitrateControll();
 	
 	//初始化app版本的ComboBox
 	ui.m_cbAppVersion->addItem(tr("国内版"));
@@ -96,6 +101,8 @@ void ZegoSettingsDialog::initButtonIcon()
 	ui.m_bMin->setButtonIcon("min");
 
 	ui.m_switchTestEnv->setButtonIcon("switch");
+	ui.m_audioBitrateControll->setButtonIcon("switch");
+	ui.m_audioBitrateControll->setChecked(true);
 }
 
 QVector<QString> ZegoSettingsDialog::handleAppSign(QString appSign)
@@ -219,6 +226,11 @@ void ZegoSettingsDialog::on_m_bSaveSettings_clicked()
 		mConfig.setAppVersion(saveVersion);
 	}
 
+	if (m_tmpAudioBitrateControll != mBase.getUseAudioBitrateControll())
+	{
+		mBase.setUseAudioBitrateControll(m_tmpAudioBitrateControll);
+	}
+
 	//根据用户所改变的设定重新InitSDK
 	if (m_isNeedReInstallSDK)
 	{
@@ -262,6 +274,23 @@ void ZegoSettingsDialog::on_m_switchTestEnv_clicked()
 	}
 
 	m_isNeedReInstallSDK = true;
+	emit sigChangedSettingsConfig();
+}
+
+void ZegoSettingsDialog::on_m_audioBitrateControll_clicked()
+{
+	if (ui.m_audioBitrateControll->isChecked())
+	{
+		qDebug() << " audio bitrate controll checked";
+		m_tmpAudioBitrateControll = true;
+
+	}
+	else
+	{
+		qDebug() << " audio bitrate controll unchecked";
+		m_tmpAudioBitrateControll = false;
+	}
+
 	emit sigChangedSettingsConfig();
 }
 

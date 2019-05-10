@@ -40,7 +40,7 @@ namespace ZEGO
 		/**
 		设置或更新推流的附加信息
 
-		@param pszStreamExtraInfo 流附加信息
+		@param pszStreamExtraInfo 流附加信息, 最大为 1024 字节
 		@return 更新流附加信息成功后，同一房间内的其他人会收到 OnStreamExtraInfoUpdated 通知
 		*/
 		ZEGO_API bool SetPublishStreamExtraInfo(const char *pszStreamExtraInfo);
@@ -65,7 +65,7 @@ namespace ZEGO
         /**
          设置音频设备模式
          
-         @param mode 模式
+         @param mode 模式，默认 ZEGO_AUDIO_DEVICE_MODE_AUTO
          @attention 确保在 Init 前调用
          */
         ZEGO_API void SetAudioDeviceMode(AV::ZegoAVAPIAudioDeviceMode mode);
@@ -186,6 +186,13 @@ namespace ZEGO
         */
         ZEGO_API bool RestartPublishStream();
         
+        
+        /**
+         设置是否开启音频流量控制
+
+         @param bEnable true 开启; false 关闭
+         */
+        ZEGO_API void EnableAudioTrafficControl(bool bEnable);
     }
 }
 #endif /* AudioRoom_Publisher_h */

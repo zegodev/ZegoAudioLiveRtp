@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>350</width>
-    <height>500</height>
+    <height>600</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>350</width>
-    <height>500</height>
+    <height>600</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>350</width>
-    <height>500</height>
+    <height>600</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -391,7 +391,7 @@ background-color: #0e88eb;</string>
          </item>
          <item>
           <widget class="QWidget" name="m_zoneUserConfig" native="true">
-           <layout class="QVBoxLayout" name="verticalLayout_3">
+           <layout class="QVBoxLayout" name="verticalLayout_2">
             <property name="spacing">
              <number>0</number>
             </property>
@@ -642,114 +642,109 @@ background-color: #0e88eb;</string>
              </layout>
             </item>
             <item>
-             <layout class="QVBoxLayout" name="verticalLayout_2">
+             <spacer name="verticalSpacer">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_4">
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>-1</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-family: 微软雅黑;
+     font-size: 14px;
+	 color: #666666;</string>
+              </property>
+              <property name="text">
+               <string>Environment</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_9">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>13</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
               <property name="spacing">
                <number>0</number>
               </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
               <item>
-               <spacer name="verticalSpacer">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
-                </property>
-                <property name="sizeType">
-                 <enum>QSizePolicy::Fixed</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>20</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_4">
-                <property name="font">
-                 <font>
-                  <family>微软雅黑</family>
-                  <pointsize>-1</pointsize>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">font-family: 微软雅黑;
-     font-size: 14px;
-	 color: #666666;</string>
-                </property>
-                <property name="text">
-                 <string>Environment</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="verticalSpacer_9">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
-                </property>
-                <property name="sizeType">
-                 <enum>QSizePolicy::Fixed</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>20</width>
-                  <height>10</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_3">
+               <layout class="QHBoxLayout" name="horizontalLayout">
                 <property name="spacing">
                  <number>0</number>
                 </property>
-                <property name="rightMargin">
-                 <number>0</number>
-                </property>
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout">
-                  <property name="spacing">
-                   <number>0</number>
-                  </property>
-                  <item>
-                   <widget class="QLabel" name="label_7">
-                    <property name="styleSheet">
-                     <string notr="true">font-family: 微软雅黑;
+                 <widget class="QLabel" name="label_7">
+                  <property name="styleSheet">
+                   <string notr="true">font-family: 微软雅黑;
      font-size: 14px;
 	 color: #666666;</string>
-                    </property>
-                    <property name="text">
-                     <string>App 版本</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <spacer name="horizontalSpacer_22">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>40</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                  <item>
-                   <widget class="QComboBox" name="m_cbAppVersion">
-                    <property name="minimumSize">
-                     <size>
-                      <width>120</width>
-                      <height>30</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>120</width>
-                      <height>30</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true"> QComboBox{
+                  </property>
+                  <property name="text">
+                   <string>App 版本</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_22">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="m_cbAppVersion">
+                  <property name="minimumSize">
+                   <size>
+                    <width>120</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>120</width>
+                    <height>30</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true"> QComboBox{
      padding-left: 10px;
  }
 
@@ -827,13 +822,46 @@ QComboBox::drop-down{
 	 padding-left: 10px;
 	 padding-right: 10px;
  }</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_3">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Fixed</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>10</width>
+                  <height>10</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_2">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QLabel" name="label_8">
+                  <property name="styleSheet">
+                   <string notr="true">font-family: 微软雅黑;
+     font-size: 14px;
+	 color: #666666;</string>
+                  </property>
+                  <property name="text">
+                   <string>测试环境</string>
+                  </property>
+                 </widget>
                 </item>
                 <item>
-                 <spacer name="horizontalSpacer_3">
+                 <spacer name="horizontalSpacer_12">
                   <property name="orientation">
                    <enum>Qt::Horizontal</enum>
                   </property>
@@ -843,287 +871,381 @@ QComboBox::drop-down{
                   <property name="sizeHint" stdset="0">
                    <size>
                     <width>10</width>
-                    <height>10</height>
+                    <height>20</height>
                    </size>
                   </property>
                  </spacer>
                 </item>
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_2">
-                  <property name="spacing">
-                   <number>0</number>
+                 <widget class="ZegoSwitchButton" name="m_switchTestEnv">
+                  <property name="minimumSize">
+                   <size>
+                    <width>32</width>
+                    <height>16</height>
+                   </size>
                   </property>
-                  <item>
-                   <widget class="QLabel" name="label_8">
-                    <property name="styleSheet">
-                     <string notr="true">font-family: 微软雅黑;
-     font-size: 14px;
-	 color: #666666;</string>
-                    </property>
-                    <property name="text">
-                     <string>测试环境</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <spacer name="horizontalSpacer_12">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="sizeType">
-                     <enum>QSizePolicy::Fixed</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>10</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                  <item>
-                   <widget class="ZegoSwitchButton" name="m_switchTestEnv">
-                    <property name="minimumSize">
-                     <size>
-                      <width>32</width>
-                      <height>16</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>32</width>
-                      <height>16</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QPushButton:!checked{
+                  <property name="maximumSize">
+                   <size>
+                    <width>32</width>
+                    <height>16</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QPushButton:!checked{
      border-image: url(:/Resources/images/switch_off.png);
  }
 
  QPushButton:checked{
      border-image: url(:/Resources/images/switch_on.png);
  }</string>
-                    </property>
-                    <property name="text">
-                     <string/>
-                    </property>
-                    <property name="checkable">
-                     <bool>true</bool>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="checkable">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>13</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout">
+              <property name="spacing">
+               <number>15</number>
+              </property>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_18">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QLabel" name="m_lbAPPID_2">
+                  <property name="styleSheet">
+                   <string notr="true"> QLabel{
+     font-family: 微软雅黑;
+     font-size: 14px;
+	 color: #666666;
+ }</string>
+                  </property>
+                  <property name="text">
+                   <string>APP ID</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_19">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="m_strEdAPPID">
+                  <property name="minimumSize">
+                   <size>
+                    <width>230</width>
+                    <height>32</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>230</width>
+                    <height>32</height>
+                   </size>
+                  </property>
+                  <property name="focusPolicy">
+                   <enum>Qt::ClickFocus</enum>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLineEdit{
+     padding-left: 10px;
+ }
+
+ QLineEdit:!hover{
+     border: 1px solid #e6e6e6;
+     border-radius: 2px;
+     font-family: 微软雅黑;
+     font-size: 16px;
+	 background-color: #fdfdfd;
+	 color: #666666;
+ }
+
+ QLineEdit:hover:!focus{
+     border: 1px solid #0e88eb;
+     border-radius: 2px;
+     font-family: 微软雅黑;
+     font-size: 16px;
+	 background-color: #fdfdfd;
+	 color: #666666;
+ }
+
+ QLineEdit:focus{
+     border: 1px solid #0e88eb;
+     border-radius: 2px;
+     font-family: 微软雅黑;
+     font-size: 16px;
+	 background-color: #ffffff;
+ }</string>
+                  </property>
+                 </widget>
                 </item>
                </layout>
               </item>
               <item>
-               <spacer name="verticalSpacer_2">
+               <layout class="QHBoxLayout" name="horizontalLayout_19">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QLabel" name="m_lbAPPSign_2">
+                  <property name="styleSheet">
+                   <string notr="true"> QLabel{
+     font-family: 微软雅黑;
+     font-size: 14px;
+	 color: #666666;
+ }</string>
+                  </property>
+                  <property name="text">
+                   <string>APP Sign</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_20">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="m_strEdAPPSign">
+                  <property name="minimumSize">
+                   <size>
+                    <width>230</width>
+                    <height>32</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>230</width>
+                    <height>32</height>
+                   </size>
+                  </property>
+                  <property name="focusPolicy">
+                   <enum>Qt::StrongFocus</enum>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">QLineEdit{
+     padding-left: 10px;
+ }
+
+ QLineEdit:!hover{
+     border: 1px solid #e6e6e6;
+     border-radius: 2px;
+     font-family: 微软雅黑;
+     font-size: 16px;
+	 background-color: #fdfdfd;
+	 color: #666666;
+ }
+
+ QLineEdit:hover:!focus{
+     border: 1px solid #0e88eb;
+     border-radius: 2px;
+     font-family: 微软雅黑;
+     font-size: 16px;
+	 background-color: #fdfdfd;
+	 color: #666666;
+ }
+
+ QLineEdit:focus{
+     border: 1px solid #0e88eb;
+     border-radius: 2px;
+     font-family: 微软雅黑;
+     font-size: 16px;
+	 background-color: #ffffff;
+ }</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_4">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_5">
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>-1</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">font-family: 微软雅黑;
+     font-size: 14px;
+	 color: #666666;</string>
+              </property>
+              <property name="text">
+               <string>Advanced</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_12">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>13</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_6">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="label_9">
+                <property name="styleSheet">
+                 <string notr="true">font-family: 微软雅黑;
+     font-size: 14px;
+	 color: #666666;</string>
+                </property>
+                <property name="text">
+                 <string>音频流控</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_13">
                 <property name="orientation">
-                 <enum>Qt::Vertical</enum>
+                 <enum>Qt::Horizontal</enum>
                 </property>
                 <property name="sizeType">
                  <enum>QSizePolicy::Fixed</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
-                  <width>20</width>
-                  <height>10</height>
+                  <width>13</width>
+                  <height>20</height>
                  </size>
                 </property>
                </spacer>
               </item>
               <item>
-               <layout class="QVBoxLayout" name="verticalLayout">
-                <property name="spacing">
-                 <number>15</number>
+               <widget class="ZegoSwitchButton" name="m_audioBitrateControll">
+                <property name="minimumSize">
+                 <size>
+                  <width>32</width>
+                  <height>16</height>
+                 </size>
                 </property>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_18">
-                  <property name="spacing">
-                   <number>0</number>
-                  </property>
-                  <item>
-                   <widget class="QLabel" name="m_lbAPPID_2">
-                    <property name="styleSheet">
-                     <string notr="true"> QLabel{
-     font-family: 微软雅黑;
-     font-size: 14px;
-	 color: #666666;
+                <property name="maximumSize">
+                 <size>
+                  <width>32</width>
+                  <height>16</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QPushButton:!checked{
+     border-image: url(:/Resources/images/switch_off.png);
+ }
+
+ QPushButton:checked{
+     border-image: url(:/Resources/images/switch_on.png);
  }</string>
-                    </property>
-                    <property name="text">
-                     <string>APP ID</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <spacer name="horizontalSpacer_19">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>40</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                  <item>
-                   <widget class="QLineEdit" name="m_strEdAPPID">
-                    <property name="minimumSize">
-                     <size>
-                      <width>230</width>
-                      <height>32</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>230</width>
-                      <height>32</height>
-                     </size>
-                    </property>
-                    <property name="focusPolicy">
-                     <enum>Qt::ClickFocus</enum>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QLineEdit{
-     padding-left: 10px;
- }
-
- QLineEdit:!hover{
-     border: 1px solid #e6e6e6;
-     border-radius: 2px;
-     font-family: 微软雅黑;
-     font-size: 16px;
-	 background-color: #fdfdfd;
-	 color: #666666;
- }
-
- QLineEdit:hover:!focus{
-     border: 1px solid #0e88eb;
-     border-radius: 2px;
-     font-family: 微软雅黑;
-     font-size: 16px;
-	 background-color: #fdfdfd;
-	 color: #666666;
- }
-
- QLineEdit:focus{
-     border: 1px solid #0e88eb;
-     border-radius: 2px;
-     font-family: 微软雅黑;
-     font-size: 16px;
-	 background-color: #ffffff;
- }</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_19">
-                  <property name="spacing">
-                   <number>0</number>
-                  </property>
-                  <item>
-                   <widget class="QLabel" name="m_lbAPPSign_2">
-                    <property name="styleSheet">
-                     <string notr="true"> QLabel{
-     font-family: 微软雅黑;
-     font-size: 14px;
-	 color: #666666;
- }</string>
-                    </property>
-                    <property name="text">
-                     <string>APP Sign</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <spacer name="horizontalSpacer_20">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>40</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                  <item>
-                   <widget class="QLineEdit" name="m_strEdAPPSign">
-                    <property name="minimumSize">
-                     <size>
-                      <width>230</width>
-                      <height>32</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>230</width>
-                      <height>32</height>
-                     </size>
-                    </property>
-                    <property name="focusPolicy">
-                     <enum>Qt::StrongFocus</enum>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">QLineEdit{
-     padding-left: 10px;
- }
-
- QLineEdit:!hover{
-     border: 1px solid #e6e6e6;
-     border-radius: 2px;
-     font-family: 微软雅黑;
-     font-size: 16px;
-	 background-color: #fdfdfd;
-	 color: #666666;
- }
-
- QLineEdit:hover:!focus{
-     border: 1px solid #0e88eb;
-     border-radius: 2px;
-     font-family: 微软雅黑;
-     font-size: 16px;
-	 background-color: #fdfdfd;
-	 color: #666666;
- }
-
- QLineEdit:focus{
-     border: 1px solid #0e88eb;
-     border-radius: 2px;
-     font-family: 微软雅黑;
-     font-size: 16px;
-	 background-color: #ffffff;
- }</string>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-               </layout>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+                <property name="checkable">
+                 <bool>true</bool>
+                </property>
+               </widget>
               </item>
               <item>
-               <spacer name="verticalSpacer_4">
+               <spacer name="horizontalSpacer">
                 <property name="orientation">
-                 <enum>Qt::Vertical</enum>
-                </property>
-                <property name="sizeType">
-                 <enum>QSizePolicy::Fixed</enum>
+                 <enum>Qt::Horizontal</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
-                  <width>20</width>
+                  <width>40</width>
                   <height>20</height>
                  </size>
                 </property>
                </spacer>
               </item>
              </layout>
+            </item>
+            <item>
+             <spacer name="verticalSpacer_13">
+              <property name="orientation">
+               <enum>Qt::Vertical</enum>
+              </property>
+              <property name="sizeType">
+               <enum>QSizePolicy::Fixed</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>13</height>
+               </size>
+              </property>
+             </spacer>
             </item>
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_4">

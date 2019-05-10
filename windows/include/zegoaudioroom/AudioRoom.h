@@ -17,7 +17,6 @@ namespace ZEGO
     {
         ZEGO_API const char* GetSDKVersion();
         ZEGO_API const char* GetSDKVersion2();
-        ZEGO_API bool SetNetType(int nNetType);
         ZEGO_API bool SetLogDir(const char* pszLogDir);
         ZEGO_API void UploadLog();
         ZEGO_API void SetVerbose(bool bVerbose);
