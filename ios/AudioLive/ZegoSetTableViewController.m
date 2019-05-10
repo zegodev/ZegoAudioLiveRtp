@@ -31,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *userName;
 
 @property (weak, nonatomic) IBOutlet UISwitch *manualSwitch;
+@property (weak, nonatomic) IBOutlet UISwitch *audioTrafficCtrlSwitch;
 
 @property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
 
@@ -86,6 +87,10 @@
 - (IBAction)toggleTestEnv:(id)sender {
     UISwitch *s = (UISwitch *)sender;
     [ZegoAudioLive setUsingTestEnv:s.on];
+}
+
+- (IBAction)toggleEnableAudioTrafficCtrl:(UISwitch *)sender {
+    [ZegoAudioLive setEnableAudioTrafficCtrl:sender.isOn];
 }
 
 - (void)onTapTableView:(UIGestureRecognizer *)gesture
@@ -148,6 +153,7 @@
 
 - (void)loadEnvironmentSettings {
     self.testEnvSwitch.on = [ZegoAudioLive usingTestEnv];
+    self.audioTrafficCtrlSwitch.on = [ZegoAudioLive enableAudioTrafficCtrl];
     [self.appTypePicker selectRow:[ZegoAudioLive appType] inComponent:0 animated:NO];
     
     [self loadAppID];

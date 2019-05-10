@@ -191,7 +191,7 @@
 /**
  更新流附加信息
  
- @param extraInfo 流附加信息
+ @param extraInfo 流附加信息, 最大为 1024 字节
  @return true 成功，false 失败
  @discussion 通常在主播方的 [ZegoAudioLivePublisherDelegate -onPublishStateUpdate:streamID:streamInfo:] 通知中，或其他需更新流附加信息的场合下调用。更新流附加信息成功后，除调用方外，同一房间内的其他人会收到 [ZegoAudioRoomDelegate -onStreamExtraInfoUpdated:roomID] 通知
  */
@@ -206,10 +206,18 @@
 /**
  设置音频设备模式
  
- @param mode 模式
+ @param mode 模式， 默认 ZEGOAPI_AUDIO_DEVICE_MODE_AUTO
  @discussion 在 Init 前调用
  */
 + (void)setAudioDeviceMode:(ZegoAPIAudioDeviceMode) mode;
+
+
+/**
+ 设置是否开启音频流量控制
+
+ @param enable true 开启, false 关闭
+ */
+- (void)enableAudioTrafficControl:(BOOL)enable;
 
 @end
 

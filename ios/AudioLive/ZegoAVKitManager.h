@@ -34,6 +34,9 @@ typedef enum : NSUInteger {
 + (bool)enableMediaPlayer;
 + (void)setEnableMediaPlayer:(bool)enable;
 
++ (bool)enableAudioTrafficCtrl;
++ (void)setEnableAudioTrafficCtrl:(bool)enable;
+
 + (void)setUsingInternationDomain:(bool)bUse;
 + (bool)usingInternationDomain;
 

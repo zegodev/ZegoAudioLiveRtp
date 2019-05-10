@@ -12,7 +12,6 @@
 #import "ZegoSettings.h"
 #import "ZegoAVKitManager.h"
 #import <PgySDK/PgyManager.h>
-#import <PgyUpdate/PgyUpdateManager.h>
 
 #define kUserNotificationActionMessageCategory      @"messageaction"
 #define kUserNotificationActionMessage              @"openMessage"
@@ -32,15 +31,9 @@
     // Override point for customization after application launch.
     
     [self setupBugly];
-    [self setupPGY];
     [ZegoAudioLive api];
     
     return YES;
-}
-
-- (void)setupPGY {
-    [[PgyUpdateManager sharedPgyManager] startManagerWithAppId:@"7aab128be58054ac1defd1e7249b6d18"];   // 请将 PGY_APP_ID 换成应用的 App Key
-    [[PgyUpdateManager sharedPgyManager] checkUpdate];
 }
 
 - (void)setupBugly {

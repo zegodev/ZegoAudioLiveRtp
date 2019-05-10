@@ -129,6 +129,11 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(audioSessionWasInterrupted:) name:AVAudioSessionInterruptionNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(audioSessionRouteChanged:) name:AVAudioSessionRouteChangeNotification object:nil];
     
+    [self addLogString:[NSString stringWithFormat:@"设置音频流控：%@", [ZegoAudioLive enableAudioTrafficCtrl] ? @"on":@"off"]];
+    
+    //设置音频流控
+    [ZegoAudioLive.api enableAudioTrafficControl:[ZegoAudioLive enableAudioTrafficCtrl]];
+    
     // 进入房间
     [self addLogString:[NSString stringWithFormat:NSLocalizedString(@"开始加入room: %@", nil), self.roomID]];
     [[ZegoAudioLive api] loginRoom:self.roomID completionBlock:^(int errorCode) {
@@ -668,6 +673,8 @@
 - (void)onPublishQualityUpdate:(NSString *)streamID quality:(ZegoApiPublishQuality)quality
 {
     NSLog(@"onPublishQualityUpdate, streamID: %@, quality: %d, audiobiterate: %fkb", streamID, quality.quality, quality.akbps);
+    [self addLogString:[NSString stringWithFormat:@"onPublishQualityUpdate, streamID: %@, quality: %d, audiobiterate: %fkb", streamID, quality.quality, quality.akbps]];
+
     for (ZegoMemberInfo *member in self.memberList) {
         if ([member.stream.streamID isEqualToString:streamID]) {
             member.publishQuality = quality;
@@ -700,6 +707,8 @@
 - (void)onPlayQualityUpate:(NSString *)streamID quality:(ZegoApiPlayQuality)quality
 {
     NSLog(@"onPlayQualityUpate, streamID: %@, quality: %d, audiobiterate: %fkb", streamID, quality.quality, quality.akbps);
+    [self addLogString:[NSString stringWithFormat:@"onPlayQualityUpate, streamID: %@, quality: %d, audiobiterate: %fkb", streamID, quality.quality, quality.akbps]];
+
     for (ZegoMemberInfo *member in self.memberList) {
         if ([member.stream.streamID isEqualToString:streamID]) {
             member.playQuality = quality;

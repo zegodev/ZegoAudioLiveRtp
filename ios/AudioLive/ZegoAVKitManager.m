@@ -23,6 +23,7 @@ BOOL g_useTestEnv = NO;
 BOOL g_useAlphaEnv = NO;
 
 BOOL g_enableMediaPlayer = NO;
+BOOL g_enableAudioTrafficCtrl = NO;
 BOOL g_useManual = NO;
 
 BOOL g_useInternationDomain = NO;
@@ -158,6 +159,16 @@ static NSData* ConvertStringToSign(NSString* strSign);
 + (void)setEnableMediaPlayer:(bool)enable {
     if (g_enableMediaPlayer != enable) {
         g_enableMediaPlayer = enable;
+    }
+}
+
++ (bool)enableAudioTrafficCtrl {
+    return g_enableAudioTrafficCtrl;
+}
+
++ (void)setEnableAudioTrafficCtrl:(bool)enable {
+    if (g_enableAudioTrafficCtrl != enable) {
+        g_enableAudioTrafficCtrl = enable;
     }
 }
 

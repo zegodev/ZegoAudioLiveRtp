@@ -63,6 +63,14 @@ typedef void(^ZegoCustomCommandBlock)(int errorCode, NSString *roomID);
 + (bool)setUserID:(NSString *)userID userName:(NSString *)userName;
 
 /**
+ 设置SDK日志大小
+
+ @param size 日志大小，单位为字节。取值范围[5*1024*1024, 100*1024*1024]
+ @discussion 在初始化 SDK 之前调用有效
+ */
++ (void)setLogSize:(unsigned int)size;
+
+/**
  初始化SDK
  
  @param appID Zego派发的数字ID, 各个开发者的唯一标识
