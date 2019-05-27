@@ -326,6 +326,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EF7139DC1D2DEFD200715B6B /* Build configuration list for PBXNativeTarget "AudioLive" */;
 			buildPhases = (
+				3303C1DC229BB6CE00124BFB /* ShellScript */,
 				EF7139BE1D2DEFD200715B6B /* Sources */,
 				EF7139BF1D2DEFD200715B6B /* Frameworks */,
 				EF7139C01D2DEFD200715B6B /* Resources */,
@@ -411,6 +412,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3303C1DC229BB6CE00124BFB /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = "/usr/bin/env python";
+			shellScript = "import os\nimport shutil\n\ncurrent_folder = os.getenv('PROJECT_DIR')\nvalid_archs = os.getenv('VALID_ARCHS')\nconfiguration = os.getenv('CONFIGURATION')\n\nuse_iphoneos_sdk = valid_archs.find('arm') != -1\nif use_iphoneos_sdk:\n    source_folder = \"iphoneos\"\nelse:\n    source_folder = \"iphoneos_simulator\"\n\nsource_framework_folder = os.path.join(current_folder, \"libs\", \"ZegoAudioRoom-all\", source_folder, \"ZegoAudioRoom.framework\")\ndest_framework_folder = os.path.join(current_folder, \"libs\", \"ZegoAudioRoom.framework\")\n\nif os.path.exists(dest_framework_folder):\n    shutil.rmtree(dest_framework_folder, ignore_errors=True)\n\nif os.path.exists(source_framework_folder):\n    shutil.copytree(source_framework_folder, dest_framework_folder)\n    log_name = os.path.join(current_folder, \"libs\", \"zegoaudioroom.version.txt\")\n    with open(log_name, 'w') as f:\n        if use_iphoneos_sdk:\n            f.write('iphoneos \\n')\n        else:\n            f.write('iphoneos & simulator \\n')\n        f.write(configuration)\n    f.close()\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EF6B39A41E8371FB00A6D963 /* Sources */ = {

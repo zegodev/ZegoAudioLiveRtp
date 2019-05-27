@@ -10,7 +10,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Create Framework"
-               scriptText = "import os&#10;import subprocess&#10;&#10;action = os.getenv(&apos;ACTION&apos;)&#10;configuration = os.getenv(&apos;CONFIGURATION&apos;)&#10;if action == &quot;install&quot;:&#10;    exit(0)&#10;if configuration == &quot;Release&quot;:&#10;    exit(0)&#10;&#10;current_folder = os.getenv(&apos;PROJECT_DIR&apos;)&#10;copy_framework_path = os.path.join(current_folder, &quot;..&quot;, &quot;copy_framework_new.py&quot;)&#10;if os.path.exists(copy_framework_path):&#10;    arguments=[copy_framework_path, &apos;-demo&apos;, &apos;AudioLive&apos;, &apos;-framework&apos;, &apos;ZegoAudioRoom&apos;, &apos;-ios7&apos;]&#10;    subprocess.call(arguments)"
+               scriptText = "import os&#10;import subprocess&#10;&#10;action = os.getenv(&apos;ACTION&apos;)&#10;configuration = os.getenv(&apos;CONFIGURATION&apos;)&#10;if action == &quot;install&quot;:&#10;    exit(0)&#10;if configuration == &quot;Release&quot;:&#10;    exit(0)&#10;&#10;current_folder = os.getenv(&apos;PROJECT_DIR&apos;)&#10;copy_framework_path = os.path.join(current_folder, &quot;..&quot;, &quot;copy_framework_new.py&quot;)&#10;if os.path.exists(copy_framework_path):&#10;    arguments=[copy_framework_path, &apos;-demo&apos;, &apos;AudioLive&apos;, &apos;-framework&apos;, &apos;ZegoAudioRoom&apos;, &apos;-ios7&apos;]&#10;    subprocess.call(arguments)&#10;"
                shellToInvoke = "/usr/bin/env python">
                <EnvironmentBuildable>
                   <BuildableReference
@@ -27,7 +27,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Copy ZegoAudioRoom"
-               scriptText = "import os&#10;import shutil&#10;&#10;current_folder = os.getenv(&apos;PROJECT_DIR&apos;)&#10;action = os.getenv(&apos;ACTION&apos;)&#10;configuration = os.getenv(&apos;CONFIGURATION&apos;)&#10;if configuration == &quot;&quot;:&#10;    exit(0)&#10;&#10;source_folder = &quot;iphoneos_simulator_static&quot;&#10;source_framework_folder = os.path.join(current_folder, &quot;libs&quot;, &quot;ZegoAudioRoom-all&quot;, source_folder, &quot;ZegoAudioRoom.framework&quot;)&#10;dest_framework_folder = os.path.join(current_folder, &quot;libs&quot;, &quot;ZegoAudioRoom.framework&quot;)&#10;&#10;if os.path.exists(dest_framework_folder):&#10;    shutil.rmtree(dest_framework_folder, ignore_errors=True)&#10;&#10;if os.path.exists(source_framework_folder):&#10;    shutil.copytree(source_framework_folder, dest_framework_folder)&#10;    log_name = os.path.join(current_folder, &quot;libs&quot;, &quot;zegoaudioroom.version.txt&quot;)&#10;    with open(log_name, &apos;w&apos;) as f:&#10;        f.write(&apos;iphoneos &amp; simulator static&apos;)&#10;    f.close()"
+               scriptText = "import os&#10;import shutil&#10;&#10;current_folder = os.getenv(&apos;PROJECT_DIR&apos;)&#10;action = os.getenv(&apos;ACTION&apos;)&#10;configuration = os.getenv(&apos;CONFIGURATION&apos;)&#10;if configuration == &quot;&quot;:&#10;    exit(0)&#10;&#10;source_folder = &quot;iphoneos_simulator_static&quot;&#10;source_framework_folder = os.path.join(current_folder, &quot;libs&quot;, &quot;ZegoAudioRoom-all&quot;, source_folder, &quot;ZegoAudioRoom.framework&quot;)&#10;dest_framework_folder = os.path.join(current_folder, &quot;libs&quot;, &quot;ZegoAudioRoom.framework&quot;)&#10;&#10;if os.path.exists(dest_framework_folder):&#10;    shutil.rmtree(dest_framework_folder, ignore_errors=True)&#10;&#10;if os.path.exists(source_framework_folder):&#10;    shutil.copytree(source_framework_folder, dest_framework_folder)&#10;    log_name = os.path.join(current_folder, &quot;libs&quot;, &quot;zegoaudioroom.version.txt&quot;)&#10;    with open(log_name, &apos;w&apos;) as f:&#10;        f.write(&apos;iphoneos &amp; simulator static&apos;)&#10;    f.close()&#10;"
                shellToInvoke = "/usr/bin/env python">
                <EnvironmentBuildable>
                   <BuildableReference
@@ -62,7 +62,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -82,7 +81,6 @@
       buildConfiguration = "iOS7StaticDebug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"

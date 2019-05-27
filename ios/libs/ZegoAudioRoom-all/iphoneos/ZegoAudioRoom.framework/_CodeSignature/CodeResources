@@ -30,7 +30,7 @@
 		</data>
 		<key>Headers/ZegoAudioRoomApi.h</key>
 		<data>
-		oXGLss0fTjmzW5fC/Cjh/QEzSnQ=
+		qBtoI/KF+6nxOy8CgjXY75aeIus=
 		</data>
 		<key>Headers/ZegoAudioRoomApiDefines-IM.h</key>
 		<data>
@@ -70,7 +70,11 @@
 		</data>
 		<key>Headers/zego-api-defines-oc.h</key>
 		<data>
-		xUEG9TQbmO01U5SXW3LkNzdizFs=
+		g/x2E2DhKCfkObQB2NXxecKYCa0=
+		</data>
+		<key>Headers/zego-api-error-oc.h</key>
+		<data>
+		r3BrYVBh7Qhj8QVD0ydpgPnHi0A=
 		</data>
 		<key>Headers/zego-api-external-audio-device-oc.h</key>
 		<data>
@@ -102,11 +106,11 @@
 		</data>
 		<key>Headers/zego-api-mix-stream-defines-oc.h</key>
 		<data>
-		n1Qz/GtJKvnKDqzz2WK3YQGcc6U=
+		Ybwglli/CToWne3V0trfwLkslIM=
 		</data>
 		<key>Headers/zego-api-mix-stream-oc.h</key>
 		<data>
-		Oa5bD80O9QcZYIPhmedqpZj/qgQ=
+		+s83Ej7ADb8VvDCTPMKWN8MIC5Y=
 		</data>
 		<key>Headers/zego-api-sound-level-oc.h</key>
 		<data>
@@ -193,11 +197,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			oXGLss0fTjmzW5fC/Cjh/QEzSnQ=
+			qBtoI/KF+6nxOy8CgjXY75aeIus=
 			</data>
 			<key>hash2</key>
 			<data>
-			sH/WsE8DnE5z9y/QRmlm2zlH9VM1ccuYRAxF4HRWmw8=
+			k5rmb6Sw02oUx913suZx1lQ49C1iyfLzdA0nevN115M=
 			</data>
 		</dict>
 		<key>Headers/ZegoAudioRoomApiDefines-IM.h</key>
@@ -303,11 +307,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			xUEG9TQbmO01U5SXW3LkNzdizFs=
+			g/x2E2DhKCfkObQB2NXxecKYCa0=
 			</data>
 			<key>hash2</key>
 			<data>
-			167uBqlZo4qX5kVNhCp7ozonsc0niisVPo+4Y/z3yvI=
+			saMtUZ2EnpcR1GlDb5N/28oH5VPQ3d5K7Z/id955udA=
+			</data>
+		</dict>
+		<key>Headers/zego-api-error-oc.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			r3BrYVBh7Qhj8QVD0ydpgPnHi0A=
+			</data>
+			<key>hash2</key>
+			<data>
+			8txBwltW/gUKZKoqg3m559DVq+TGkoAZ1bFhiS1in64=
 			</data>
 		</dict>
 		<key>Headers/zego-api-external-audio-device-oc.h</key>
@@ -391,22 +406,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			n1Qz/GtJKvnKDqzz2WK3YQGcc6U=
+			Ybwglli/CToWne3V0trfwLkslIM=
 			</data>
 			<key>hash2</key>
 			<data>
-			aWSqtESjCUJCkmLcEZtVLEV0NR64Zcpz0vSAJA+UDFQ=
+			s8SbD3ISNz5P4Ci/uQgXKmLCUQRSDk/gpHcd3HICRPk=
 			</data>
 		</dict>
 		<key>Headers/zego-api-mix-stream-oc.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Oa5bD80O9QcZYIPhmedqpZj/qgQ=
+			+s83Ej7ADb8VvDCTPMKWN8MIC5Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			YxXt0v9CrhYJNCfWGampYSVJu+vhU4ozHDajfqKVKXg=
+			Ra5t7Rlo0KtmkHkA4ynH3UHsopBF0AFJV9DUy4T9pHo=
 			</data>
 		</dict>
 		<key>Headers/zego-api-sound-level-oc.h</key>
