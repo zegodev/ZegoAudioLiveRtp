@@ -43,6 +43,11 @@ typedef enum : NSUInteger {
     Audio_Play_TempDisconnected = 5,
     /** 推流临时中断 */
     Audio_Publish_TempDisconnected = 6,
+
+    /** 音频卡顿开始 */
+    Audio_Play_Break = 9,
+    /** 音频卡顿结束 */
+    Audio_Play_BreakEnd = 10,
 } ZegoAudioLiveEvent;
 
 /** 音频流 */

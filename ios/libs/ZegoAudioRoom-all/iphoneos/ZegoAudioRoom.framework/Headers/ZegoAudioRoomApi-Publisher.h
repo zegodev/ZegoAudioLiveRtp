@@ -87,6 +87,7 @@
  @param enable true 启用混音输入，false 关闭混音输入。默认 false
  @return true 成功，false 失败
  @discussion 推流开始前调用本 API 进行参数配置。主播端开启混音后，SDK 在 [ZegoAudioRoomApi (Publisher) -onAuxCallback:dataLen:sampleRate:channelCount:] 中获取混音输入数据
+ @warning Deprecated，请使用 [ZegoAudioAux enableAux:]
  */
 - (bool)enableAux:(BOOL)enable;
 
@@ -94,6 +95,7 @@
  设置混音音量
  
  @param volume 0~100，默认为 50
+ @warning Deprecated，请使用 [ZegoAudioAux setAuxVolume:]
  */
 - (void)setAuxVolume:(int)volume;
 
@@ -103,6 +105,7 @@
  @param bMute true: aux 输入播放静音，false: 不静音。默认 false
  @return true 成功，false 失败
  @discussion 推流开始前调用本 API 进行参数配置
+ @warning Deprecated，请使用 [ZegoAudioAux muteAux:]
  */
 - (bool)muteAux:(bool)bMute;
 
@@ -252,6 +255,7 @@
  @param pSampleRate 混音数据采样率，支持16k、32k、44.1k、48k
  @param pChannelCount 混音数据声道数，支持1、2
  @discussion 用户调用该 API 将混音数据传递给 SDK。混音数据 bit depth 必须为 16
+ @warning Deprecated，请使用 ZegoAudioAuxDelgate 代替
  */
 - (void)onAuxCallback:(void *)pData dataLen:(int *)pDataLen sampleRate:(int *)pSampleRate channelCount:(int *)pChannelCount;
 

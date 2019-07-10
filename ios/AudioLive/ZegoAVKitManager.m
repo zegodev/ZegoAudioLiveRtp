@@ -52,7 +52,6 @@ static NSData* ConvertStringToSign(NSString* strSign);
         g_useTestEnv = [self usingTestEnv];
         // 测试环境开关
         [ZegoAudioRoomApi setUseTestEnv:g_useTestEnv];
-        [ZegoAudioRoomApi setBusinessType:0];
 #ifdef DEBUG
         // 调试信息开关
         [ZegoAudioRoomApi setVerbose:YES];
@@ -125,7 +124,7 @@ static NSData* ConvertStringToSign(NSString* strSign);
         }
             break;
         case ZegoAppTypeUDP:
-            return ;  // 国内版
+            return #appID#;  // 国内版
             break;
         case ZegoAppTypeI18N:
             return 100;  // 国际版
@@ -252,7 +251,7 @@ static NSData* ConvertStringToSign(NSString* strSign);
     if (type == ZegoAppTypeUDP)
     {
 
-        Byte signkey[] = ;
+        Byte signkey[] = #appSign#;
 
         return [NSData dataWithBytes:signkey length:32];
     }

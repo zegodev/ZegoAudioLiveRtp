@@ -39,14 +39,6 @@ typedef void(^ZegoCustomCommandBlock)(int errorCode, NSString *roomID);
 + (void)setVerbose:(bool)bOnVerbose;
 
 /**
- 设置业务类型
- 
- @param type 业务类型。默认为2 (实时语音类型), 可以取值0 (直播类型)
- @discussion 确保在创建接口对象前调用
- */
-+ (void)setBusinessType:(int)type;
-
-/**
  触发日志上报
  
  @discussion 在初始化 SDK 成功后调用
