@@ -65,7 +65,6 @@ bool QZegoBase::InitAVSDK(SettingsPtr pCurSetting, QString userID, QString userN
 		//Qstring对象.toLocal8Bit().data()用于将QString转为const char*
 		AUDIOROOM::SetLogDir(nullptr);
 		AUDIOROOM::SetVerbose(true);
-		AUDIOROOM::SetBusinessType(0);
 		AUDIOROOM::SetUser(qtoc(userID), qtoc(userName));
 		AUDIOROOM::SetUseTestEnv(isTestEnv);
 	
@@ -104,7 +103,6 @@ bool QZegoBase::InitAVSDKofCustom(SettingsPtr pCurSetting, QString userID, QStri
 		//Qstring对象.toLocal8Bit().data()用于将QString转为const char*
 		AUDIOROOM::SetLogDir(nullptr);
 		AUDIOROOM::SetVerbose(true);
-		AUDIOROOM::SetBusinessType(0);
 		AUDIOROOM::SetUser(qtoc(userID), qtoc(userName));
 		AUDIOROOM::SetUseTestEnv(isTestEnv);
 

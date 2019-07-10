@@ -22,8 +22,6 @@ namespace ZEGO
 
         using COMMON::ZegoStreamUpdateType;
 
-        using COMMON::LiveRoomState;
-
         using COMMON::ZegoPublishFlag;
 
         using COMMON::ZegoPublishingStreamInfo;

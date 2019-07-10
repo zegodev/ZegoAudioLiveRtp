@@ -22,16 +22,7 @@ namespace ZEGO
         ZEGO_API void SetVerbose(bool bVerbose);
         ZEGO_API void SetUseTestEnv(bool bTestEnv);
         ZEGO_API void SetPlatformInfo(const char* pszInfo);
-        
-        /**
-         设置业务类型
-         
-         @param nType 业务类型，取值 0（直播类型）或 2（实时音视频类型）。默认为 2
-         @return true 成功，false 失败
-         @attention 确保在创建接口对象前调用
-         */
-        ZEGO_API bool SetBusinessType(int nType);
-        
+                
         /**
          设置用户信息
          
