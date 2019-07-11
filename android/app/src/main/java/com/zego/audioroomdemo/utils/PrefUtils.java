@@ -166,7 +166,7 @@ public class PrefUtils {
     }
 
     public static boolean getUseTestEnv() {
-        return sInst.getBooleanValue(ZEGO_APP_TEST, false);
+        return sInst.getBooleanValue(ZEGO_APP_TEST, true);
     }
 
 
