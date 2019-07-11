@@ -172,7 +172,7 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
         //  activityZegoPhoneBinding.userRecyclerView
         zegoAudioRoom = ((AudioApplication) getApplication()).getAudioRoomClient();
 
-       // zegoAudioRoom.enableAECWhenHeadsetDetected(true);
+        zegoAudioRoom.enableAECWhenHeadsetDetected(true);
 
         Intent startIntent = getIntent();
         String roomId = startIntent.getStringExtra("roomId");
@@ -367,6 +367,11 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
             public void onLoadComplete() {
 
             }
+
+            @Override
+            public void onProcessInterval(long l) {
+
+            }
         });
 
 
@@ -387,6 +392,7 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
         mManager.unregisterListener(this);
     }
 
+    @SuppressLint("InvalidWakeLockTag")
     private void registerSensor() {
         this.localPowerManager.newWakeLock(32, "MyPower");
         mManager.registerListener(this, mManager.getDefaultSensor(Sensor.TYPE_PROXIMITY),// 距离感应器
@@ -503,26 +509,26 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
         zegoAudioRoom.enableSpeaker(true);
         boolean success = zegoAudioRoom.
                 loginRoom(roomId, new ZegoLoginAudioRoomCallback() {
-            @SuppressLint("DefaultLocale")
-            @Override
-            public void onLoginCompletion(int state) {
-                MainActivity.ZGLog.d("onLoginCompletion: %d", state);
+                    @SuppressLint("DefaultLocale")
+                    @Override
+                    public void onLoginCompletion(int state) {
+                        MainActivity.ZGLog.d("onLoginCompletion: %d", state);
 
-                if (state == 0) {
-                    hasLogin = true;
-                    zegoUserState.userID = PrefUtils.getUserId();
-                    zegoUserState.userName = PrefUtils.getUserName();
-                    recyclerGridViewAdapter.addUser(zegoUserState);
-                    recyclerGridViewAdapter.setSelfZegoUser(zegoUserState);
-                    enableMic(true);
+                        if (state == 0) {
+                            hasLogin = true;
+                            zegoUserState.userID = PrefUtils.getUserId();
+                            zegoUserState.userName = PrefUtils.getUserName();
+                            recyclerGridViewAdapter.addUser(zegoUserState);
+                            recyclerGridViewAdapter.setSelfZegoUser(zegoUserState);
+                            enableMic(true);
 
-                    // TODO 登陆成功
-                } else {
-                    Toast.makeText(ZegoPhoneActivity.this, String.format("Login Error: %d", state), Toast.LENGTH_LONG).show();
-                    // TODO 登陆失败错误码
-                }
-            }
-        });
+                            // TODO 登陆成功
+                        } else {
+                            Toast.makeText(ZegoPhoneActivity.this, String.format("Login Error: %d", state), Toast.LENGTH_LONG).show();
+                            // TODO 登陆失败错误码
+                        }
+                    }
+                });
 
         MainActivity.ZGLog.d("login: %s", success);
         if (!success) {
@@ -551,7 +557,7 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
                 activityZegoPhoneBinding.userRecyclerView.post(new Runnable() {
                     @Override
                     public void run() {
-                        MainActivity.ZGLog.d("onStreamUpdate, type: %s, streamId: %s", zegoAudioStreamType, zegoAudioStream.getStreamId());
+                        MainActivity.ZGLog.d("onStreamUpdate, type: %s, streamId: %s, userID: %s", zegoAudioStreamType, zegoAudioStream.getStreamId(), zegoAudioStream.getUserId());
                         ZegoUserState zegoUserState = new ZegoUserState();
                         zegoUserState.userID = zegoAudioStream.getUserId();
                         zegoUserState.userName = zegoAudioStream.getUserName();
@@ -571,7 +577,7 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
                                 break;
                             case ZEGO_AUDIO_STREAM_DELETE:
                                 // TODO 删除流
-                                recyclerGridViewAdapter.removeUser(zegoUserState);
+                                recyclerGridViewAdapter.removeUser(zegoUserState, zegoAudioStream);
                                 break;
                             default:
                                 break;
@@ -646,7 +652,7 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
 
             @Override
             public void onPublishStateUpdate(int stateCode, String streamId, HashMap<String, Object> info) {
-                MainActivity.ZGLog.d("onPublishStateUpdate, stateCode: %d, streamId: %s, info: %s", stateCode, streamId, info);
+                //  MainActivity.ZGLog.d("onPublishStateUpdate, stateCode: %d, streamId: %s, info: %s", stateCode, streamId, info);
 
                 ZegoAudioStream myStream = new ZegoAudioStream(streamId, PrefUtils.getUserId(), PrefUtils.getUserName());
                 if (stateCode == 0) {
@@ -679,8 +685,8 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
 
             @Override
             public void onPublishQualityUpdate(String streamId, ZegoPublishStreamQuality zegoStreamQuality) {
-                MainActivity.ZGLog.d("onPublishQualityUpdate, streamId: %s, quality: %d, audioBitrate: %fkb",
-                        streamId, zegoStreamQuality.quality, zegoStreamQuality.akbps);
+                // MainActivity.ZGLog.d("onPublishQualityUpdate, streamId: %s, quality: %d, audioBitrate: %fkb",
+                //       streamId, zegoStreamQuality.quality, zegoStreamQuality.akbps);
                 RecyclerGridViewAdapter.CommonStreamQuality commonStreamQuality = EntityConversion.publishQualityToCommonStreamQuality(zegoStreamQuality);
 
                 // 推流质量更新
@@ -701,8 +707,8 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
 
             @Override
             public void onPlayQualityUpdate(String streamId, ZegoPlayStreamQuality zegoStreamQuality) {
-                MainActivity.ZGLog.d("onPlayQualityUpdate, streamId: %s, quality: %d,  audioBitrate: %fkb",
-                        streamId, zegoStreamQuality.quality, zegoStreamQuality.audioBreakRate);
+                //  MainActivity.ZGLog.d("onPlayQualityUpdate, streamId: %s, quality: %d,  audioBitrate: %fkb",
+                //        streamId, zegoStreamQuality.quality, zegoStreamQuality.audioBreakRate);
                 RecyclerGridViewAdapter.CommonStreamQuality commonStreamQuality = EntityConversion.playQualityToCommonStreamQuality(zegoStreamQuality);
                 // 拉流质量更新
                 recyclerGridViewAdapter.updateQualityUpdate(streamId, commonStreamQuality);
@@ -713,7 +719,7 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
         zegoAudioRoom.setAudioLiveEventDelegate(new ZegoAudioLiveEventDelegate() {
             @Override
             public void onAudioLiveEvent(ZegoAudioLiveEvent zegoAudioLiveEvent, HashMap<String, String> info) {
-                MainActivity.ZGLog.d("onAudioLiveEvent, event: %s, info: %s", zegoAudioLiveEvent, info);
+                //  MainActivity.ZGLog.d("onAudioLiveEvent, event: %s, info: %s", zegoAudioLiveEvent, info);
                 ZegoAudioStream mZegoAudioStream = new ZegoAudioStream();
                 String streamID = info.get("StreamID");
                 mZegoAudioStream.setStreamId(streamID);
@@ -738,7 +744,7 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
         zegoAudioRoom.setAudioDeviceEventDelegate(new ZegoAudioDeviceEventDelegate() {
             @Override
             public void onAudioDevice(String deviceName, int errorCode) {
-                MainActivity.ZGLog.d("onAudioDevice, deviceName: %s, errorCode: %d", deviceName, errorCode);
+                // MainActivity.ZGLog.d("onAudioDevice, deviceName: %s, errorCode: %d", deviceName, errorCode);
             }
         });
         zegoAudioRoom.setAudioPrepareDelegate(new ZegoAudioPrepareDelegate() {
@@ -771,17 +777,16 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
 
             @Override
             public void onAVEngineStop() {
-                MainActivity.ZGLog.d("onAVEngineStop");
+                //  MainActivity.ZGLog.d("onAVEngineStop");
             }
         });
     }
 
-
     @Override
-    protected void onDestroy() {
-        if (hasLogin) {
-            logout();
-        }
+    public void finish() {
+
+        logout();
+
         removeCallbacks();
         if (mManager != null) {
             localWakeLock.setReferenceCounted(false);
@@ -796,6 +801,11 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
         if (mReceiver != null) {
             unregisterReceiver(mReceiver);
         }
+        super.finish();
+    }
+
+    @Override
+    protected void onDestroy() {
 
         super.onDestroy();
     }

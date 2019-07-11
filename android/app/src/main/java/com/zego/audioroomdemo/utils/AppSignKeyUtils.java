@@ -30,13 +30,12 @@ public class AppSignKeyUtils {
     static final public long INTERNATIONAL_APP_ID = ;
 
 
-    final static private byte[] appSign_rtmp = ;
+    final static private byte[] appSign_rtmp = new byte[]{};
+
+    final static private byte[] appSign_udp = new byte[]{};
 
 
-    final static private byte[] appSign_udp = ;
-
-
-    final static private byte[] appSign_international = ;
+    final static private byte[] appSign_international = new byte[]{};
 
 
     static public boolean isInternationalProduct(long appId) {

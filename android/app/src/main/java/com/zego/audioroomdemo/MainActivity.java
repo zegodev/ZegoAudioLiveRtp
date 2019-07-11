@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (checkOrRequestPermission(REQUEST_CODE_UPDATE_APK)) {
             /** 可选配置集成方式 **/
-            updateApk();
+           // updateApk();
         }
     }
 

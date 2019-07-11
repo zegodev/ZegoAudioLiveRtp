@@ -41,7 +41,7 @@ public class PrefUtils {
     private SharedPreferences mPref;
 
     private PrefUtils() {
-        mPref = AudioApplication.sApplication.getSharedPreferences("app_data_v1", Context.MODE_PRIVATE);
+        mPref = AudioApplication.sApplication.getSharedPreferences("app_data_v2", Context.MODE_PRIVATE);
     }
 
     static public void setUserId(String userId) {
@@ -126,7 +126,7 @@ public class PrefUtils {
     }
 
     public static boolean getAudioTrafficControl() {
-        return sInst.mPref.getBoolean(KEY_APP_AUDIO_TRAFFIC_CONTROL, false);
+        return sInst.mPref.getBoolean(KEY_APP_AUDIO_TRAFFIC_CONTROL, true);
     }
 
     public void setBooleanValue(String key, boolean value) {

@@ -100,8 +100,6 @@ public class AudioApplication extends android.support.multidex.MultiDexApplicati
         }
 
 
-
-        ZegoAudioRoom.setBusinessType(PrefUtils.getBusinessType());
         ZegoLiveRoom.setConfig("audio_device_detect_headset=true");
         mZegoAudioRoom.initWithAppId(appId, signKey, this);
 
@@ -123,7 +121,9 @@ public class AudioApplication extends android.support.multidex.MultiDexApplicati
     private String getUserId() {
         String userId = PrefUtils.getUserId();
         if (TextUtils.isEmpty(userId)) {
-            userId = System.currentTimeMillis() / 1000 + "";
+            int max = 999, min = 1;
+            int ran2 = (int) (Math.random() * (max - min) + min);
+            userId = (System.currentTimeMillis() / 1000) + "" + ran2;
             PrefUtils.setUserId(userId);
         }
         return userId;

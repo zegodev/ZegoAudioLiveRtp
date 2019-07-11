@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.zego.audioroomdemo.MainActivity;
 import com.zego.audioroomdemo.R;
 import com.zego.audioroomdemo.entity.ZegoUserInfo;
 import com.zego.zegoaudioroom.ZegoAudioStream;
@@ -86,6 +87,25 @@ public class RecyclerGridViewAdapter extends RecyclerView.Adapter<RecyclerView.V
             uiThreadNotifyDataSetChanged();
         }
     }
+
+    public void removeUser(ZegoUserState zegoUserState, ZegoAudioStream zegoAudioStream) {
+        synchronized (this) {
+            int zegoUserIndex = -1;
+            for (int i = 0; i < zegoUserList.size(); i++) {
+                ZegoUserInfo zegoUser = zegoUserList.get(i);
+                if (zegoUser.userName.equals(zegoUserState.userName) && zegoUser.userID.equals(zegoUserState.userID)) {
+                    if (zegoUser.streamID != null && zegoUser.streamID.equals(zegoAudioStream.getStreamId())) {
+                        zegoUserIndex = i;
+                    }
+                }
+            }
+            if (zegoUserIndex != -1) {
+                zegoUserList.remove(zegoUserIndex);
+            }
+            uiThreadNotifyDataSetChanged();
+        }
+    }
+
 
     private int[] background = {R.mipmap.disable_mic, R.mipmap.disconnect, R.mipmap.sound_waves, R.mipmap.begin_retry};
 

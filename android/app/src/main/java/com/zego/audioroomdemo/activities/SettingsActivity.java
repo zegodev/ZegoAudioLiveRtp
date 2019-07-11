@@ -62,9 +62,6 @@ public class SettingsActivity extends AppCompatActivity {
     @Bind(R.id.checkbox_use_test_env)
     public CheckBox cbUseTestEnv;
 
-    @Bind(R.id.checkbox_audio_prepare)
-    public CheckBox cbTurnOnAudioPrepare;
-
     @Bind(R.id.sp_app_flavor)
     public Spinner spAppFlavors;
 
@@ -102,10 +99,6 @@ public class SettingsActivity extends AppCompatActivity {
         @Override
         public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
             switch (buttonView.getId()) {
-                case R.id.checkbox_audio_prepare:
-                    PrefUtils.enableAudioPrepare(isChecked);
-                    break;
-
                 case R.id.checkbox_use_test_env:
                     AudioApplication.sApplication.setUseTestEnv(isChecked);
                     break;
@@ -195,12 +188,11 @@ public class SettingsActivity extends AppCompatActivity {
         cbUseTestEnv.setChecked(oldUseTestEnvValue);
 
         oldAudioPrepareValue = PrefUtils.isEnableAudioPrepare();
-        cbTurnOnAudioPrepare.setChecked(oldAudioPrepareValue);
+
 
         oldManualPublishValue = PrefUtils.isManualPublish();
 
         cbUseTestEnv.setOnCheckedChangeListener(checkedChangeListener);
-        cbTurnOnAudioPrepare.setOnCheckedChangeListener(checkedChangeListener);
 
 
         tvDemoVersion.setText(SystemUtil.getAppVersionName(this));
@@ -265,7 +257,7 @@ public class SettingsActivity extends AppCompatActivity {
                         PrefUtils.setAppId(appConfig.appid);
                         PrefUtils.setAppKey(AppSignKeyUtils.parseSignKeyFromString(appConfig.appkey));
                         PrefUtils.setUseTestEnv(appConfig.isTestenv());
-                        PrefUtils.setBusinessType(appConfig.getBusinesstype());
+                        //PrefUtils.setBusinessType(appConfig.getBusinesstype());
                         PrefUtils.setInternational(appConfig.isI18n());
                         setResult(1, null);
                         spAppFlavors.setSelection(2);
