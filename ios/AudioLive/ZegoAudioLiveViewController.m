@@ -211,6 +211,9 @@
     }
     else
     {
+        //设置音频流控
+        [ZegoAudioLive.api enableAudioTrafficControl:[ZegoAudioLive enableAudioTrafficCtrl]];
+        
         BOOL result = [[ZegoAudioLive api] startPublish];
         if (result == NO)
         {

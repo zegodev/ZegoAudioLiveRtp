@@ -27,6 +27,8 @@
 		33C4425621E4CE8700D57521 /* ZegoAudioRoom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33C4425221E4CE8700D57521 /* ZegoAudioRoom.framework */; };
 		33C4425821E4D41100D57521 /* ZegoAudioRoom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33C4425221E4CE8700D57521 /* ZegoAudioRoom.framework */; };
 		33C4425921E4D41100D57521 /* ZegoAudioRoom.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 33C4425221E4CE8700D57521 /* ZegoAudioRoom.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8664E4CA22F8039A00A0A79F /* ZGKeyCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8664E4C922F8039A00A0A79F /* ZGKeyCenter.m */; };
+		8664E4CB22F8039A00A0A79F /* ZGKeyCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8664E4C922F8039A00A0A79F /* ZGKeyCenter.m */; };
 		EF0C27701E531C49009447A7 /* ZegoVideoRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0C276F1E531C49009447A7 /* ZegoVideoRootViewController.m */; };
 		EF110E151D33B691000620CD /* ZegoAudioLiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF110E141D33B691000620CD /* ZegoAudioLiveViewController.m */; };
 		EF57BC2A1F3B0AC50062A2A9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF713A081D2DF1FC00715B6B /* AVFoundation.framework */; };
@@ -102,6 +104,8 @@
 		16756FD01F5901EF003252AB /* ZegoShareLogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZegoShareLogViewController.m; sourceTree = "<group>"; };
 		16CD53D01F3C3EDA003D43B3 /* SSZipArchive.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SSZipArchive.framework; sourceTree = "<group>"; };
 		33C4425221E4CE8700D57521 /* ZegoAudioRoom.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ZegoAudioRoom.framework; sourceTree = "<group>"; };
+		8664E4C822F8039A00A0A79F /* ZGKeyCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZGKeyCenter.h; sourceTree = "<group>"; };
+		8664E4C922F8039A00A0A79F /* ZGKeyCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZGKeyCenter.m; sourceTree = "<group>"; };
 		EF0C276E1E531C49009447A7 /* ZegoVideoRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZegoVideoRootViewController.h; sourceTree = "<group>"; };
 		EF0C276F1E531C49009447A7 /* ZegoVideoRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZegoVideoRootViewController.m; sourceTree = "<group>"; };
 		EF110E131D33B691000620CD /* ZegoAudioLiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZegoAudioLiveViewController.h; sourceTree = "<group>"; };
@@ -280,6 +284,8 @@
 				164522CC20E239C900534981 /* Assets.xcassets */,
 				EF7139D91D2DEFD200715B6B /* Info.plist */,
 				EF7139C51D2DEFD200715B6B /* Supporting Files */,
+				8664E4C822F8039A00A0A79F /* ZGKeyCenter.h */,
+				8664E4C922F8039A00A0A79F /* ZGKeyCenter.m */,
 			);
 			path = AudioLive;
 			sourceTree = "<group>";
@@ -326,7 +332,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EF7139DC1D2DEFD200715B6B /* Build configuration list for PBXNativeTarget "AudioLive" */;
 			buildPhases = (
-				3303C1DC229BB6CE00124BFB /* ShellScript */,
 				EF7139BE1D2DEFD200715B6B /* Sources */,
 				EF7139BF1D2DEFD200715B6B /* Frameworks */,
 				EF7139C01D2DEFD200715B6B /* Resources */,
@@ -413,26 +418,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		3303C1DC229BB6CE00124BFB /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = "/usr/bin/env python";
-			shellScript = "import os\nimport shutil\n\ncurrent_folder = os.getenv('PROJECT_DIR')\nvalid_archs = os.getenv('VALID_ARCHS')\nconfiguration = os.getenv('CONFIGURATION')\n\nuse_iphoneos_sdk = valid_archs.find('arm') != -1\nif use_iphoneos_sdk:\n    source_folder = \"iphoneos\"\nelse:\n    source_folder = \"iphoneos_simulator\"\n\nsource_framework_folder = os.path.join(current_folder, \"libs\", \"ZegoAudioRoom-all\", source_folder, \"ZegoAudioRoom.framework\")\ndest_framework_folder = os.path.join(current_folder, \"libs\", \"ZegoAudioRoom.framework\")\n\nif os.path.exists(dest_framework_folder):\n    shutil.rmtree(dest_framework_folder, ignore_errors=True)\n\nif os.path.exists(source_framework_folder):\n    shutil.copytree(source_framework_folder, dest_framework_folder)\n    log_name = os.path.join(current_folder, \"libs\", \"zegoaudioroom.version.txt\")\n    with open(log_name, 'w') as f:\n        if use_iphoneos_sdk:\n            f.write('iphoneos \\n')\n        else:\n            f.write('iphoneos & simulator \\n')\n        f.write(configuration)\n    f.close()\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		EF6B39A41E8371FB00A6D963 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -448,6 +433,7 @@
 				EF6B39AD1E8371FB00A6D963 /* ZegoSetTableViewController.m in Sources */,
 				EF6B39AE1E8371FB00A6D963 /* ZegoSettings.m in Sources */,
 				16756FD21F5901EF003252AB /* ZegoShareLogViewController.m in Sources */,
+				8664E4CB22F8039A00A0A79F /* ZGKeyCenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8664E4CA22F8039A00A0A79F /* ZGKeyCenter.m in Sources */,
 				EF110E151D33B691000620CD /* ZegoAudioLiveViewController.m in Sources */,
 				EF0C27701E531C49009447A7 /* ZegoVideoRootViewController.m in Sources */,
 				1649C28920EB1FBD00C7E31C /* ZegoOptionViewController.m in Sources */,
@@ -527,6 +514,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jiang ningbo (SQL7DB2NFY)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -601,6 +589,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shenzhen Zego Technology Co. Ltd.";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -769,6 +758,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jiang ningbo (SQL7DB2NFY)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -814,6 +804,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shenzhen Zego Technology Co. Ltd.";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

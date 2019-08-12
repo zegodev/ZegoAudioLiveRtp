@@ -7,6 +7,7 @@
 
 #include "ZegoAVKitManager.h"
 #import "ZegoSettings.h"
+#import "ZGKeyCenter.h"
 
 NSString *kZegoDemoAppTypeKey           = @"apptype";
 NSString *kZegoDemoAppIDKey             = @"appid";
@@ -23,7 +24,7 @@ BOOL g_useTestEnv = NO;
 BOOL g_useAlphaEnv = NO;
 
 BOOL g_enableMediaPlayer = NO;
-BOOL g_enableAudioTrafficCtrl = NO;
+BOOL g_enableAudioTrafficCtrl = YES;
 BOOL g_useManual = NO;
 
 BOOL g_useInternationDomain = NO;
@@ -52,6 +53,7 @@ static NSData* ConvertStringToSign(NSString* strSign);
         g_useTestEnv = [self usingTestEnv];
         // 测试环境开关
         [ZegoAudioRoomApi setUseTestEnv:g_useTestEnv];
+        //[ZegoAudioRoomApi setBusinessType:0];
 #ifdef DEBUG
         // 调试信息开关
         [ZegoAudioRoomApi setVerbose:YES];
@@ -104,10 +106,6 @@ static NSData* ConvertStringToSign(NSString* strSign);
     }
 }
 
-#warning 请提前在即构管理控制台获取 appID 与 appSign
-#warning Demo 默认使用 UDP 模式，请填充该模式下的 appID 与 appSign
-#warning appID 填写样式示例：1234567890
-#warning appSign 填写样式示例：{0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x00,0x01}
 + (uint32_t)appID
 {
     switch ([self appType]) {
@@ -124,11 +122,10 @@ static NSData* ConvertStringToSign(NSString* strSign);
         }
             break;
         case ZegoAppTypeUDP:
-            return #appID#;  // 国内版
+            return [ZGKeyCenter appID];  // 国内版
             break;
         case ZegoAppTypeI18N:
-            return 100;  // 国际版
-
+            return [ZGKeyCenter appIDOfI18N];  // 国际版
             break;
     }
 }
@@ -239,28 +236,28 @@ static NSData* ConvertStringToSign(NSString* strSign);
 
 #pragma mark - private
 
-#warning 请提前在即构管理控制台获取 appID 与 appSign
-#warning Demo 默认使用 UDP 模式，请填充该模式下的 appID 与 appSign
-#warning appID 填写样式示例：1234567890
-#warning appSign 填写样式示例：{0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08,0x09,0x00,0x01}
 + (NSData *)zegoAppSignFromServer
 {
-   
+    //!! Demo 把signKey先写到代码中
+    //!! 规范用法：这个signKey需要从server下发到App，避免在App中存储，防止盗用
+    
     ZegoAppType type = [self appType];
+    
+    
+//    if ([self appID] == 1)
+//    {
+//        Byte signkey[] = {0x91, 0x93, 0xcc, 0x66, 0x2a, 0x1c, 0x0e, 0xc1, 0x35, 0xec, 0x71, 0xfb, 0x07, 0x19, 0x4b, 0x38, 0x41, 0xd4, 0xad, 0x83, 0x78, 0xf2, 0x59, 0x90, 0xe0, 0xa4, 0x0c, 0x7f, 0xf4, 0x28, 0x41, 0xf7};
+//        return [NSData dataWithBytes:signkey length:32];
+//    }
+//    else
     
     if (type == ZegoAppTypeUDP)
     {
-
-        Byte signkey[] = #appSign#;
-
-        return [NSData dataWithBytes:signkey length:32];
+        return [ZGKeyCenter appSign];
     }
     else if (type == ZegoAppTypeI18N)
     {
-
-        Byte signkey[] = {0x00};
-
-        return [NSData dataWithBytes:signkey length:32];
+        return [ZGKeyCenter appSignOfI18N];
     }
     else
     {
