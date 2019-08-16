@@ -1,0 +1,33 @@
+//
+// AppIDHelper.h
+//
+// Copyright 2018 Zego. All rights reserved.
+// 
+#ifndef AppIDHelper_h__
+#define AppIDHelper_h__
+
+#include <stdio.h>
+
+// appid
+static unsigned int GetGlobalAppId()
+{
+    // 向zego申请获取，然后把appid和sign存放于自己的服务器上，运行时通过网络请求动态获取，防止泄露
+    // 以下返回值需要用户填写自己从zego申请好的appid，否则会导致SDK初始化失败
+    return 123456789;
+}
+// app sign
+void GetGlobalAppSign(unsigned char* src_appsign)
+{
+    // 向zego申请获取，然后把appid和sign存放于自己的服务器上，运行时通过网络请求动态获取，防止泄露
+    // 格式  "0x01, 0x03, 0x44, ...."
+    // 以下返回值需要用户填写自己从zego申请好的appsign，否则会导致SDK初始化失败
+    unsigned char appsign[] = {
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+    };
+
+    memcpy(src_appsign, appsign, 32);
+}
+#endif // AppIDHelper_h__

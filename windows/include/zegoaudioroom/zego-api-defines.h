@@ -18,6 +18,8 @@
 #define ZEGO_MAX_USERID_LEN         (64)
 #define ZEGO_MAX_USERNAME_LEN       (256)
 #define ZEGO_MAX_EXTRA_INFO_LEN     (1024)
+#define ZEGO_DEFAULT_LOG_SIZE       (5242880)     // 5 * 1024 * 1024 bytes, min(default) size for single log file
+#define ZEGO_MAX_LOG_SIZE           (104857600)   // 100 * 1024 * 1024 bytes, max size for single log file
 
 #if defined(_MSC_VER) || defined(__BORLANDC__)
 #	define _I64_				"I64"
@@ -141,17 +143,37 @@ namespace ZEGO
                 szStreamID[0] = '\0';
                 szMixStreamID[0] = '\0';
             }
-            
-            char szStreamID[ZEGO_MAX_COMMON_LEN];       /**< 流 ID */
-            char szMixStreamID[ZEGO_MAX_COMMON_LEN];    /**< 混流 ID */
-            
-            char* arrRtmpURLs[ZEGO_MAX_URL_COUNT];      /**< RTMP 播放 URL 列表 */
-            unsigned int uiRtmpURLCount;                /**< RTMP URL 个数 */
-            
+            /**
+             混流流 ID
+             */
+            char szStreamID[ZEGO_MAX_COMMON_LEN];
+            /**
+             混流任务 ID，与 OnMixStreamEx() 回调中的 pszMixStreamID 参数一致
+             */
+            char szMixStreamID[ZEGO_MAX_COMMON_LEN];
+            /**
+             RTMP 播放 URL 列表
+             */
+            char* arrRtmpURLs[ZEGO_MAX_URL_COUNT];
+            /**
+             RTMP URL 个数
+             */
+            unsigned int uiRtmpURLCount;
+            /**
+             Flv 播放 URL 列表
+             */
             char* arrFlvRULs[ZEGO_MAX_URL_COUNT];
+            /**
+             Flv URL 个数
+             */
             unsigned int uiFlvURLCount;
-            
+            /**
+             Hls 播放 URL 列表
+             */
             char* arrHlsURLs[ZEGO_MAX_URL_COUNT];
+            /**
+             Hls URL 个数
+             */
             unsigned int uiHlsURLCount;
         };
         
@@ -294,15 +316,27 @@ namespace ZEGO
             }
         };
         
-        /** 混流结果消息 */
+        /**
+         混流结果信息
+         */
         struct ZegoMixStreamResult
         {
-            unsigned int uiErrorCode;   /**< 错误码，0 表示成功，此时 oStreamInfo 有效。150 表示输入流不存在，参考 nNonExistsStreamCount 和 ppNonExistsStreamIDList */
-            
-            int nNonExistsStreamCount;                                      /**< 不存在的输入流个数 */
-            const char* ppNonExistsStreamIDList[ZEGO_MAX_MIX_INPUT_COUNT];  /**< 不存在的输入流 ID 列表 */
-            
-            ZegoStreamInfo oStreamInfo;        /**< 混流输出信息 */
+            /**
+             错误码，0 表示混流启动成功，此时 oStreamInfo 参数中的信息有效；非 0 表示混流启动失败。
+             */
+            unsigned int uiErrorCode;
+            /**
+             不存在的输入流个数
+             */
+            int nNonExistsStreamCount;
+            /**
+             不存在的输入流 ID 列表
+             */
+            const char* ppNonExistsStreamIDList[ZEGO_MAX_MIX_INPUT_COUNT];
+            /**
+             输出混流的播放信息
+             */
+            ZegoStreamInfo oStreamInfo;
             
             ZegoMixStreamResult()
             : uiErrorCode(0)
@@ -313,13 +347,26 @@ namespace ZEGO
         /** 混流结果消息扩展 */
         struct ZegoMixStreamResultEx
         {
-            unsigned int uiErrorCode;   /**< 错误码，0 表示成功，此时 oStreamInfo 有效。150 表示输入流不存在，参考 nNonExistsStreamCount 和 ppNonExistsStreamIDList */
-            
-            int nNonExistsStreamCount;                                      /**< 不存在的输入流个数 */
-            const char* ppNonExistsStreamIDList[ZEGO_MAX_MIX_INPUT_COUNT];  /**< 不存在的输入流 ID 列表 */
-            
-            int nStreamInfoCount;                   /**< 混流输出个数 */
-            ZegoStreamInfo *pStreamInfoList;        /**< 混流输出列表 */
+            /**
+             错误码，0 表示混流启动成功，此时 oStreamInfo 参数中的信息有效；非 0 表示混流启动失败。
+             */
+            unsigned int uiErrorCode;
+            /**
+             不存在的输入流个数
+             */
+            int nNonExistsStreamCount;
+            /**
+             不存在的输入流 ID 列表
+             */
+            const char* ppNonExistsStreamIDList[ZEGO_MAX_MIX_INPUT_COUNT];
+            /**
+             混流输出流个数
+             */
+            int nStreamInfoCount;
+            /**
+             混流输出列表
+             */
+            ZegoStreamInfo *pStreamInfoList;
             
             ZegoMixStreamResultEx()
             : uiErrorCode(0)
@@ -522,33 +569,93 @@ namespace ZEGO
             VideoStreamLayer_ExtendLayer = 1       /**< 指定拉扩展层（大分辨率)  */
         };
         
-        /** MediaInfo类型 */
+        /**
+         MediaInfo 类型
+         */
         enum MediaInfoType
         {
-            SideInfoZegoDefined = 0,            /**< side info  */
-            SeiZegoDefined = 1,                 /**< sei (nalu type = 6,payload type = 243), sei recommend useing this  */
-            SeiUserUnregisted = 2               /**< sei (nalu type = 6,payload type = 5) */
+            /**
+             ZEGO 定义的打包类型，跟视频编码器产生的信息不存兼容性问题。
+             <br>但是在其它 CDN 上转码视频的时候，其它 CDN 基本上不支持提取这种方式打包的信息数据，转码完成后再从其它 CDN 拉流时，可能就丢失了这些次媒体信息。
+             <br>ZEGO CDN 转码支持提取此种方式打包的信息数据。
+             */
+            SideInfoZegoDefined = 0,
+            /**
+             采用 H264 的 SEI (nalu type = 6,payload type = 243) 类型打包，此类型是 SEI 标准未规定的类型，跟视频编码器或者视频文件中的 SEI 不存在冲突性，用户不需要根据 SEI 的内容做过滤。
+             <br>若需要发送 SEI 推荐采用此种类型。
+             */
+            SeiZegoDefined = 1,
+            /**
+             采用 H264 的 SEI (nalu type = 6,payload type = 5) 类型打包，H264 标准对于此类型有规定的格式：startcode + nalu type(6) + payload type(5) + len + pay load(uuid + context)+ trailing bits；
+             
+             <br>因为视频编码器自身会产生 payload type 为 5 的 SEI，或者使用视频文件推流时，视频文件中也可能存在这样的 SEI，所以使用此类型时，用户需要把 uuid + context 当作一段 buffer 塞给次媒体的发送接口；
+             
+             <br>为了区别视频编码器自身产生的 SEI，所以对 uuid 有格式要求，即 uuid 16字节的前四个字节固定为 'Z' 'E' 'G' 'O' 四个字符（全部大写），后面12字节用户任意填写；
+             
+             <br>在 SDK 接收端，对于 payload type = 5的 SEI 会根据'ZEGO'字样做过滤，识别出符合要求的 SEI 抛给用户，避免用户收到编码器自身产生的 SEI。
+             */
+            SeiUserUnregisted = 2
         };
 
-        /** SEI发送类型 */
+        /**
+         SEI发送类型
+         */
         enum SeiSendType
         {
-            SeiSendSingleFrame = 0,             /**< sei send single frame  */
-            SeiSendInVideoFrame = 1             /**< sei send in any video frame(IDR, B, P)  */
+            /**
+             SEI 单帧发送，此种发送方式下，ffmpeg 解码会产生类似“此帧无视频”的警告，可能会导致一些 CDN 兼容性问题，例如转码失败等。
+             */
+            SeiSendSingleFrame = 0,
+            /**
+             SEI 随视频帧(I, B, P)发送，推荐采用此类型。
+             */
+            SeiSendInVideoFrame = 1           
         };
         
         struct SoundLevelInfo
         {
-            unsigned int soundLevelID;          ///< soundlevel ID
-            unsigned char soundLevel;           ///< soundlevel 的值
+            /**
+             音浪ID，用于标识用户，对应于 ZegoMixStreamConfig 的 pInputStreamList 中的单条输入流信息的 uSoundLevelID 参数的设置值。
+             */
+            unsigned int soundLevelID;
+            /**
+             音量level
+             */
+            unsigned char soundLevel;           
         };
         
         /** 回声消除模式 */
         enum ZegoAECMode
         {
+            /**
+             激进模式
+             */
             AEC_MODE_AGGRESSIVE,
+            /**
+             中等模式
+             */
             AEC_MODE_MEDIUM,
+            /**
+             轻度模式
+             */
             AEC_MODE_SOFT
+        };
+        
+        /** 设备错误码 */
+        enum ZegoDeviceErrorCode
+        {
+            /**
+             一般性错误
+             */
+            ZEGO_DEVICE_ERROR_GENERIC = -1,
+            /**
+             没有权限
+             */
+            ZEGO_DEVICE_ERROR_NO_AUTHORIZATION = -3,
+            /**
+             采集帧率为0
+             */
+            ZEGO_DEVICE_ERROR_ZERO_FPS = -4,
         };
     }
 }

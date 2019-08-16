@@ -130,6 +130,7 @@ namespace ZEGO
         const unsigned int kRoomTimeoutError              = 60001004;
         const unsigned int kRoomHbTimeoutError            = 60001005;
         const unsigned int kRoomStartConnectError         = 60001006;
+        const unsigned int kRoomReconnectFailError        = 60001007;
         const unsigned int kRoomInvalidSocketError        = 60002001;
         const unsigned int kRoomInvalidRspError           = 60003001;
         const unsigned int kRoomDecodeSignError           = 62001001;
@@ -164,6 +165,24 @@ namespace ZEGO
         const unsigned int kMixStreamWaterMarkParamError  = 82000170; //混流水印参数错误
         const unsigned int kMixStreamWaterMarkImageError  = 82000171; //混流水印image错误
         const unsigned int kMixStreamQpsOverloadError     = 82000190; //混流请求qps超限错误
+
+        // 统一代理层
+        const unsigned int kNetAgentDispatchIllegalParams       = 111100003; //调度请求包含非法参数
+        const unsigned int kNetAgentDispatchQuicConnectFailed   = 111200005; //调度请求中连接quic调度服务器失败
+        const unsigned int kNetAgentDispatchQuicStreamClosed    = 111200006; //调度请求中quic流被关闭
+        const unsigned int kNetAgentDispatchRequestLocalFailed  = 111100007; //发起调度请求本地失败
+        const unsigned int kNetAgentDispatchRequestServerFailed = 111200007; //发起调度请求服务端失败
+        const unsigned int kNetAgentDispatchCreateStreamFailed  = 111100012; //调度请求是创建 stream 失败
+        const unsigned int kNetAgentNodeTimeout                 = 112200002; //执行 http 任务超时
+        const unsigned int kNetAgentNodeIllegalParams           = 112100003; //任务包含非法参数
+        const unsigned int kNetAgentNodeDropped                 = 112200004; //任务被丢弃
+        const unsigned int kNetAgentLinkConnectLocalFailed      = 113100001; //本地发起连接失败
+        const unsigned int kNetAgentLinkConnectServerFailed     = 113200001; //连接服务端失败
+        const unsigned int kNetAgentLinkClosed                  = 113200009; //连接被关闭
+        const unsigned int kNetAgentLinkGetAddressFailed        = 113100014; //连接时获取地址失败
+        const unsigned int kNetAgentLinkHeartbeatTimeout        = 113100015; //连接心跳超时
+        const unsigned int kNetAgentLinkManualClosed            = 113100016; //手动断开连接
+
 
         /**
          是否初始化SDK错误

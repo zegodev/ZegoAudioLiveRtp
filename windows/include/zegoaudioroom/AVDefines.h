@@ -85,13 +85,9 @@ namespace ZEGO
             /**
             设备错误
 
-            @param deviceName 设备名称
-            @param errorCode 错误码
+            @param deviceName 设备类型名称。返回值 kZegoDeviceCamera 或 kZegoDeviceMicrophone
+            @param errorCode 错误码, 返回值参考 ZegoDeviceErrorCode 定义
             
-            @discussion 返回值存在以下几种取值
-             "camera", -1/-3
-             "hw_encoder", -1
-             "sw_encoder", -1
             */
             virtual void OnDeviceError(const char* deviceName, int errorCode) {}
         };

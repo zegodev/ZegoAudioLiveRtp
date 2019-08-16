@@ -1,28 +1,29 @@
 #include <QSharedPointer>
 #include "ZegoBase.h"
 #include "Base/IncludeZegoAudioRoomApi.h"
-
 /*
- #warning 请提前在即构管理控制台获取 appID 与 appSign
- #warning Demo 默认使用 UDP 模式，请填充该模式下的 appID 与 appSign,其他模式不需要可不用填
- #warning AppID 填写样式示例：1234567890
- #warning signKey 填写样式示例：{0x00,0x01,0x02,0x03,0x04,0x05,0x06,0x07,
-                            0x08,0x09,0x00,0x01,0x02,0x03,0x04,0x05,
-                            0x06,0x07,0x08,0x09,0x00,0x01,0x02,0x03,
-                            0x04,0x05,0x06,0x07,0x08,0x09,0x00,0x01}
+	若本语句出现编译错误，请打开本文件目录下的AppIDHelper.h.in文件，将AppID和AppSign修改为自己从Zego官网申请好的AppID和AppSign，并将AppIDHelper.h.in修改为AppIDHelper.h，重新编译
 */
-static unsigned int g_dwAppID_Udp = ;
-static unsigned char g_bufSignKey_Udp[] = ;
+#include "AppIDHelper.h"
 
+static unsigned int g_dwAppID_Udp = 0;
+static unsigned char g_bufSignKey_Udp[] =
+{
+    0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
+    0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
+    0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
+    0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
+};
+
+/* 以下两组AppID和AppSign，开发者无需关注 */
 static unsigned int g_dwAppID_International = 0;
 static unsigned char g_bufSignKey_International[] =
 {
-	0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
-	0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
-	0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
-	0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
+    0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
+    0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
+    0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
+    0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0
 };
-
 
 static unsigned long  g_dwAppID_Empty = 0;
 static unsigned char g_bufSignKey_Empty[] =
@@ -35,6 +36,11 @@ static unsigned char g_bufSignKey_Empty[] =
 
 QZegoBase::QZegoBase(void)
 {
+	/*
+		若本语句出现编译错误，请打开本文件目录下的AppIDHelper.h.in文件，将AppID和AppSign修改为自己从Zego官网申请好的AppID和AppSign，并将AppIDHelper.h.in修改为AppIDHelper.h，重新编译
+	*/
+	g_dwAppID_Udp = GetGlobalAppId();
+	GetGlobalAppSign(g_bufSignKey_Udp);
 	
 	appIDs.push_back(g_dwAppID_Udp);
 	appIDs.push_back(g_dwAppID_International);
@@ -65,8 +71,11 @@ bool QZegoBase::InitAVSDK(SettingsPtr pCurSetting, QString userID, QString userN
 		//Qstring对象.toLocal8Bit().data()用于将QString转为const char*
 		AUDIOROOM::SetLogDir(nullptr);
 		AUDIOROOM::SetVerbose(true);
+		//AUDIOROOM::SetBusinessType(0);
 		AUDIOROOM::SetUser(qtoc(userID), qtoc(userName));
 		AUDIOROOM::SetUseTestEnv(isTestEnv);
+		// ToDo: 需要通过代码获取网络类型
+		//AUDIOROOM::SetNetType(2);
 	
 		AUDIOROOM::SetAudioRoomCallback(m_pAVSignal);
 		AUDIOROOM::SetAudioLivePublisherCallback(m_pAVSignal);
@@ -90,6 +99,8 @@ bool QZegoBase::InitAVSDK(SettingsPtr pCurSetting, QString userID, QString userN
 	AUDIOROOM::SetLatencyMode(AV::ZEGO_LATENCY_MODE_LOW3);
 	AUDIOROOM::EnableDTX(true);
 
+	//AUDIOROOM::EnableAudioTrafficControl(isAudioBitrateControll);
+	
 	m_isInitedSDK = true;
 	return true;
 }
@@ -103,8 +114,11 @@ bool QZegoBase::InitAVSDKofCustom(SettingsPtr pCurSetting, QString userID, QStri
 		//Qstring对象.toLocal8Bit().data()用于将QString转为const char*
 		AUDIOROOM::SetLogDir(nullptr);
 		AUDIOROOM::SetVerbose(true);
+		//AUDIOROOM::SetBusinessType(0);
 		AUDIOROOM::SetUser(qtoc(userID), qtoc(userName));
 		AUDIOROOM::SetUseTestEnv(isTestEnv);
+		// ToDo: 需要通过代码获取网络类型
+		//AUDIOROOM::SetNetType(2);
 
 		AUDIOROOM::SetAudioRoomCallback(m_pAVSignal);
 		AUDIOROOM::SetAudioLivePublisherCallback(m_pAVSignal);
@@ -125,6 +139,8 @@ bool QZegoBase::InitAVSDKofCustom(SettingsPtr pCurSetting, QString userID, QStri
 		AUDIOROOM::SetUserStateUpdate(true);
 		AUDIOROOM::SetLatencyMode(AV::ZEGO_LATENCY_MODE_LOW3);
 		AUDIOROOM::EnableDTX(true);
+
+		//AUDIOROOM::EnableAudioTrafficControl(isAudioBitrateControll);
 
 		m_isInitedSDK = true;
 		return true;
