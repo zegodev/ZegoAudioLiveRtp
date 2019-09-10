@@ -106,6 +106,15 @@ typedef void(^ZegoCustomCommandBlock)(int errorCode, NSString *roomID);
 - (void)setManualPlay:(bool)manual;
 
 /**
+ 设置自定义token信息
+ 
+ @param thirdPartyToken 第三方传入的token
+ @discussion 使用此方法验证登录时用户的合法性，登录房间前调用，token的生成规则请联系即构。若不需要验证用户合法性，不需要调用此函数。
+ @discussion 在登录房间前调用有效，退出房间后失效
+ */
+- (void)setCustomToken:(NSString *)thirdPartyToken;
+
+/**
  登录房间
  
  @param roomID 房间唯一ID

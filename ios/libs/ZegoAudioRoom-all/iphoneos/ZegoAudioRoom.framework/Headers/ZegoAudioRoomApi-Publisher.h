@@ -222,6 +222,16 @@
  */
 - (void)enableAudioTrafficControl:(BOOL)enable;
 
+/**
+ 音效均衡器
+
+ @param bandGain 取值范围[-15, 15]。默认值是0，如果所有频带的增益值全部为0，则会关闭EQ功能
+ @param bandIndex 取值范围[0, 9]。分别对应10个频带，其中心频率分别是[31, 62, 125, 250, 500, 1K, 2K, 4K, 8K, 16K]Hz
+ @return true 调用成功，false 调用失败
+ @attention 在InitSDK之后调用有效。使用此接口前请与即构技术支持联系确认是否支持此功能。
+ */
+- (bool)setAudioEqualizerGain:(float)bandGain index:(int)bandIndex;
+
 @end
 
 @protocol ZegoAudioLivePublisherDelegate <NSObject>
