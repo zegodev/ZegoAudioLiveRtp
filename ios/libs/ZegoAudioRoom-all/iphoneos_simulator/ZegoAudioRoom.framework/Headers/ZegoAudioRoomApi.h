@@ -163,6 +163,8 @@ typedef void(^ZegoCustomCommandBlock)(int errorCode, NSString *roomID);
  */
 - (void)resumeAudioModule;
 
+#endif
+
 /**
  设置是否允许SDK使用麦克风设备
  
@@ -172,8 +174,6 @@ typedef void(^ZegoCustomCommandBlock)(int errorCode, NSString *roomID);
  @note 接口由于涉及对设备的操作，极为耗时，不建议随便调用，只在真正需要让出麦克风给其他应用的时候才调用
  */
 - (BOOL)enableMicDevice:(BOOL)enable;
-
-#endif
 
 /**
  Engine停止回调
@@ -220,9 +220,19 @@ typedef void(^ZegoCustomCommandBlock)(int errorCode, NSString *roomID);
  
  @param reason 原因
  @param roomID 房间 ID
+ @warning deprecated 请使用onKickOut:roomID:customReason
+ */
+
+- (void)onKickOut:(int)reason roomID:(NSString *)roomID;
+
+/**
+ 用户被踢出聊天室
+ 
+ @param reason 原因
+ @param roomID 房间 ID
  @discussion 可在该回调中处理用户被踢出房间后的下一步处理（例如报错、重新登录提示等）
  */
-- (void)onKickOut:(int)reason roomID:(NSString *)roomID;
+- (void)onKickOut:(int)reason roomID:(NSString *)roomID customReason:(NSString *)customReason;
 
 /**
  与 server 断开通知
