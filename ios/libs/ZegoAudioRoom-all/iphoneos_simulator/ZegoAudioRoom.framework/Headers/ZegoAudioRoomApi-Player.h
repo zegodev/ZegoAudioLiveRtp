@@ -125,6 +125,15 @@
  */
 - (bool)startPlayStream:(NSString *)streamID;
 
+/**
+ 开始播放
+
+ @param streamID 播放流流ID
+ @param info 多媒体流附加信息
+ @return true 调用成功，false 调用失败
+ @discussion 此函数只有在[setManualPlay:true] 时调用才有效
+ */
+- (bool)startPlayStream:(NSString *)streamID extraInfo:(ZegoAPIStreamExtraPlayInfo *)info;
 
 /**
  停止播放

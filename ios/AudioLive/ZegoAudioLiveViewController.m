@@ -238,7 +238,7 @@
 - (IBAction)onMessageButton:(id)sender
 {
     NSString *content = [NSString stringWithFormat:@"%@ hand shake", [self getCurrentTime]];
-    [[ZegoAudioLive api] sendRoomMessage:content type:ZEGO_TEXT category:ZEGO_CHAT priority:ZEGO_DEFAULT completion:^(int errorCode, NSString *roomId, unsigned long long messageId) {
+    [[ZegoAudioLive api] sendRoomMessage:content type:ZEGO_TEXT category:ZEGO_CHAT completion:^(int errorCode, NSString *roomId, unsigned long long messageId) {
         if (errorCode == 0)
             [self addLogString:@"message send success"];
     }];
