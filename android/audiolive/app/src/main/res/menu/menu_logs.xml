@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_clean_events"
+        android:orderInCategory="100"
+        android:title="@string/zg_menu_logs_clear_events"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_upload_log"
+        android:orderInCategory="100"
+        android:title="@string/zg_menu_logs_upload_log"
+        app:showAsAction="always" />
+
+</menu>
