@@ -82,16 +82,6 @@
 - (void)setCaptureVolume:(int)volume;
 
 /**
- 混音开关
- 
- @param enable true 启用混音输入，false 关闭混音输入。默认 false
- @return true 成功，false 失败
- @discussion 推流开始前调用本 API 进行参数配置。主播端开启混音后，SDK 在 [ZegoAudioRoomApi (Publisher) -onAuxCallback:dataLen:sampleRate:channelCount:] 中获取混音输入数据
- @warning Deprecated，请使用 [ZegoAudioAux enableAux:]
- */
-- (bool)enableAux:(BOOL)enable;
-
-/**
  设置混音音量
  
  @param volume 0~100，默认为 50
@@ -190,6 +180,14 @@
  @return true 调用成功，false 调用失败
  */
 - (bool)enableNoiseSuppress:(bool)enable;
+
+/**
+ 设置音频采集降噪等级
+ @param mode 降噪等级，详见 ZegoAPIANSMode 定义
+ @return true 成功，false 失败
+ @note 仅在 enableNoiseSuppress 为 true 时有效, 默认为 MEDIUM
+ */
+- (bool)setNoiseSuppressMode:(ZegoAPIANSMode)mode;
 
 /**
  更新流附加信息

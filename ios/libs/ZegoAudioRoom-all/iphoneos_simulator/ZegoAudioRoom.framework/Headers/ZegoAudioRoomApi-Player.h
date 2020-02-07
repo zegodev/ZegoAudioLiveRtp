@@ -70,15 +70,6 @@
 /**
  音频录制开关
  
- @param enable 开启音频录制。true 开启，false 关闭。默认 false
- @return true 成功，false 失败
- @discussion 初始化 SDK 后调用。开启音频录制后，调用方需要设置音频录制回调代理对象，并通过 [ZegoLiveRoomApi (Player) -onAudioRecord:sampleRate:numOfChannels:bitDepth:type:] 获取 SDK 录制的数据。使用此接口开启音频录制，相当于调用 enableSelectedAudioRecord:(ZegoAPIAudioRecordConfig)config，且 config 中的参数默认值为：ZEGO_AUDIO_RECORD_MIX、44100、单声道。
- */
-- (bool)enableAudioRecord:(BOOL)enable;
-
-/**
- 音频录制开关
- 
  @warning Deprecated，请使用 enableSelectedAudioRecord:
  */
 - (bool)enableSelectedAudioRecord:(unsigned int)mask sampleRate:(int)sampleRate;

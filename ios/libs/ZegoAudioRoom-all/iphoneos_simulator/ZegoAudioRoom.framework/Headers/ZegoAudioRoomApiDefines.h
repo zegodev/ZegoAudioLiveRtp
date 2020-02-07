@@ -61,6 +61,8 @@ typedef enum : NSUInteger {
 @property (nonatomic, copy) NSString *streamID;
 /** 流附加信息 */
 @property (nonatomic, copy) NSString *extraInfo;
+/** 流在房间中的序号 */
+@property (nonatomic, assign) int streamNID;
 
 @end
 
