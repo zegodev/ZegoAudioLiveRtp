@@ -55,6 +55,7 @@ android {
     sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
+//            resources.srcDirs = ['shell']
         }
     }
 }

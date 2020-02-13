@@ -3,7 +3,10 @@ package com.zego.audioroomdemo.utils;
 import android.content.Context;
 import android.content.res.Resources;
 
+import com.zego.audioroomdemo.GetAppIdConfig;
 import com.zego.audioroomdemo.R;
+
+
 
 /**
  * App's Id and key utils.
@@ -23,36 +26,22 @@ public class AppSignKeyUtils {
      * appSign 填写样式示例：{(byte)0x00,(byte)0x01,(byte)0x02,(byte)0x03}
      **/
 
-    static final private long RTMP_APP_ID = ;
-
-    static final public long UDP_APP_ID = ;
-
-    static final public long INTERNATIONAL_APP_ID = ;
-
-
-    final static private byte[] appSign_rtmp = new byte[]{};
-
-    final static private byte[] appSign_udp = new byte[]{};
-
-
-    final static private byte[] appSign_international = new byte[]{};
-
 
     static public boolean isInternationalProduct(long appId) {
-        return appId == INTERNATIONAL_APP_ID;
+        return appId == GetAppIdConfig.INTERNATIONAL_APP_ID;
     }
 
     static public boolean isUdpProduct(long appId) {
-        return appId == UDP_APP_ID;
+        return appId == GetAppIdConfig.UDP_APP_ID;
     }
 
     static public byte[] requestSignKey(long appId) {
-        if (appId == UDP_APP_ID) {
-            return appSign_udp;
-        } else if (appId == INTERNATIONAL_APP_ID) {
-            return appSign_international;
-        } else if (appId == RTMP_APP_ID) {
-            return appSign_rtmp;
+        if (appId == GetAppIdConfig.UDP_APP_ID) {
+            return GetAppIdConfig.appSign_udp;
+        } else if (appId == GetAppIdConfig.INTERNATIONAL_APP_ID) {
+            return GetAppIdConfig.appSign_international;
+        } else if (appId == GetAppIdConfig.RTMP_APP_ID) {
+            return GetAppIdConfig.appSign_rtmp;
         }
         return null;
     }

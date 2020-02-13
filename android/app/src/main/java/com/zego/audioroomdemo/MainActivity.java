@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     currentStrSignKey = data.getStringExtra("rawKey");
                     appId = data.getLongExtra("appId", PrefUtils.getAppId());
-                    if (appId != AppSignKeyUtils.UDP_APP_ID && appId != AppSignKeyUtils.INTERNATIONAL_APP_ID) {
+                    if (appId != GetAppIdConfig.UDP_APP_ID && appId != GetAppIdConfig.INTERNATIONAL_APP_ID) {
                         PrefUtils.setAppId(appId);
                         PrefUtils.setAppKey(AppSignKeyUtils.parseSignKeyFromString(currentStrSignKey));
                     }

@@ -68,9 +68,9 @@
     <string name="zg_text_user_id">UserId: </string>
     <string name="zg_text_user_name">UserName: </string>
     <string name="zg_text_self_user_name">(self)%1$s</string>
-    <string name="zg_btn_text_audio_break_rate">audio break rate : %1$s&#047;min</string>
+    <string name="zg_btn_text_audio_break_rate">audio break rate : %1$d&#047;min</string>
     <string name="zg_btn_text_delay">delay: %1$dms</string>
-    <string name="zg_btn_text_packet_loss_rate">packet loss rate : %1$d%&#37;</string>
+    <string name="zg_btn_text_packet_loss_rate">packet loss rate : %1$d%%</string>
     <string name="zg_btn_room_name">Room name: %1$s</string>
 
     <string name="zg_text_app_flavor_china">China</string>

@@ -58,9 +58,9 @@
     <string name="zg_btn_text_speaker">扬声器</string>
     <string name="zg_btn_room_name">房间名称: %1$s</string>
 
-    <string name="zg_btn_text_audio_break_rate">卡顿率: %1$s&#047;min</string>
+    <string name="zg_btn_text_audio_break_rate">卡顿率: %1$d&#047;min</string>
     <string name="zg_btn_text_delay">延时: %1$dms</string>
-    <string name="zg_btn_text_packet_loss_rate">丢包率: %1$d%&#37;</string>
+    <string name="zg_btn_text_packet_loss_rate">丢包率: %1$d%%</string>
 
     <string name="zg_checkbox_use_test_env">使用测试环境</string>
     <string name="zg_checkbox_audio_prepare">开启音频前处理</string>

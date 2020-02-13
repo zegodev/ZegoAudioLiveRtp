@@ -29,6 +29,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.dommy.qrcode.util.Constant;
 import com.google.zxing.activity.CaptureActivity;
 import com.zego.audioroomdemo.AudioApplication;
+import com.zego.audioroomdemo.GetAppIdConfig;
 import com.zego.audioroomdemo.entity.AppConfig;
 import com.zego.audioroomdemo.utils.AppSignKeyUtils;
 import com.zego.audioroomdemo.utils.PrefUtils;
@@ -148,11 +149,11 @@ public class SettingsActivity extends AppCompatActivity {
                 } else {
                     switch (position) {
                         case 0:
-                            appId = AppSignKeyUtils.UDP_APP_ID;
+                            appId = GetAppIdConfig.UDP_APP_ID;
                             break;
 
                         case 1:
-                            appId = AppSignKeyUtils.INTERNATIONAL_APP_ID;
+                            appId = GetAppIdConfig.INTERNATIONAL_APP_ID;
                             break;
                     }
 

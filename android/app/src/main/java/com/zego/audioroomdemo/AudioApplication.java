@@ -87,11 +87,11 @@ public class AudioApplication extends android.support.multidex.MultiDexApplicati
         int currentAppFlavor = PrefUtils.getCurrentAppFlavor();
         if (currentAppFlavor <= 1) {
             if (currentAppFlavor == -1 || currentAppFlavor == 0) {
-                appId = AppSignKeyUtils.UDP_APP_ID;
-                signKey = AppSignKeyUtils.requestSignKey(AppSignKeyUtils.UDP_APP_ID);
+                appId = GetAppIdConfig.UDP_APP_ID;
+                signKey = AppSignKeyUtils.requestSignKey(GetAppIdConfig.UDP_APP_ID);
             } else {
-                appId = AppSignKeyUtils.INTERNATIONAL_APP_ID;
-                signKey = AppSignKeyUtils.requestSignKey(AppSignKeyUtils.INTERNATIONAL_APP_ID);
+                appId = GetAppIdConfig.INTERNATIONAL_APP_ID;
+                signKey = AppSignKeyUtils.requestSignKey(GetAppIdConfig.INTERNATIONAL_APP_ID);
             }
 
         } else {

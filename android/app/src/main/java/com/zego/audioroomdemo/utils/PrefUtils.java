@@ -6,8 +6,8 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 
 import com.zego.audioroomdemo.AudioApplication;
+import com.zego.audioroomdemo.GetAppIdConfig;
 
-import static com.zego.audioroomdemo.utils.AppSignKeyUtils.UDP_APP_ID;
 
 /**
  * Created by realuei on 2017/6/2.
@@ -166,7 +166,7 @@ public class PrefUtils {
     }
 
     public static boolean getUseTestEnv() {
-        return sInst.getBooleanValue(ZEGO_APP_TEST, true);
+        return sInst.getBooleanValue(ZEGO_APP_TEST, GetAppIdConfig.testEnv);
     }
 
 
