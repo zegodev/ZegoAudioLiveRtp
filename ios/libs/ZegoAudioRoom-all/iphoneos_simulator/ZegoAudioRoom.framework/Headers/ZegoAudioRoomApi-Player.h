@@ -156,6 +156,26 @@
  */
 - (void)onPlayQualityUpate:(NSString *)streamID quality:(ZegoApiPlayQuality)quality;
 
+@optional
+/**
+ * 远端麦克风状态通知
+ * 1. 仅拉 UDP 流有效；
+ * 2. 当房间内其他流的麦克风状态发生改变，如其他用户调用了 EnableMic (true/false) 后，会收到该 API 回调通知。
+ *
+ @param status 参考 zego-api-defines-oc.h 中 ZegoAPIDeviceStatus 的定义
+ @param streamID 流的唯一标识
+ @param reason 参考 zego-api-defines-oc.h 中 ZegoAPIDeviceErrorReason 的定义
+ */
+- (void)onRemoteMicStatusUpdate:(int)status ofStream:(NSString *)streamID reason:(int)reason;
+
+@optional
+/**
+ * 接收到远端音频的首帧通知
+ *
+ * @param streamID  流ID
+ */
+- (void)onRecvRemoteAudioFirstFrame:(NSString *)streamID;
+
 @end
 
 @protocol ZegoAudioLiveRecordDelegate <NSObject>
