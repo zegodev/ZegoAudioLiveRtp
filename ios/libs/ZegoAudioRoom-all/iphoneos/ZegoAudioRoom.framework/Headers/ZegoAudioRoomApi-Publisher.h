@@ -190,6 +190,14 @@
 - (bool)setNoiseSuppressMode:(ZegoAPIANSMode)mode;
 
 /**
+ 音频采集的瞬态噪声抑制开关（消除键盘、敲桌子等瞬态噪声）
+
+ @param bEnable true 开启，false 关闭
+ @return true 调用成功，false 调用失败
+ */
+- (bool)enableTransientNoiseSuppress:(bool)enable;
+
+/**
  更新流附加信息
  
  @param extraInfo 流附加信息, 最大为 1024 字节
