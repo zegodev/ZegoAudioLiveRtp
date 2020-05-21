@@ -772,6 +772,16 @@ public class ZegoPhoneActivity extends AppCompatActivity implements SensorEventL
 
                 updatePlayStreamQuality(zegoStreamQuality, streamId);
             }
+
+            @Override
+            public void onRemoteMicStatusUpdate(String s, int i, int i1) {
+
+            }
+
+            @Override
+            public void onRecvRemoteAudioFirstFrame(String s) {
+
+            }
         });
         zegoAudioRoom.setAudioLiveEventDelegate(new ZegoAudioLiveEventDelegate() {
             @Override
